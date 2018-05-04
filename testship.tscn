@@ -1,0 +1,229 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Ship.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0.47929 )
+colors = PoolColorArray( 0.32173, 0.621094, 0.259598, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.7188, 28.069 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 79.4896 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 34.5467, 34.0865 )
+
+[sub_resource type="Curve" id=7]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0.00353771, 0.295898 ), 0.0, 0.0, 0, 0, Vector2( 0.506715, 0.242188 ), 0.0, 0.0, 0, 0, Vector2( 0.996462, 0.0595703 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+
+flags = 4
+width = 2048
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 75, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 4.70836e-43
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 8 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Emission Shape", "Gravity", "Scale", "Trail" ]
+
+[node name="Root" type="Node" index="0"]
+
+[node name="Floor" type="StaticBody2D" parent="." index="0"]
+
+position = Vector2( 512.143, 573.148 )
+scale = Vector2( 16.3668, 1.11408 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Floor" index="0"]
+
+position = Vector2( -31.5851, -33.2211 )
+scale = Vector2( 62.754, 63.496 )
+texture = SubResource( 2 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" index="1"]
+
+position = Vector2( 0.291918, -5.38123 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" index="2"]
+
+visible = false
+position = Vector2( 31.9133, -545.1 )
+scale = Vector2( 0.0652, 17.3365 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" index="0"]
+
+shape = SubResource( 6 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Floor" index="3"]
+
+position = Vector2( 31.9133, -545.1 )
+scale = Vector2( 0.0652, 17.3365 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D2" index="0"]
+
+position = Vector2( -973.611, -0.723667 )
+shape = SubResource( 6 )
+
+[node name="Ship" type="RigidBody2D" parent="." index="1"]
+
+position = Vector2( 455.946, 177.022 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 2
+mass = 5.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 4.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Linear" ]
+thrust = 6000
+
+[node name="Sprite" type="Sprite" parent="Ship" index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship" index="1"]
+
+shape = SubResource( 4 )
+
+[node name="left_thruster" type="Particles2D" parent="Ship" index="2"]
+
+show_behind_parent = true
+position = Vector2( -32.8081, 32.1987 )
+scale = Vector2( 0.261326, 0.268869 )
+emitting = true
+amount = 30
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 9 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
+
+[node name="right_thruster" type="Particles2D" parent="Ship" index="3"]
+
+show_behind_parent = true
+position = Vector2( 31.4504, 32.6388 )
+scale = Vector2( 0.261326, 0.268869 )
+emitting = true
+amount = 30
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 9 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
+
+
