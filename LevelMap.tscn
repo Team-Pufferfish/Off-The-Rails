@@ -1,0 +1,407 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://LevelMap.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Camera2D.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 51.7845, 15.2271 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 50.7902, 15.1768 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 50.5947, 14.321 )
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 21.352
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 151.457, 4.08853 )
+
+[sub_resource type="SegmentShape2D" id=7]
+
+custom_solver_bias = 0.0
+a = Vector2( 5000, 0 )
+b = Vector2( 0, 0 )
+
+[sub_resource type="SegmentShape2D" id=10]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( 0, -600 )
+
+[sub_resource type="SegmentShape2D" id=8]
+
+custom_solver_bias = 0.0
+a = Vector2( 5000, -600 )
+b = Vector2( 5000, 0 )
+
+[sub_resource type="SegmentShape2D" id=9]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, -600 )
+b = Vector2( 5000, -600 )
+
+[node name="LevelMap" type="Node2D" index="0"]
+
+position = Vector2( -2.17975, 599.428 )
+script = ExtResource( 1 )
+
+[node name="LevelMap_Section1_Polygon2D" type="Polygon2D" parent="." index="0"]
+
+editor/display_folded = true
+polygon = PoolVector2Array( -2.58633, -235.876, 0.319977, -248.954, 15.5782, -245.321, 30.8363, -227.157, 274.24, -227.157, 287.319, -242.415, 295.311, -239.509, 311.296, -232.969, 323.648, -210.446, 335.273, -151.593, 370.875, -101.459, 454.432, -116.717, 484.948, -109.451, 545.254, -62.2234, 571.411, -78.2082, 646.249, -122.529, 674.37, -134.701, 697.702, -161.922, 730.757, -201.782, 748.256, -218.309, 762.839, -225.114, 780.338, -234.836, 802.463, -234.423, 974.482, -243.3, 984.437, -222.624, 1005.88, -174.378, 1012.01, -113.88, 1045.87, 4.62183, -1.13318, 0.262329 )
+uv = PoolVector2Array(  )
+color = Color( 0.570312, 0.299689, 0.082428, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelMap_Section1_Polygon2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelMap_Section1_Polygon2D/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -1.85974, -0.464233, -2.58633, -235.876, -1.13318, -248.954, 13.3984, -247.501, 30.8363, -224.977, 273.514, -225.704, 285.139, -241.688, 306.936, -235.149, 325.827, -208.992, 335.273, -153.046, 370.875, -98.5524, 452.252, -115.99, 484.222, -110.178, 547.434, -62.95, 644.069, -123.983, 673.398, -134.701, 698.675, -159.006, 725.896, -193.032, 748.256, -218.309, 767.7, -228.031, 787.144, -234.836, 810.476, -236.781, 864.919, -238.725, 974.482, -242.535, 1002.82, -182.036, 1012.77, -106.987, 1047.46, 2.1275 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Train" type="Node" parent="." index="1"]
+
+[node name="Car1" type="RigidBody2D" parent="Train" index="0"]
+
+position = Vector2( 779.16, 303.148 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1000.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="Train/Car1" index="0"]
+
+position = Vector2( 13.9917, 19.9788 )
+scale = Vector2( 1.61, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Train/Car1" index="1"]
+
+position = Vector2( 14.0574, 20.0656 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Car2" type="RigidBody2D" parent="Train" index="1"]
+
+position = Vector2( 890.838, 302.323 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1000.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="Train/Car2" index="0"]
+
+position = Vector2( 13.9917, 19.9788 )
+scale = Vector2( 1.61, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Train/Car2" index="1"]
+
+position = Vector2( 13.5398, 20.0153 )
+shape = SubResource( 3 )
+
+[node name="Car3" type="RigidBody2D" parent="Train" index="2"]
+
+position = Vector2( 1000.9, 301.654 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1000.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision", "Linear" ]
+
+[node name="Sprite" type="Sprite" parent="Train/Car3" index="0"]
+
+position = Vector2( 13.9917, 19.9788 )
+scale = Vector2( 1.61, 0.5 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Train/Car3" index="1"]
+
+position = Vector2( 15.3058, 20.0153 )
+shape = SubResource( 4 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Train" index="3"]
+
+position = Vector2( 849.6, 323.596 )
+node_a = NodePath("../Car1")
+node_b = NodePath("../Car2")
+bias = 0.0
+disable_collision = false
+softness = 0.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Train" index="4"]
+
+position = Vector2( 960.107, 322.77 )
+node_a = NodePath("../Car2")
+node_b = NodePath("../Car3")
+bias = 0.0
+disable_collision = false
+softness = 0.0
+
+[node name="ExampleRock" type="RigidBody2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 736.355, -429.395 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 0.25
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Angular", "Pickable" ]
+
+[node name="Sprite" type="Sprite" parent="ExampleRock" index="0"]
+
+position = Vector2( 5.28708, 19.6088 )
+scale = Vector2( 0.640091, 0.585236 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock" index="1"]
+
+position = Vector2( 5.10165, 20.2822 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Rail1" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( -31.4975, -14.3227 )
+rotation = -0.00155243
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rail1" index="0"]
+
+position = Vector2( 862.897, -229.094 )
+rotation = -0.0984854
+shape = SubResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Line2D" type="Line2D" parent="Rail1" index="1"]
+
+points = PoolVector2Array( 716.839, -214.081, 1009.42, -242.727, 1020.13, -235.052 )
+width = 10.0
+default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
+texture_mode = 1061945348
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="Section2_Polygon" type="Polygon2D" parent="." index="4"]
+
+editor/display_folded = true
+polygon = PoolVector2Array( 1214.94, 4.05402, 1223.37, -51.0838, 1240.98, -74.8237, 1297.65, -143.746, 1305.31, -205.01, 1346.66, -171.315, 1410.22, -139.917, 1434.73, -206.542, 1522.8, -126.898, 1605.5, -183.568, 1667.53, -103.158, 1683.62, -52.6154, 1692.04, 6.35144 )
+uv = PoolVector2Array(  )
+color = Color( 0.570312, 0.299689, 0.082428, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section2_Polygon" index="0"]
+
+position = Vector2( 1460.64, -78.2781 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Section2_Polygon/StaticBody2D" index="0"]
+
+position = Vector2( -1460.64, 78.2781 )
+rotation = 0.000926365
+build_mode = 0
+polygon = PoolVector2Array( 1215.71, 4.05402, 1224.13, -51.0838, 1298.42, -144.512, 1303.78, -205.776, 1345.9, -172.081, 1410.99, -139.917, 1435.5, -208.839, 1522.03, -126.898, 1605.5, -182.802, 1671.36, -101.627, 1684.38, -51.8496, 1692.04, 3.28821 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+
+position = Vector2( 283.173, -105.972 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = 0
+limit_top = 0
+limit_right = 5000
+limit_bottom = 600
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = true
+script = ExtResource( 3 )
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
+
+[node name="LevelLowerBound" type="StaticBody2D" parent="." index="6"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelLowerBound" index="0"]
+
+position = Vector2( -5.52521, -6.63025 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="LevelLeftBound" type="StaticBody2D" parent="." index="7"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelLeftBound" index="0"]
+
+shape = SubResource( 10 )
+
+[node name="LevelRightBound" type="StaticBody2D" parent="." index="8"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelRightBound" index="0"]
+
+shape = SubResource( 8 )
+
+[node name="LevelUpperBound" type="StaticBody2D" parent="." index="9"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelUpperBound" index="0"]
+
+shape = SubResource( 9 )
+
+
