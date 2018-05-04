@@ -286,7 +286,6 @@ round_precision = 8
 
 [node name="Section2_Polygon" type="Polygon2D" parent="." index="4"]
 
-editor/display_folded = true
 polygon = PoolVector2Array( 1214.94, 4.05402, 1223.37, -51.0838, 1240.98, -74.8237, 1297.65, -143.746, 1305.31, -205.01, 1346.66, -171.315, 1410.22, -139.917, 1434.73, -206.542, 1522.8, -126.898, 1605.5, -183.568, 1667.53, -103.158, 1683.62, -52.6154, 1692.04, 6.35144 )
 uv = PoolVector2Array(  )
 color = Color( 0.570312, 0.299689, 0.082428, 1 )
@@ -318,35 +317,7 @@ rotation = 0.000926365
 build_mode = 0
 polygon = PoolVector2Array( 1215.71, 4.05402, 1224.13, -51.0838, 1298.42, -144.512, 1303.78, -205.776, 1345.9, -172.081, 1410.99, -139.917, 1435.5, -208.839, 1522.03, -126.898, 1605.5, -182.802, 1671.36, -101.627, 1684.38, -51.8496, 1692.04, 3.28821 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="5"]
-
-position = Vector2( 283.173, -105.972 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit_left = 0
-limit_top = 0
-limit_right = 5000
-limit_bottom = 600
-limit_smoothed = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = true
-script = ExtResource( 3 )
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
-
-[node name="LevelLowerBound" type="StaticBody2D" parent="." index="6"]
+[node name="LevelLowerBound" type="StaticBody2D" parent="." index="5"]
 
 input_pickable = false
 collision_layer = 1
@@ -362,7 +333,7 @@ position = Vector2( -5.52521, -6.63025 )
 shape = SubResource( 7 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="LevelLeftBound" type="StaticBody2D" parent="." index="7"]
+[node name="LevelLeftBound" type="StaticBody2D" parent="." index="6"]
 
 input_pickable = false
 collision_layer = 1
@@ -376,7 +347,7 @@ bounce = 0.0
 
 shape = SubResource( 10 )
 
-[node name="LevelRightBound" type="StaticBody2D" parent="." index="8"]
+[node name="LevelRightBound" type="StaticBody2D" parent="." index="7"]
 
 input_pickable = false
 collision_layer = 1
@@ -390,7 +361,7 @@ bounce = 0.0
 
 shape = SubResource( 8 )
 
-[node name="LevelUpperBound" type="StaticBody2D" parent="." index="9"]
+[node name="LevelUpperBound" type="StaticBody2D" parent="." index="8"]
 
 input_pickable = false
 collision_layer = 1
@@ -403,5 +374,64 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelUpperBound" index="0"]
 
 shape = SubResource( 9 )
+
+[node name="Draggable_Camera2D" type="Camera2D" parent="." index="9"]
+
+position = Vector2( 502.219, -296.652 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = 0
+limit_top = 0
+limit_right = 5000
+limit_bottom = 600
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 3 )
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
+
+[node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="10"]
+
+position = Vector2( 5009.08, -3.60291 )
+polygon = PoolVector2Array( 0.442383, 8.1322, 0.442383, -150.436, 0.442383, -468.674, -44.7056, -349.748, -35.8965, -225.316, -52.434, -148.936, -154.822, -146.031, -223.095, -146.031, -266.041, -144.93, -316.694, -146.031, -355.235, -107.491, -447.733, -57.9379, -557.851, 9.2334 )
+uv = PoolVector2Array(  )
+color = Color( 0.570312, 0.299689, 0.082428, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SectionEnd_Polygon" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SectionEnd_Polygon/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -2.86133, 2.62634, -556.749, 10.3346, -403.687, -85.4671, -356.336, -106.389, -318.896, -146.031, -51.3125, -146.031, -34.7949, -225.316, -45.8066, -351.95, 2.64453, -467.573 )
 
 
