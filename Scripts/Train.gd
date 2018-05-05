@@ -27,14 +27,8 @@ func _process(delta):
 func _train_destroy(car):
 	#if one car is destroyed destory them all
 	print("Oh the humanity: %s" % car)
-	#find_node("Car1").find_node("Explode").emitting = true;
-	find_node("Car1").find_node("Sprite").hide()
-	
-	#find_node("Car2").find_node("Explode").emitting = true;
-	find_node("Car2").find_node("Sprite").hide()
-	
-	#find_node("Car3").find_node("Explode").emitting = true;
-	find_node("Car3").find_node("Sprite").hide()
-	
+	find_node("Car1").explode()
+	find_node("Car2").explode()
+	find_node("Car3").explode()
 	emit_signal("failed")
 

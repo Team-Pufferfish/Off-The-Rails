@@ -35,3 +35,9 @@ func _process(delta):
 func destroy():
 	print("emit destroy train");
 	emit_signal("train_destroy", name)
+
+func explode():
+	$explosion.show()
+	$explosion.play("explosion")
+	$Sprite.hide()
+	$explosion_sound.play()		

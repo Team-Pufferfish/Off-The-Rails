@@ -1,22 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Assets/explosion_animation/explosion-f0.png" type="Texture" id=3]
-[ext_resource path="res://Assets/explosion_animation/explosion-f1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/explosion_animation/explosion-f2.png" type="Texture" id=5]
-[ext_resource path="res://Assets/explosion_animation/explosion-f3.png" type="Texture" id=6]
-[ext_resource path="res://Assets/explosion_animation/explosion-f4.png" type="Texture" id=7]
-[ext_resource path="res://Assets/explosion_animation/explosion-f6.png" type="Texture" id=8]
-[ext_resource path="res://Assets/explosion_animation/explosion-f5.png" type="Texture" id=9]
-[ext_resource path="res://Assets/explosion_animation/explosion-f7.png" type="Texture" id=10]
-[ext_resource path="res://Assets/explosion_animation/explosion-f8.png" type="Texture" id=11]
-[ext_resource path="res://Assets/explosion_animation/explosion-f9.png" type="Texture" id=12]
-[ext_resource path="res://Assets/explosion_animation/explosion-f10.png" type="Texture" id=13]
-[ext_resource path="res://Assets/explosion_animation/explosion-f11.png" type="Texture" id=14]
-[ext_resource path="res://sounds/350904__cabled-mess__jump-c-02.wav" type="AudioStream" id=15]
-[ext_resource path="res://sounds/explosion.ogg" type="AudioStream" id=16]
-[ext_resource path="res://sounds/jet.ogg" type="AudioStream" id=17]
+[ext_resource path="res://explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/350904__cabled-mess__jump-c-02.wav" type="AudioStream" id=4]
+[ext_resource path="res://explosion_sound.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/jet.ogg" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -75,16 +64,6 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Gravity", "Scale", "Trail" ]
-
-[sub_resource type="SpriteFrames" id=5]
-
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "explosion",
-"speed": 10.0
-} ]
-_sections_unfolded = [ "Resource" ]
 
 [node name="Ship" type="RigidBody2D" groups=[
 "ships",
@@ -179,18 +158,11 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
 
-[node name="explosion" type="AnimatedSprite" parent="." index="4"]
-
-position = Vector2( -63.8424, -89.6249 )
-frames = SubResource( 5 )
-animation = "explosion"
-centered = false
-flip_h = true
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+[node name="explosion" parent="." index="4" instance=ExtResource( 3 )]
 
 [node name="drop_rope_sound" type="AudioStreamPlayer2D" parent="." index="5"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 4 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -198,20 +170,11 @@ attenuation = 1.0
 bus = "Effects"
 area_mask = 1
 
-[node name="explosion_sound" type="AudioStreamPlayer2D" parent="." index="6"]
-
-stream = ExtResource( 16 )
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Effects"
-area_mask = 1
-_sections_unfolded = [ "Pause" ]
+[node name="explosion_sound" parent="." index="6" instance=ExtResource( 5 )]
 
 [node name="jet_sound" type="AudioStreamPlayer2D" parent="." index="7"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -220,7 +183,5 @@ bus = "Master"
 area_mask = 1
 
 [connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]
-
-[connection signal="animation_finished" from="explosion" to="." method="_on_explosion_animation_finished"]
 
 

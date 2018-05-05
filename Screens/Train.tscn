@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Train.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Car.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Car.png" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://explosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://explosion_sound.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ParticlesMaterial" id=1]
 
@@ -117,6 +119,13 @@ build_mode = 0
 polygon = PoolVector2Array( -34.9463, 12.815, -39.7643, 12.5447, -42.1716, 2.99826, -39.6473, 1.36538, -45.186, -7.07049, -44.3339, -10.3085, -39.3917, -10.8198, -34.1938, -16.188, 38.7034, -16.3502, 44.1612, -10.4497, 49.64, -9.78564, 49.889, -7.12924, 46.6575, 1.3257, 46.9006, 3.41332, 44.4932, 13.2088, 22.744, 18.1065, -0.772827, 17.5286, -22.3317, 17.7744 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
+[node name="explosion" parent="Car1" index="3" instance=ExtResource( 5 )]
+
+visible = false
+position = Vector2( -61.9164, -101.181 )
+
+[node name="explosion_sound" parent="Car1" index="4" instance=ExtResource( 6 )]
+
 [node name="PinJoint2D" type="PinJoint2D" parent="." index="1"]
 
 position = Vector2( 53.8155, 3.6 )
@@ -167,6 +176,13 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( -34.9463, 12.815, -39.7643, 12.5447, -42.1716, 2.99826, -39.6473, 1.36538, -45.186, -7.07049, -44.3339, -10.3085, -39.3917, -10.8198, -34.1938, -16.188, 38.7034, -16.3502, 44.1612, -10.4497, 49.64, -9.78564, 49.889, -7.12924, 46.6575, 1.3257, 46.9006, 3.41332, 44.4932, 13.2088, 22.744, 18.1065, -0.772827, 17.5286, -22.3317, 17.7744 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="explosion" parent="Car2" index="2" instance=ExtResource( 5 )]
+
+visible = false
+position = Vector2( -62.6869, -100.025 )
+
+[node name="explosion_sound" parent="Car2" index="3" instance=ExtResource( 6 )]
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="." index="3"]
 
@@ -243,5 +259,12 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Z Ind
 build_mode = 0
 polygon = PoolVector2Array( -34.9463, 12.815, -39.7643, 12.5447, -42.1716, 2.99826, -39.6473, 1.36538, -45.186, -7.07049, -44.3339, -10.3085, -39.3917, -10.8198, -34.1938, -16.188, 38.7034, -16.3502, 44.1612, -10.4497, 49.64, -9.78564, 49.889, -7.12924, 46.6575, 1.3257, 46.9006, 3.41332, 44.4932, 13.2088, 22.744, 18.1065, -0.772827, 17.5286, -22.3317, 17.7744 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="explosion" parent="Car3" index="3" instance=ExtResource( 5 )]
+
+visible = false
+position = Vector2( -63.0721, -99.6398 )
+
+[node name="explosion_sound" parent="Car3" index="4" instance=ExtResource( 6 )]
 
 
