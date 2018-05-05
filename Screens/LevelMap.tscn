@@ -30,39 +30,39 @@ custom_solver_bias = 0.0
 a = Vector2( 0, -600 )
 b = Vector2( 5000, -600 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 151.457, 4.08853 )
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
 radius = 19.7066
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 21.352
 
-[sub_resource type="SegmentShape2D" id=12]
+[sub_resource type="SegmentShape2D" id=8]
 
 custom_solver_bias = 0.0
 a = Vector2( -5.37097, -3.49692 )
 b = Vector2( 325.776, 58.7903 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 4.93921, 13.7297 )
 
-[sub_resource type="SegmentShape2D" id=14]
+[sub_resource type="SegmentShape2D" id=10]
 
 custom_solver_bias = 0.0
 a = Vector2( 323.807, 2.06973 )
 b = Vector2( -1.70996, 14.6494 )
 
-[node name="LevelMap" type="Node2D" index="0"]
+[node name="LevelMap" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -193,7 +193,7 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 862.897, -229.094 )
 rotation = -0.0984854
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Line2D" type="Line2D" parent="Section1_Node/Rail1" index="1"]
@@ -238,7 +238,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock2" type="RigidBody2D" parent="." index="4"]
@@ -274,7 +274,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock2" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock3" type="RigidBody2D" parent="." index="5"]
@@ -310,7 +310,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock3" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock4" type="RigidBody2D" parent="." index="6"]
@@ -346,7 +346,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock4" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock5" type="RigidBody2D" parent="." index="7"]
@@ -382,7 +382,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock5" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Draggable_Camera2D" type="Camera2D" parent="." index="8"]
@@ -412,8 +412,8 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 4 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
-p1 = -1
-p2 = -1
+p1 = null
+p2 = null
 
 [node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="9"]
 
@@ -511,7 +511,7 @@ round_precision = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/Rail2" index="1"]
 
 position = Vector2( 1788.74, -203.858 )
-shape = SubResource( 12 )
+shape = SubResource( 8 )
 
 [node name="Section_3_Polygon" type="Polygon2D" parent="Section3_Node" index="1"]
 
@@ -567,7 +567,7 @@ texture = ExtResource( 3 )
 
 position = Vector2( 13.2605, -11.8397 )
 rotation = 0.253564
-shape = SubResource( 13 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Section5_Node" type="Node" parent="." index="12"]
@@ -588,7 +588,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section5_Node/Rail2" index="0"]
 
 position = Vector2( 1788.19, -214.978 )
-shape = SubResource( 14 )
+shape = SubResource( 10 )
 
 [node name="Line2D" type="Line2D" parent="Section5_Node/Rail2" index="1"]
 

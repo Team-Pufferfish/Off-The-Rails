@@ -10,7 +10,7 @@ source_file="res://Assets/magnet.png"
 source_md5="1fecf103b9ae07081b94f6e7fc3e03a0"
 
 dest_files=[ "res://.import/magnet.png-0d9d0689e3cc0528094f5a3f7c37f12f.stex" ]
-dest_md5="20acf0a52de58292d4683c4a44653816"
+dest_md5="f70d1f24f1f8c378d72b0e3486e399dc"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

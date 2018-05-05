@@ -5,7 +5,7 @@ export var max_grab_height = 300
 export var rope_segment_size = 8
 
 var ropeNode = preload("res://Screens/rope_link.tscn")
-
+var magnetNode = preload("res://Screens/magnet.tscn")
 var joints = []
 var rope_segments = []
 
@@ -84,15 +84,19 @@ func _integrate_forces(state):
 					
 					print(result)
 					var rope_distance = abs(position[1] - result["position"][1])
-					var iterations = int(rope_distance / rope_segment_size) - 1
+					var iterations = int(rope_distance / rope_segment_size) - 3
 					
 					var last_element = self
 					
 					
 					for i in range(iterations):
 						
-						
 						var rope_segment = ropeNode.instance()
+						if i == iterations - 1:
+							rope_segment = magnetNode.instance()
+							
+						rope_segment.z_index = 1000
+							
 						rope_segment.position = Vector2(0,32)
 						rope_segment.position.y += rope_segment_size * i
 						
