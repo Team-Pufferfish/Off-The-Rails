@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pufferfish.png" type="Texture" id=2]
+[ext_resource path="res://music/Papergirl.ogg" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=1]
 
@@ -109,6 +110,14 @@ group = null
 text = "Quit Game"
 flat = false
 align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 3 )
+volume_db = -18.75
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="pressed" from="CanvasLayer/Start Game" to="." method="_on_Start_Game_pressed"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=7]
+[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=8]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -85,7 +86,7 @@ b = Vector2( -1.70996, 14.6494 )
 custom_solver_bias = 0.0
 extents = Vector2( 168.718, 21.4516 )
 
-[node name="LevelMap" type="Node2D" index="0"]
+[node name="LevelMap" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -214,7 +215,6 @@ rotation = -0.06164
 
 [node name="LevelMap_Section1_Polygon2D" type="Polygon2D" parent="Section1_Node" index="0"]
 
-editor/display_folded = true
 position = Vector2( -2.17975, 599.428 )
 polygon = PoolVector2Array( -2.58633, -235.876, 0.319977, -248.954, 15.5782, -245.321, 30.8363, -227.157, 274.24, -227.157, 287.319, -242.415, 295.311, -239.509, 311.296, -232.969, 323.648, -210.446, 335.273, -151.593, 370.875, -101.459, 454.432, -116.717, 484.948, -109.451, 545.254, -62.2234, 571.411, -78.2082, 646.249, -122.529, 674.37, -134.701, 697.702, -161.922, 730.757, -201.782, 748.256, -218.309, 762.839, -225.114, 780.338, -234.836, 802.463, -234.423, 974.482, -243.3, 984.437, -222.624, 1005.88, -174.378, 1012.01, -113.88, 1045.87, 4.62183, -1.13318, 0.262329 )
 uv = PoolVector2Array(  )
@@ -785,6 +785,14 @@ script = ExtResource( 7 )
 position = Vector2( 58.9414, 6.95209 )
 scale = Vector2( 1, 1.04705 )
 shape = SubResource( 14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="16"]
+
+stream = ExtResource( 8 )
+volume_db = -15.65
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="failed" from="Train" to="." method="_on_Train_failed"]
 

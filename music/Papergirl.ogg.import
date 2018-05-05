@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Papergirl.ogg-8277083ee7d928f73ebad4300e61ae3f.oggstr"
+
+[deps]
+
+source_file="res://music/Papergirl.ogg"
+source_md5="1c3f36945a32a7936fe7a2c0862bed29"
+
+dest_files=[ "res://.import/Papergirl.ogg-8277083ee7d928f73ebad4300e61ae3f.oggstr" ]
+dest_md5="d692c4ade08e1511f5a284e67b06a1d3"
+
+[params]
+
+loop=true
+loop_offset=0
