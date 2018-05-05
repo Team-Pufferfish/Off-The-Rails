@@ -89,7 +89,7 @@ extents = Vector2( 168.718, 21.4516 )
 [sub_resource type="SegmentShape2D" id=15]
 
 custom_solver_bias = 0.0
-a = Vector2( 950.924, 143.713 )
+a = Vector2( 1018.75, 151.477 )
 b = Vector2( 56.4438, 56.3564 )
 
 [node name="LevelMap" type="Node2D" index="0"]
@@ -126,7 +126,7 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
 enabled = true
 p1 = NodePath("../Ship")
-p2 = NodePath("../Ship")
+p2 = NodePath("../Ship2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Draggable_Camera2D" index="0"]
 
@@ -648,8 +648,6 @@ polygon = PoolVector2Array( 1215.71, 4.05402, 1224.13, -51.0838, 1298.42, -144.5
 
 [node name="Section3_Node" type="Node" parent="." index="11"]
 
-editor/display_folded = true
-
 [node name="Rail2" type="StaticBody2D" parent="Section3_Node" index="0"]
 
 editor/display_folded = true
@@ -735,8 +733,6 @@ shape = SubResource( 12 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Section5_Node" type="Node" parent="." index="12"]
-
-editor/display_folded = true
 
 [node name="Rail2" type="StaticBody2D" parent="Section5_Node" index="0"]
 
@@ -876,8 +872,6 @@ invert_border = 100.0
 
 [node name="Section_Challenge" type="Node" parent="." index="17"]
 
-editor/display_folded = true
-
 [node name="Polygon2D" type="Polygon2D" parent="Section_Challenge" index="0"]
 
 position = Vector2( 3380.34, 547.183 )
@@ -955,17 +949,17 @@ collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
-friction = 1.0
+friction = 0.5
 bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Section_Challenge/Polygon2D2/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -286.511, 67.8124, -322.192, -106.9, -314.809, -147.503, -240.987, -162.267, -100.725, -143.812, 35.8464, -151.194, 135.507, -141.351, 263.465, -92.1359, 334.827, 189.619, -181.929, 141.635, -260.673, 113.336 )
+polygon = PoolVector2Array( -286.511, 67.8124, -322.192, -106.9, -314.809, -147.503, -240.987, -162.267, -100.725, -143.812, 35.8464, -151.194, 135.507, -141.351, 263.465, -92.1359, 323.665, 220.614, -198.261, 164.53, -258.924, 127.904 )
 
 [node name="Line2D" type="Line2D" parent="Section_Challenge" index="2"]
 
-points = PoolVector2Array( 3372.43, 442.25, 4278.99, 532.003 )
+points = PoolVector2Array( 3372.43, 442.25, 4337.45, 537.242 )
 width = 10.0
 default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
 texture_mode = 55
@@ -989,7 +983,6 @@ shape = SubResource( 15 )
 
 [node name="Hint Text" type="Node2D" parent="." index="18"]
 
-editor/display_folded = true
 z_index = -2
 _sections_unfolded = [ "Z Index" ]
 
@@ -1088,7 +1081,30 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect" ]
 
-[node name="SAFE ZONE" type="Label" parent="Hint Text" index="4"]
+[node name="Label5" type="Label" parent="Hint Text" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1801.0
+margin_top = 332.0
+margin_right = 2104.0
+margin_bottom = 465.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Phew! Take a break if you need it."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect" ]
+
+[node name="SAFE ZONE" type="Label" parent="Hint Text" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0

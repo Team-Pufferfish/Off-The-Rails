@@ -191,7 +191,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 [node name="drop_rope_sound" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 15 )
-volume_db = -10.0
+volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -201,7 +201,7 @@ area_mask = 1
 [node name="explosion_sound" type="AudioStreamPlayer2D" parent="." index="6"]
 
 stream = ExtResource( 16 )
-volume_db = -10.0
+volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -212,7 +212,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="jet_sound" type="AudioStreamPlayer2D" parent="." index="7"]
 
 stream = ExtResource( 17 )
-volume_db = -10.0
+volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
