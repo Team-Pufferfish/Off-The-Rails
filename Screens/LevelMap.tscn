@@ -412,11 +412,13 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 4 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
+p1 = -1
+p2 = -1
 
 [node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="9"]
 
 editor/display_folded = true
-position = Vector2( 5009.08, -3.60291 )
+position = Vector2( 5003.7, 595.937 )
 polygon = PoolVector2Array( 0.442383, 8.1322, 0.442383, -150.436, 0.442383, -468.674, -44.7056, -349.748, -35.8965, -225.316, -52.434, -148.936, -154.822, -146.031, -223.095, -146.031, -266.041, -144.93, -316.694, -146.031, -355.235, -107.491, -447.733, -57.9379, -557.851, 9.2334 )
 uv = PoolVector2Array(  )
 color = Color( 0.570312, 0.299689, 0.082428, 1 )
@@ -485,8 +487,6 @@ build_mode = 0
 polygon = PoolVector2Array( 1215.71, 4.05402, 1224.13, -51.0838, 1298.42, -144.512, 1303.78, -205.776, 1345.9, -172.081, 1410.99, -139.917, 1435.5, -208.839, 1522.03, -126.898, 1605.5, -182.802, 1671.36, -101.627, 1684.38, -51.8496, 1692.04, 3.28821 )
 
 [node name="Section3_Node" type="Node" parent="." index="11"]
-
-editor/display_folded = true
 
 [node name="Rail2" type="StaticBody2D" parent="Section3_Node" index="0"]
 
@@ -663,9 +663,14 @@ polygon = PoolVector2Array( 1762.81, 64.8899, 1774.38, -13.5549, 1779.33, -35.84
 
 [node name="Ship" parent="." index="13" instance=ExtResource( 5 )]
 
-position = Vector2( 140.018, 235.218 )
+position = Vector2( 82.4026, 339.4 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pause", "Transform", "Visibility", "Z Index" ]
-thrust = 4000
-rope_segment_size = 8
+
+[node name="Ship2" parent="." index="14" instance=ExtResource( 5 )]
+
+position = Vector2( 223.905, 338.03 )
+left_action = "ui2_left"
+right_action = "ui2_right"
+down_action = "ui2_down"
 
 

@@ -1,12 +1,16 @@
 extends RigidBody2D
 
-export var thrust = 100
+export var thrust = 4000
 export var rope_segment_size = 8
 
 var ropeNode = preload("res://Screens/rope_link.tscn")
 
 var joints = []
 var rope_segments = []
+
+export var left_action = "ui_left"
+export var right_action = "ui_right"
+export var down_action = "ui_down"
 
 
 func _physics_process(delta):
@@ -32,17 +36,17 @@ func _integrate_forces(state):
 #		$left_thruster.emitting = false
 #		$right_thruster.emitting = false
 	
-	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed(left_action) and Input.is_action_pressed(right_action):
 		$left_thruster.emitting = true
 		$right_thruster.emitting = true
 		set_applied_force(thrust * Vector2(0,-1.5))
 
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed(left_action):
 		set_applied_force(thrust * Vector2(0.2,-1).normalized())
 		$left_thruster.emitting = true
 		$right_thruster.emitting = false
 
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed(right_action):
 		set_applied_force(thrust * Vector2(-0.2,-1).normalized())
 		$left_thruster.emitting = false
 		$right_thruster.emitting = true
@@ -53,7 +57,7 @@ func _integrate_forces(state):
 		
 		
 		
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed(down_action):
 		if len(joints) > 0:
 			for joint in joints:
 				remove_child(joint)

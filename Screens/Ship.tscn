@@ -84,6 +84,11 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pause", "Visibility" ]
+thrust = 4000
+rope_segment_size = 8
+left_action = "ui_left"
+right_action = "ui_right"
+down_action = "ui_down"
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

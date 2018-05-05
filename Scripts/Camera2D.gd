@@ -10,6 +10,16 @@ signal zoomed()
 var _current_zoom_level = 1
 var _drag = false
 
+export var p1 = -1;
+export var p2 = -1;
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	set_process(true);
+	
+	pass
+
 func _input(event):
     if event.is_action_pressed("cam_drag"):
         _drag = true
@@ -22,6 +32,15 @@ func _input(event):
     elif event is InputEventMouseMotion && _drag:
         set_offset(get_offset() - event.relative*_current_zoom_level)
         emit_signal("moved")
+		
+func _process(delta):
+	if(p1 == -1 || p2 == -1):
+		 pass
+	var pos1 = p1.get_global(pos1.position)
+	var pos2 = p2.get_global(pos2.position)
+	
+	
+	
 
 func _update_zoom(incr, zoom_anchor):
     var old_zoom = _current_zoom_level

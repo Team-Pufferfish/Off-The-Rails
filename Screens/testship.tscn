@@ -102,6 +102,9 @@ shape = SubResource( 4 )
 
 thrust = 4000
 rope_segment_size = 8
+left_action = "ui_left"
+right_action = "ui_right"
+down_action = "ui_down"
 
 [node name="Box" type="RigidBody2D" parent="." index="3"]
 
