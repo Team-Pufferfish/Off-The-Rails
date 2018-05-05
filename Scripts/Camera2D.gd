@@ -10,8 +10,11 @@ signal zoomed()
 var _current_zoom_level = 1
 var _drag = false
 
-export var p1 = -1;
-export var p2 = -1;
+export(NodePath) var p1;
+export(NodePath) var p2;
+
+onready var player1 = get_node(p1)
+onready var player2 = get_node(p2)
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -19,6 +22,11 @@ func _ready():
 	set_process(true);
 	
 	pass
+	
+func midPoint(a,  b):
+	var x = (a.x + b.x) / 2;
+	var y = (a.y + b.y) / 2;
+	return Vector2(x,y)
 
 func _input(event):
     if event.is_action_pressed("cam_drag"):
@@ -34,14 +42,30 @@ func _input(event):
         emit_signal("moved")
 		
 func _process(delta):
-	pass
-	#if(p1 == -1 || p2 == -1):
-	#	 pass
-	#var pos1 = p1.get_global(pos1.position)
-	#var pos2 = p2.get_global(pos2.position)
+	if(p1 == null || p2 == null):
+		 return
+	var pos1 = player1.position;
+	var pos2 = player2.position;
 	
+	var cameraCenter = midPoint(pos1, pos2)
+	cameraCenter.x -= 300;
+	var backPlayerX = 0;
+	if (pos1.x < pos2.x):
+		 backPlayerX = pos1.x
+	else:
+		backPlayerX = pos2.x
+	if(cameraCenter.x < 0):
+		cameraCenter.x = 0
+	elif(cameraCenter.x > backPlayerX - 100):
+		cameraCenter.x = backPlayerX - 100
+
+	cameraCenter.y = 0;
 	
+	print("Camera center: %s", get_offset());
+	print("Pos1: %s Pos2: %s" % [pos1, pos2]);
+	print("New center: %s" % cameraCenter);
 	
+	set_offset(cameraCenter);
 
 func _update_zoom(incr, zoom_anchor):
     var old_zoom = _current_zoom_level
