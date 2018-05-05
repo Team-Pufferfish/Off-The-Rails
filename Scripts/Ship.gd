@@ -105,6 +105,7 @@ func _integrate_forces(state):
 						var joint = PinJoint2D.new()
 						joint.disable_collision = true
 						joint.softness = 0
+						joint.bias = 0
 						joint.set_node_a(last_element.get_path())
 						joint.set_node_b(rope_segment.get_path())
 						last_element.add_child(joint)
