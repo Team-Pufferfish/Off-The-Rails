@@ -12,6 +12,7 @@ func _ready():
 
 func collision(body):
 	print("%s was hit" % body.name);
-	print(typeof(body));
-	body.destroy()
-	queue_free()
+	if (body.is_in_group("train")):
+		print(typeof(body));
+		body.destroy()
+		queue_free()

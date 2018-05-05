@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
@@ -85,6 +85,12 @@ b = Vector2( -1.70996, 14.6494 )
 custom_solver_bias = 0.0
 extents = Vector2( 168.718, 21.4516 )
 
+[sub_resource type="SegmentShape2D" id=15]
+
+custom_solver_bias = 0.0
+a = Vector2( 950.924, 143.713 )
+b = Vector2( 56.4438, 56.3564 )
+
 [node name="LevelMap" type="Node2D"]
 
 script = ExtResource( 1 )
@@ -92,6 +98,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Draggable_Camera2D" type="Camera2D" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 494.719, 293.338 )
 anchor_mode = 1
 rotating = false
@@ -178,8 +185,6 @@ max_lines_visible = -1
 _sections_unfolded = [ "Focus", "Hint", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="LevelBounds" type="Node" parent="." index="1"]
-
-editor/display_folded = true
 
 [node name="LevelLowerBound" type="StaticBody2D" parent="LevelBounds" index="0"]
 
@@ -272,7 +277,6 @@ rotation = -0.06164
 
 [node name="LevelMap_Section1_Polygon2D" type="Polygon2D" parent="Section1_Node" index="0"]
 
-editor/display_folded = true
 position = Vector2( -2.17975, 599.428 )
 polygon = PoolVector2Array( -2.58633, -235.876, 0.319977, -248.954, 15.5782, -245.321, 30.8363, -227.157, 274.24, -227.157, 287.319, -242.415, 295.311, -239.509, 311.296, -232.969, 323.648, -210.446, 335.273, -151.593, 370.875, -101.459, 454.432, -116.717, 484.948, -109.451, 545.254, -62.2234, 571.411, -78.2082, 646.249, -122.529, 674.37, -134.701, 697.702, -161.922, 730.757, -201.782, 748.256, -218.309, 762.839, -225.114, 780.338, -234.836, 802.463, -234.423, 974.482, -243.3, 984.437, -222.624, 1005.88, -174.378, 1012.01, -113.88, 1045.87, 4.62183, -1.13318, 0.262329 )
 uv = PoolVector2Array(  )
@@ -302,7 +306,7 @@ _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform" ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Section1_Node/LevelMap_Section1_Polygon2D/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -1.85974, -0.464233, -2.58633, -235.876, -1.13318, -248.954, 13.3984, -247.501, 30.8363, -224.977, 273.514, -225.704, 285.139, -241.688, 306.936, -235.149, 325.827, -208.992, 335.273, -153.046, 370.875, -98.5524, 452.252, -115.99, 484.222, -110.178, 547.434, -62.95, 644.069, -123.983, 673.398, -134.701, 698.675, -159.006, 725.896, -193.032, 748.256, -218.309, 767.7, -228.031, 787.144, -234.836, 810.476, -236.781, 864.919, -238.725, 974.482, -242.535, 1002.82, -182.036, 1012.77, -106.987, 1047.46, 2.1275 )
+polygon = PoolVector2Array( -1.85974, -0.464233, -2.58633, -235.876, -1.13318, -248.954, 13.3984, -247.501, 30.8363, -224.977, 273.514, -225.704, 285.139, -241.688, 306.936, -235.149, 325.827, -208.992, 335.273, -153.046, 370.875, -98.5524, 452.252, -115.99, 484.222, -110.178, 547.434, -62.95, 644.069, -123.983, 673.398, -134.701, 698.675, -159.006, 725.896, -193.032, 748.256, -218.309, 767.7, -228.031, 787.144, -234.836, 810.476, -236.781, 864.919, -238.725, 974.482, -242.535, 1002.82, -182.036, 1012.77, -106.987, 1047.28, 6.31531 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Rail1" type="StaticBody2D" parent="Section1_Node" index="1"]
@@ -551,7 +555,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 editor/display_folded = true
 position = Vector2( 5003.7, 595.937 )
-polygon = PoolVector2Array( 0.442383, 8.1322, 0.442383, -150.436, 0.442383, -468.674, -44.7056, -349.748, -35.8965, -225.316, -52.434, -148.936, -154.822, -146.031, -223.095, -146.031, -266.041, -144.93, -316.694, -146.031, -355.235, -107.491, -447.733, -57.9379, -557.851, 9.2334 )
+polygon = PoolVector2Array( 0.442383, 8.1322, 0.442383, -150.436, 0.442383, -468.674, -44.7056, -349.748, -35.8965, -225.316, -52.434, -148.936, -154.822, -146.031, -223.095, -146.031, -266.041, -144.93, -316.694, -146.031, -355.235, -107.491, -404.509, -85.1723, -448.825, 12.3243 )
 uv = PoolVector2Array(  )
 color = Color( 0.570312, 0.299689, 0.082428, 1 )
 vertex_colors = PoolColorArray(  )
@@ -577,7 +581,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SectionEnd_Polygon/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -2.86133, 2.62634, -556.749, 10.3346, -403.687, -85.4671, -356.336, -106.389, -318.896, -146.031, -51.3125, -146.031, -34.7949, -225.316, -45.8066, -351.95, 2.64453, -467.573 )
+polygon = PoolVector2Array( -2.86133, 2.62634, -447.717, 10.1085, -403.687, -85.4671, -356.336, -106.389, -318.896, -146.031, -51.3125, -146.031, -34.7949, -225.316, -45.8066, -351.95, 2.64453, -467.573 )
 
 [node name="Rail3" type="StaticBody2D" parent="SectionEnd_Polygon" index="1"]
 
@@ -607,8 +611,6 @@ position = Vector2( -412.693, -152.022 )
 shape = SubResource( 10 )
 
 [node name="Section2_Node" type="Node" parent="." index="10"]
-
-editor/display_folded = true
 
 [node name="Section2_Polygon" type="Polygon2D" parent="Section2_Node" index="0"]
 
@@ -650,6 +652,7 @@ editor/display_folded = true
 
 [node name="Rail2" type="StaticBody2D" parent="Section3_Node" index="0"]
 
+editor/display_folded = true
 position = Vector2( -2.17978, 597.731 )
 input_pickable = false
 collision_layer = 1
@@ -732,6 +735,8 @@ shape = SubResource( 12 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Section5_Node" type="Node" parent="." index="12"]
+
+editor/display_folded = true
 
 [node name="Rail2" type="StaticBody2D" parent="Section5_Node" index="0"]
 
@@ -820,15 +825,11 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( 1741.5, 186.367, 1774.38, -13.5549, 1779.33, -35.8497, 1776.85, -63.9247, 1789.24, -125.029, 1784.28, -148.975, 1807.4, -172.922, 1825.57, -157.233, 1853.65, -161.361, 1859.43, -97.7798, 1846.21, -30.8953, 1864.38, 45.8979, 1893.99, 160.667, 2008.79, 157.24, 2037.92, 110.978, 2034.48, 26.9061, 2054.3, -20.9865, 2026.22, -89.5225, 2052.65, -132.461, 2046.87, -186.959, 2054.63, -205.372, 2085.41, -194.759, 2113, -203.957, 2126.14, -170.445, 2124.49, -112.643, 2136.87, -78.788, 2104.67, -20.9865, 2152.72, 194.934 )
 
-[node name="Ship" parent="." index="13" groups=[
-"ships",
-] instance=ExtResource( 6 )]
+[node name="Ship" parent="." index="13" instance=ExtResource( 6 )]
 
 position = Vector2( 98.4868, 339.278 )
 
-[node name="Ship2" parent="." index="14" groups=[
-"ships",
-] instance=ExtResource( 6 )]
+[node name="Ship2" parent="." index="14" instance=ExtResource( 6 )]
 
 position = Vector2( 223.905, 338.03 )
 left_action = "ui2_left"
@@ -856,6 +857,8 @@ shape = SubResource( 14 )
 
 [node name="Ceiling" type="Node" parent="." index="16"]
 
+editor/display_folded = true
+
 [node name="Polygon2D" type="Polygon2D" parent="Ceiling" index="0"]
 
 polygon = PoolVector2Array( 0.543457, 0.296326, 13.4674, 14.3952, 38.7278, 13.2203, 58.1137, 8.52066, 86.3115, 14.3952, 142.119, 7.9332, 182.066, 7.34576, 213.789, 9.10812, 250.798, 19.6823, 329.517, 7.34576, 395.899, 4.40848, 418.7, 10.4264, 427.2, 7.15714, 428.507, 17.6187, 435.7, 16.9649, 453.354, 5.19559, 556.662, 8.46484, 578.24, 16.9649, 646.894, 5.19559, 778.322, 11.9482, 852.188, 5.72787, 880.957, 2.61774, 916.723, 12.7257, 1059.79, 8.83801, 1124.33, 26.7213, 1240.18, 11.1706, 1258.84, 15.0583, 1265.84, 19.7235, 1273.61, 10.3931, 1289.94, 24.3887, 1302.38, 13.5032, 1321.04, 29.8315, 1336.59, 15.8358, 1351.37, 26.7213, 1377.02, 19.7235, 1454.78, 11.9482, 1509.98, 28.2764, 1581.52, 16.6134, 1655.38, 6.5054, 1785.23, 17.3909, 1827.99, 11.9482, 1877.76, 14.2808, 1924.41, 8.83801, 1935.29, 20.501, 1950.84, 22.0561, 1967.17, 22.8336, 1975.73, 18.1684, 1980.39, 11.9482, 2163.89, 10.393, 2164.67, 21.2785, 2310.07, 18.9459, 2286.74, 11.1706, 2471.01, 22.0561, 2523.89, 5.72784, 2634.3, 11.1706, 2726.82, 11.1706, 2966.3, 30.6089, 3158.36, 17.3909, 3287.43, 14.2807, 3354.29, 8.06042, 3455.9, 11.5666, 3563.07, 10.3204, 3742.53, 20.2901, 3838.49, 6.58173, 4192.41, 15.3052, 4206.12, 7.82794, 4283.38, 5.33551, 4512.69, 19.0439, 4582.48, 7.82794, 4727.04, 20.2901, 4846.67, 7.82794, 4950.11, 22.7825, 5007.44, 127.465, 5003.7, -3.38806 )
@@ -870,6 +873,243 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
+
+[node name="Section_Challenge" type="Node" parent="." index="17"]
+
+editor/display_folded = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Section_Challenge" index="0"]
+
+position = Vector2( 3380.34, 547.183 )
+polygon = PoolVector2Array( -9.95776, -104.421, 82.7505, -35.4285, 96.7646, 82.0739, 481.819, 72.9922, 564.384, 85.0164, 644.009, 123.456, 874.646, 95.9991, 899.877, 23.8617, 896.642, 3.37964, 904.188, -14.9464 )
+uv = PoolVector2Array(  )
+color = Color( 0.570312, 0.299689, 0.082428, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section_Challenge/Polygon2D" index="0"]
+
+position = Vector2( 410.944, 8.61255 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="Section_Challenge/Polygon2D/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -316.14, 70.54, -329.674, -42.6542, -413.339, -110.325, 492.214, -21.7379, 487.293, -5.74304, 490.984, 15.1733, 466.376, 91.4563 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Section_Challenge" index="1"]
+
+position = Vector2( 3572.18, 353.051 )
+polygon = PoolVector2Array( 152.534, 35.6163, 75.054, 8.32211, 47.7595, -39.2226, 12.5408, -213.553, 21.0823, -253.315, 93.6741, -266.849, 237.058, -248.772, 353.282, -255.775, 466.477, -248.393, 602.448, -192.422, 671.123, 83.161 )
+uv = PoolVector2Array(  )
+color = Color( 0.570312, 0.299689, 0.082428, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="Label" type="Label" parent="Section_Challenge/Polygon2D2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 276.0
+margin_top = -108.0
+margin_right = 367.0
+margin_bottom = -94.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Tricky one eh?"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section_Challenge/Polygon2D2" index="1"]
+
+position = Vector2( 335.892, -104.582 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Section_Challenge/Polygon2D2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -286.511, 67.8124, -322.192, -106.9, -314.809, -147.503, -240.987, -162.267, -100.725, -143.812, 35.8464, -151.194, 135.507, -141.351, 263.465, -92.1359, 334.827, 189.619, -181.929, 141.635, -260.673, 113.336 )
+
+[node name="Line2D" type="Line2D" parent="Section_Challenge" index="2"]
+
+points = PoolVector2Array( 3372.43, 442.25, 4278.99, 532.003 )
+width = 10.0
+default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
+texture_mode = 55
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="Rail" type="StaticBody2D" parent="Section_Challenge" index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section_Challenge/Rail" index="0"]
+
+position = Vector2( 3322.73, 381.732 )
+shape = SubResource( 15 )
+
+[node name="Hint Text" type="Node2D" parent="." index="18"]
+
+editor/display_folded = true
+z_index = -2
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Label" type="Label" parent="Hint Text" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 26.0
+margin_top = 125.0
+margin_right = 329.0
+margin_bottom = 258.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "1. Don't hit the other player or you lose
+2. Don't drop the train in the chasm or you lose
+
+W/Left - Fire Left thruster
+D/Right - Fire Right thruster
+W+D/left+Right - Fire both thrusters!
+
+S/Down  - Extend/Retract Grabber"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="Hint Text" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 584.0
+margin_top = 325.0
+margin_right = 887.0
+margin_bottom = 458.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "GRAB THE TRAIN ->"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="Hint Text" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 939.0
+margin_top = 126.0
+margin_right = 1242.0
+margin_bottom = 259.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Safe Zone This Way ->
+	(Or Death)"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label4" type="Label" parent="Hint Text" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3109.0
+margin_top = 265.0
+margin_right = 3412.0
+margin_bottom = 398.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Almost There!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect" ]
+
+[node name="SAFE ZONE" type="Label" parent="Hint Text" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4627.0
+margin_top = 401.0
+margin_right = 4930.0
+margin_bottom = 534.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "|					SAFE ZONE					|
+-All cars must be inside-"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="failed" from="Train" to="." method="_on_Train_failed"]
 

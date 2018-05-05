@@ -44,13 +44,17 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[node name="Train" type="Node2D" index="0"]
+[node name="Train" type="Node2D" groups=[
+"train",
+]]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 car_mass = 4.5
 
-[node name="Car1" type="RigidBody2D" parent="." index="0"]
+[node name="Car1" type="RigidBody2D" parent="." index="0" groups=[
+"train",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -123,7 +127,9 @@ disable_collision = false
 softness = 0.0
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Car2" type="RigidBody2D" parent="." index="2"]
+[node name="Car2" type="RigidBody2D" parent="." index="2" groups=[
+"train",
+]]
 
 position = Vector2( 103.173, 0 )
 input_pickable = false
@@ -172,7 +178,9 @@ disable_collision = false
 softness = 0.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="Car3" type="RigidBody2D" parent="." index="4"]
+[node name="Car3" type="RigidBody2D" parent="." index="4" groups=[
+"train",
+]]
 
 position = Vector2( 206.353, 0 )
 input_pickable = false
