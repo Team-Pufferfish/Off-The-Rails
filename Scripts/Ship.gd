@@ -18,6 +18,9 @@ export var down_action = "ui_down"
 export var up_thrust = 1.3
 export var thrust_vector = 0.2
 
+func _ready():
+	$explosion.hide()
+
 func _physics_process(delta):
 	pass
 				
@@ -133,4 +136,12 @@ func _integrate_forces(state):
 
 func _on_Ship_body_entered(body):
 	if body.is_in_group("ships"):
-		emit_signal("crash")
+		$Sprite.hide()
+		$explosion.show()
+		$explosion.play("explosion")
+		
+
+
+func _on_explosion_animation_finished():
+	$explosion.hide()
+	emit_signal("crash")

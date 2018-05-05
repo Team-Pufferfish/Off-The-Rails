@@ -1,7 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/explosion_animation/explosion-f0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/explosion_animation/explosion-f1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/explosion_animation/explosion-f2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/explosion_animation/explosion-f3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/explosion_animation/explosion-f4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/explosion_animation/explosion-f6.png" type="Texture" id=8]
+[ext_resource path="res://Assets/explosion_animation/explosion-f5.png" type="Texture" id=9]
+[ext_resource path="res://Assets/explosion_animation/explosion-f7.png" type="Texture" id=10]
+[ext_resource path="res://Assets/explosion_animation/explosion-f8.png" type="Texture" id=11]
+[ext_resource path="res://Assets/explosion_animation/explosion-f9.png" type="Texture" id=12]
+[ext_resource path="res://Assets/explosion_animation/explosion-f10.png" type="Texture" id=13]
+[ext_resource path="res://Assets/explosion_animation/explosion-f11.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -61,7 +73,17 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Gravity", "Scale", "Trail" ]
 
-[node name="Ship" type="RigidBody2D"]
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "explosion",
+"speed": 10.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="Ship" type="RigidBody2D" index="0"]
 
 position = Vector2( 455.946, 177.022 )
 input_pickable = false
@@ -152,6 +174,17 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
 
+[node name="explosion" type="AnimatedSprite" parent="." index="4"]
+
+position = Vector2( -63.8424, -89.6249 )
+frames = SubResource( 5 )
+animation = "explosion"
+centered = false
+flip_h = true
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
 [connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]
+
+[connection signal="animation_finished" from="explosion" to="." method="_on_explosion_animation_finished"]
 
 

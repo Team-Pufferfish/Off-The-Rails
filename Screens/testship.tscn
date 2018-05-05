@@ -36,7 +36,7 @@ extents = Vector2( 31.026, 26.4125 )
 custom_solver_bias = 0.0
 extents = Vector2( 71.4648, 10 )
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 script = ExtResource( 1 )
 
