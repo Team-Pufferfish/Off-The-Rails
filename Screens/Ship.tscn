@@ -83,7 +83,9 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Ship" type="RigidBody2D" index="0"]
+[node name="Ship" type="RigidBody2D" index="0" groups=[
+"ships",
+]]
 
 position = Vector2( 455.946, 177.022 )
 input_pickable = false

@@ -18,6 +18,8 @@ export var down_action = "ui_down"
 export var up_thrust = 1.3
 export var thrust_vector = 0.2
 
+var is_dead = false
+
 func _ready():
 	$explosion.hide()
 
@@ -44,17 +46,17 @@ func _integrate_forces(state):
 #		$left_thruster.emitting = false
 #		$right_thruster.emitting = false
 	
-	if Input.is_action_pressed(left_action) and Input.is_action_pressed(right_action):
+	if Input.is_action_pressed(left_action) and Input.is_action_pressed(right_action) and not is_dead:
 		$left_thruster.emitting = true
 		$right_thruster.emitting = true
 		set_applied_force(thrust * Vector2(0,-up_thrust))
 
-	elif Input.is_action_pressed(left_action):
+	elif Input.is_action_pressed(left_action) and not is_dead:
 		set_applied_force(thrust * Vector2(thrust_vector,-1).normalized())
 		$left_thruster.emitting = true
 		$right_thruster.emitting = false
 
-	elif Input.is_action_pressed(right_action):
+	elif Input.is_action_pressed(right_action) and not is_dead:
 		set_applied_force(thrust * Vector2(-thrust_vector,-1).normalized())
 		$left_thruster.emitting = false
 		$right_thruster.emitting = true
@@ -136,6 +138,7 @@ func _integrate_forces(state):
 
 func _on_Ship_body_entered(body):
 	if body.is_in_group("ships"):
+		is_dead = true
 		$Sprite.hide()
 		$explosion.show()
 		$explosion.play("explosion")
