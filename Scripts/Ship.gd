@@ -4,6 +4,8 @@ export var thrust = 6700
 export var max_grab_height = 300
 export var rope_segment_size = 8
 
+signal crash
+
 var ropeNode = preload("res://Screens/rope_link.tscn")
 var magnetNode = preload("res://Screens/magnet.tscn")
 var joints = []
@@ -21,7 +23,7 @@ func _physics_process(delta):
 				
 
 func _integrate_forces(state):
-	
+		
 #	if Input.is_action_pressed("ui_left"):
 #		$left_thruster.emitting = true
 #		set_applied_force(thrust * Vector2(0.2,-1))
@@ -63,10 +65,9 @@ func _integrate_forces(state):
 	if Input.is_action_just_pressed(down_action):
 		if len(joints) > 0:
 			for joint in joints:
-				remove_child(joint)
-				
+				joint[1].remove_child(joint[0])
 			for rope in rope_segments:
-				remove_child(rope)
+				rope[1].remove_child(rope[0])
 			
 			rope_segments = []
 			joints = []
@@ -102,7 +103,7 @@ func _integrate_forces(state):
 						
 						
 						rope_segment.position.x = 0
-						rope_segments.append(rope_segment)
+						rope_segments.append([rope_segment,self])
 						add_child(rope_segment)
 						
 						
@@ -113,7 +114,7 @@ func _integrate_forces(state):
 						joint.set_node_a(last_element.get_path())
 						joint.set_node_b(rope_segment.get_path())
 						last_element.add_child(joint)
-						joints.append(joint)
+						joints.append([joint,last_element])
 					
 						last_element = rope_segment
 						
@@ -127,4 +128,9 @@ func _integrate_forces(state):
 					
 					joint.set_node_b(node.get_path())
 					last_element.add_child(joint)
-					joints.append(joint)
+					joints.append([joint,last_element])
+
+
+func _on_Ship_body_entered(body):
+	if body.is_in_group("ships"):
+		emit_signal("crash")

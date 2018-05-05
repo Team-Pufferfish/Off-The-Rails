@@ -20,6 +20,8 @@ func _ready():
 	
 
 func _process(delta):
+	
+	
 	if Input.is_action_just_pressed("Q"):
 		$Ship2.mass -= .5
 		$Ship.mass -= .5
@@ -49,3 +51,7 @@ func _process(delta):
 	displayLables()
 
 
+
+
+func _on_Ship_crash():
+	print("Crashed!!!!")
