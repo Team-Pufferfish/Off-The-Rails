@@ -51,22 +51,30 @@ func _integrate_forces(state):
 		$left_thruster.emitting = true
 		$right_thruster.emitting = true
 		set_applied_force(thrust * Vector2(0,-up_thrust))
+		if not $jet_sound.playing:
+			$jet_sound.play()
+
+		
 		
 
 	elif Input.is_action_pressed(left_action) and not is_dead:
 		set_applied_force(thrust * Vector2(thrust_vector,-1).normalized())
 		$left_thruster.emitting = true
 		$right_thruster.emitting = false
+		if not $jet_sound.playing:
+			$jet_sound.play()
 
 	elif Input.is_action_pressed(right_action) and not is_dead:
 		set_applied_force(thrust * Vector2(-thrust_vector,-1).normalized())
 		$left_thruster.emitting = false
 		$right_thruster.emitting = true
+		if not $jet_sound.playing:
+			$jet_sound.play()
 	else:
 		set_applied_force(Vector2())
 		$left_thruster.emitting = false
 		$right_thruster.emitting = false
-		
+		$jet_sound.stop()
 		
 		
 	if Input.is_action_just_pressed(down_action):
@@ -79,6 +87,7 @@ func _integrate_forces(state):
 			rope_segments = []
 			joints = []
 		else:
+			
 			var space_state = get_world_2d().direct_space_state
 			
 			var below_player = position + Vector2(0,max_grab_height)
@@ -89,6 +98,7 @@ func _integrate_forces(state):
 				var node = result["collider"]			
 				if node.get_class() == "RigidBody2D":
 					
+					$drop_rope_sound.play()
 					
 					print(result)
 					var rope_distance = abs(position[1] - result["position"][1])
@@ -144,9 +154,11 @@ func _on_Ship_body_entered(body):
 		$Sprite.hide()
 		$explosion.show()
 		$explosion.play("explosion")
+		$explosion_sound.play()
 		
 
 
 func _on_explosion_animation_finished():
 	$explosion.hide()
 	emit_signal("crash")
+	
