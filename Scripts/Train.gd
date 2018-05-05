@@ -1,28 +1,40 @@
-extends Node
+extends Node2D
 
 # class member variables go here, for example:
-export var passengers = 1000;
-export var open_end = 0;
-export var passenger_tick = 1;
-var delta_time = 0;
-var passenger_particle;
+# var a = 2
+# var b = "textvar"
+
+export var car_mass = 4.5
+signal train_destroy(car)
+signal failed()
 
 func _ready():
-	# Called every time the node is added to the scene.
+		# Called every time the node is added to the scene.
 	# Initialization here
-	passenger_particle = find_node("Passengers")
-	set_process(true);
-	pass
-
+	connect("train_destroy", self, "_train_destroy")
+	var car1 = get_node("Car1")
+	car1.connect("train_destroy", self, "_train_destroy")
+	var car2 = get_node("Car2")
+	car2.connect("train_destroy", self, "_train_destroy")
+	var car3 = get_node("Car3")
+	car3.connect("train_destroy", self, "_train_destroy")
+	
 func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-	delta_time += delta
-	if(delta_time >= passenger_tick && open_end != 0):
-		passenger_particle.emitting = false;
-		var tilt = get_global_transform().get_rotation()
-		#print(name + " rot: %s" % tilt);
-		if((tilt  * open_end) > (0.5 ) && passengers >= 0):
-			passenger_particle.emitting = true;
-			passengers -= 1;
-		#	//print(name + " passengers: %s" % passengers);
+	$Car1.mass = car_mass
+	$Car2.mass = car_mass
+	$Car3.mass = car_mass
+
+func _train_destroy(car):
+	#if one car is destroyed destory them all
+	print("Oh the humanity: %s" % car)
+	find_node("Car1").find_node("Explode").emitting = true;
+	find_node("Car1").find_node("Sprite").hide()
+	
+	find_node("Car2").find_node("Explode").emitting = true;
+	find_node("Car2").find_node("Sprite").hide()
+	
+	find_node("Car3").find_node("Explode").emitting = true;
+	find_node("Car3").find_node("Sprite").hide()
+	
+	emit_signal("failed")
+

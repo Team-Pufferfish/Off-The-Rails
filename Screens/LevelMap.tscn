@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=2]
@@ -33,7 +33,12 @@ b = Vector2( 5000, -600 )
 [sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 151.457, 4.08853 )
+extents = Vector2( 147.87, 4.08853 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 58.8156, 4.61093 )
 
 [sub_resource type="CircleShape2D" id=6]
 
@@ -137,7 +142,8 @@ shape = SubResource( 4 )
 
 [node name="Train" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 782.487, 309.995 )
+position = Vector2( 800.653, 324.437 )
+rotation = -0.06164
 
 [node name="Section1_Node" type="Node" parent="." index="2"]
 
@@ -191,13 +197,14 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section1_Node/Rail1" index="0"]
 
-position = Vector2( 862.897, -229.094 )
+position = Vector2( 864.988, -229.091 )
 rotation = -0.0984854
 shape = SubResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Line2D" type="Line2D" parent="Section1_Node/Rail1" index="1"]
 
+position = Vector2( -1.39258, -0.698975 )
 points = PoolVector2Array( 716.839, -214.081, 1009.42, -242.727, 1020.13, -235.052 )
 width = 10.0
 default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
@@ -205,10 +212,42 @@ texture_mode = 1061945348
 sharp_limit = 2.0
 round_precision = 8
 
+[node name="Rail2" type="StaticBody2D" parent="Section1_Node" index="2"]
+
+position = Vector2( 961.883, 352.177 )
+rotation = -0.00155243
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Line2D" type="Line2D" parent="Section1_Node/Rail2" index="0"]
+
+position = Vector2( -715.66, 206.987 )
+points = PoolVector2Array( 727.105, -218.551, 819.302, -200.672 )
+width = 10.0
+default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
+texture_mode = 1061945348
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section1_Node/Rail2" index="1"]
+
+position = Vector2( 56.9915, -2.29422 )
+rotation = 0.188959
+scale = Vector2( 0.795048, 1 )
+shape = SubResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="ExampleRock" type="RigidBody2D" parent="." index="3"]
 
 editor/display_folded = true
-position = Vector2( 2320.35, 375.038 )
+position = Vector2( 2334.76, 216.498 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -316,7 +355,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 [node name="ExampleRock4" type="RigidBody2D" parent="." index="6"]
 
 editor/display_folded = true
-position = Vector2( 2574.92, 338.903 )
+position = Vector2( 2586.69, 171.986 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -412,8 +451,8 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 4 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
-p1 = null
-p2 = null
+p1 = NodePath("../Ship")
+p2 = NodePath("../Ship2")
 
 [node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="9"]
 
@@ -572,8 +611,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Section5_Node" type="Node" parent="." index="12"]
 
-editor/display_folded = true
-
 [node name="Rail2" type="StaticBody2D" parent="Section5_Node" index="0"]
 
 position = Vector2( 1036.15, 652.576 )
@@ -632,8 +669,8 @@ polygon = PoolVector2Array( 1765.95, 1.62115, 1754.99, -98.5984, 1780.32, -145.9
 
 [node name="Section_3_Polygon2" type="Polygon2D" parent="Section5_Node" index="2"]
 
-position = Vector2( 500.046, 591.333 )
-polygon = PoolVector2Array( 1758.69, 68.1928, 1777.68, -29.2438, 1776.85, -63.099, 1787.59, -116.772, 1785.94, -148.975, 1804.93, -172.096, 1823.09, -156.407, 1854.47, -164.664, 1859.43, -98.6056, 1847.04, -31.7211, 1863.55, 43.4208, 2001.45, 48.3752, 2035.31, 22.7774, 2052.65, -20.1608, 2027.88, -86.2195, 2051.82, -131.635, 2049.34, -187.785, 2066.68, -205.125, 2107.1, -204.802, 2127.52, -172.124, 2126.96, -115.12, 2136.51, -79.8085, 2122.01, -47.41, 2105.49, -20.9865, 2127.79, 77.2759 )
+position = Vector2( 510.326, 419.994 )
+polygon = PoolVector2Array( 1736.36, 184.654, 1777.68, -29.2438, 1776.85, -63.099, 1787.59, -116.772, 1785.94, -148.975, 1804.93, -172.096, 1823.09, -156.407, 1854.47, -164.664, 1859.43, -98.6056, 1847.04, -31.7211, 1859.73, 64.7167, 1897.42, 157.24, 2005.36, 155.526, 2037.92, 109.265, 2035.31, 22.7774, 2052.65, -20.1608, 2027.88, -86.2195, 2051.82, -131.635, 2049.34, -187.785, 2058.21, -208.526, 2084.59, -202.77, 2107.1, -204.802, 2127.52, -172.124, 2126.96, -115.12, 2136.51, -79.8085, 2122.01, -47.41, 2105.49, -20.9865, 2147.58, 191.508 )
 uv = PoolVector2Array(  )
 color = Color( 0.570312, 0.299689, 0.082428, 1 )
 vertex_colors = PoolColorArray(  )
@@ -659,19 +696,17 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Section5_Node/Section_3_Polygon2/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 1762.81, 64.8899, 1774.38, -13.5549, 1779.33, -35.8497, 1776.85, -63.9247, 1789.24, -125.029, 1784.28, -148.975, 1807.4, -172.922, 1825.57, -157.233, 1853.65, -161.361, 1859.43, -97.7798, 1846.21, -30.8953, 1864.38, 45.8979, 2003.93, 50.0267, 2034.48, 26.9061, 2054.3, -20.9865, 2026.22, -89.5225, 2052.65, -132.461, 2046.87, -186.959, 2064.21, -205.125, 2085.65, -202.475, 2108.8, -203.474, 2126.14, -170.445, 2124.49, -112.643, 2136.87, -78.788, 2104.67, -20.9865, 2126.14, 76.4501 )
+polygon = PoolVector2Array( 1741.5, 186.367, 1774.38, -13.5549, 1779.33, -35.8497, 1776.85, -63.9247, 1789.24, -125.029, 1784.28, -148.975, 1807.4, -172.922, 1825.57, -157.233, 1853.65, -161.361, 1859.43, -97.7798, 1846.21, -30.8953, 1864.38, 45.8979, 1893.99, 160.667, 2008.79, 157.24, 2037.92, 110.978, 2034.48, 26.9061, 2054.3, -20.9865, 2026.22, -89.5225, 2052.65, -132.461, 2046.87, -186.959, 2058.48, -207.713, 2085.65, -202.475, 2108.8, -203.474, 2126.14, -170.445, 2124.49, -112.643, 2136.87, -78.788, 2104.67, -20.9865, 2152.72, 194.934 )
 
-[node name="Ship" parent="." index="13" instance=ExtResource( 5 )]
-
-position = Vector2( 82.4026, 339.4 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pause", "Transform", "Visibility", "Z Index" ]
-thrust = 2000
-
-[node name="Ship2" parent="." index="14" instance=ExtResource( 5 )]
+[node name="Ship2" parent="." index="13" instance=ExtResource( 5 )]
 
 position = Vector2( 223.905, 338.03 )
 left_action = "ui2_left"
 right_action = "ui2_right"
 down_action = "ui2_down"
+
+[node name="Ship" parent="." index="14" instance=ExtResource( 5 )]
+
+position = Vector2( 98.4868, 339.278 )
 
 
