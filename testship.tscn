@@ -93,7 +93,7 @@ extents = Vector2( 31.026, 26.4125 )
 custom_solver_bias = 0.0
 extents = Vector2( 71.4648, 10 )
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 [node name="Floor" type="StaticBody2D" parent="." index="0"]
 
@@ -177,7 +177,7 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pause", "Visibility" ]
-thrust = 6000
+thrust = 4000
 rope_segment_size = 8
 
 [node name="Sprite" type="Sprite" parent="Ship" index="0"]

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export var thrust = 400
+export var thrust = 100
 export var rope_segment_size = 8
 
 var ropeNode = preload("res://rope_link.tscn")
@@ -14,16 +14,34 @@ func _physics_process(delta):
 				
 
 func _integrate_forces(state):
+	
+#	if Input.is_action_pressed("ui_left"):
+#		$left_thruster.emitting = true
+#		set_applied_force(thrust * Vector2(0.2,-1))
+#	else:
+#		$left_thruster.emitting = false
+#
+#	if Input.is_action_pressed("ui_right"):
+#		$right_thruster.emitting = true
+#		set_applied_force(thrust * Vector2(-0.2,-1))
+#	else:
+#		$right_thruster.emitting = false
+#
+#	if not Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
+#		set_applied_force(Vector2())
+#		$left_thruster.emitting = false
+#		$right_thruster.emitting = false
+	
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_right"):
 		$left_thruster.emitting = true
 		$right_thruster.emitting = true
-		set_applied_force(thrust * Vector2(0,-1))
-		
+		set_applied_force(thrust * Vector2(0,-1.5))
+
 	elif Input.is_action_pressed("ui_left"):
 		set_applied_force(thrust * Vector2(0.2,-1).normalized())
 		$left_thruster.emitting = true
 		$right_thruster.emitting = false
-		
+
 	elif Input.is_action_pressed("ui_right"):
 		set_applied_force(thrust * Vector2(-0.2,-1).normalized())
 		$left_thruster.emitting = false
