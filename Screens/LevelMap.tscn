@@ -665,6 +665,7 @@ polygon = PoolVector2Array( 1762.81, 64.8899, 1774.38, -13.5549, 1779.33, -35.84
 
 position = Vector2( 82.4026, 339.4 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+thrust = 2000
 
 [node name="Ship2" parent="." index="14" instance=ExtResource( 5 )]
 

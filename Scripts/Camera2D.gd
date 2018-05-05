@@ -34,10 +34,11 @@ func _input(event):
         emit_signal("moved")
 		
 func _process(delta):
-	if(p1 == -1 || p2 == -1):
-		 pass
-	var pos1 = p1.get_global(pos1.position)
-	var pos2 = p2.get_global(pos2.position)
+	pass
+	#if(p1 == -1 || p2 == -1):
+	#	 pass
+	#var pos1 = p1.get_global(pos1.position)
+	#var pos2 = p2.get_global(pos2.position)
 	
 	
 	
