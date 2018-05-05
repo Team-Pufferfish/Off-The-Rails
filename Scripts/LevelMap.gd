@@ -1,8 +1,6 @@
 extends "./abstract_screen.gd"
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+#We need a global timer for the game loop that tracks how fast you get through it
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -15,20 +13,27 @@ func _ready():
 #	pass
 
 func _on_LevelMap_victory():
-	emit_signal("next_screen", "main_menu");
+	
+	#emit_signal("next_screen", "main_menu");
 	pass # replace with function body
 
 
 func _on_LevelMap_failed():
-	emit_signal("next_screen", "main_menu");
+	#emit_signal("next_screen", "main_menu");
 	pass # replace with function body
 
 
 func _on_VictoryZone_victory():
-	emit_signal("next_screen", "main_menu");
+	var victoryText = find_node("VictoryLabel");
+	victoryText.set_text("YOU WIN!\nYou Saved %s Passengers" % 1000);
+	#timer to return to menu
+	#emit_signal("next_screen", "main_menu");
 	pass # replace with function body
 
 
 func _on_Train_failed():
-	emit_signal("next_screen", "main_menu");
+	var failureText = find_node("FailureLabel");
+	failureText.set_text("EVERYONE DIED!");
+	#start timer to return to menu
+	#emit_signal("next_screen", "main_menu");
 	pass # replace with function body
