@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Ship.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://box.png.png" type="Texture" id=3]
 
 [sub_resource type="Gradient" id=1]
 
@@ -81,6 +82,16 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Gravity", "Scale", "Trail" ]
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.026, 26.4125 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 71.4648, 10 )
 
 [node name="Root" type="Node" index="0"]
 
@@ -165,12 +176,14 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Linear" ]
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pause", "Visibility" ]
 thrust = 6000
+rope_segment_size = 8
 
 [node name="Sprite" type="Sprite" parent="Ship" index="0"]
 
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship" index="1"]
 
@@ -225,5 +238,73 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
+
+[node name="Box" type="RigidBody2D" parent="." index="2"]
+
+position = Vector2( 422.74, 338.031 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 6.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 6.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -0.75
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Material", "Pickable", "Transform", "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="Box" index="0"]
+
+scale = Vector2( 2.86259, 2.48296 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" index="1"]
+
+shape = SubResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." index="3"]
+
+position = Vector2( 117.573, 458.231 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 50.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D" index="0"]
+
+position = Vector2( 59.8361, 0 )
+scale = Vector2( 6.98361, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="1"]
+
+position = Vector2( 59.0285, 0 )
+shape = SubResource( 11 )
 
 
