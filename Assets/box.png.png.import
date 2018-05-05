@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/box.png.png-72423fbfbef39c3f993ce764b8b1fb88.stex"
+path="res://.import/box.png.png-8e6fdffa78c52957595ca622cbd4555a.stex"
 
 [deps]
 
-source_file="res://box.png.png"
+source_file="res://Assets/box.png.png"
 source_md5="a210bffa50e2fe05777960f71961ac41"
 
-dest_files=[ "res://.import/box.png.png-72423fbfbef39c3f993ce764b8b1fb88.stex" ]
+dest_files=[ "res://.import/box.png.png-8e6fdffa78c52957595ca622cbd4555a.stex" ]
 dest_md5="8ab13c3e4ae60cf3c963fc59822e7eb6"
 
 [params]

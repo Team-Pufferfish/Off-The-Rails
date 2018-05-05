@@ -1,4 +1,4 @@
-extends "../abstract_screen.gd"
+extends "./abstract_screen.gd"
 
 # class member variables go here, for example:
 var current_screen;

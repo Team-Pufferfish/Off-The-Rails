@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rope_segment.png-c3fe35ff4d9a6e7e8036573ee4cfb97d.stex"
+path="res://.import/magnet.png-0d9d0689e3cc0528094f5a3f7c37f12f.stex"
 
 [deps]
 
-source_file="res://rope_segment.png"
-source_md5="41ea6ba3d361f43bf0d72a7731668f9e"
+source_file="res://Assets/magnet.png"
+source_md5="1fecf103b9ae07081b94f6e7fc3e03a0"
 
-dest_files=[ "res://.import/rope_segment.png-c3fe35ff4d9a6e7e8036573ee4cfb97d.stex" ]
-dest_md5="48c955473c10f086c1d22ea2a6dd12a0"
+dest_files=[ "res://.import/magnet.png-0d9d0689e3cc0528094f5a3f7c37f12f.stex" ]
+dest_md5="20acf0a52de58292d4683c4a44653816"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
