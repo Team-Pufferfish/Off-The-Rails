@@ -12,7 +12,7 @@ func _ready():
 
 func collision(body):
 	print("%s was hit" % body.name);
-	if (body.is_in_group("train")):
+	if (body.is_in_group("train") || body.is_in_group("ships")):
 		print(typeof(body));
 		body.destroy()
 		queue_free()

@@ -4,7 +4,7 @@ export var thrust = 6700
 export var max_grab_height = 300
 export var rope_segment_size = 8
 
-signal crash
+signal failure
 
 var ropeNode = preload("res://Screens/rope_link.tscn")
 var magnetNode = preload("res://Screens/magnet.tscn")
@@ -150,15 +150,15 @@ func _integrate_forces(state):
 
 func _on_Ship_body_entered(body):
 	if body.is_in_group("ships"):
-		is_dead = true
-		$Sprite.hide()
-		$explosion.show()
-		$explosion.play("explosion")
-		$explosion_sound.play()
+		destroy()
 		
-
+func destroy():
+	is_dead = true
+	$Sprite.hide()
+	$explosion.show()
+	$explosion.play("explosion")
+	$explosion_sound.play()		
 
 func _on_explosion_animation_finished():
 	$explosion.hide()
-	emit_signal("crash")
-	
+	emit_signal("failure")

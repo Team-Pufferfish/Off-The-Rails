@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
@@ -92,14 +92,13 @@ custom_solver_bias = 0.0
 a = Vector2( 950.924, 143.713 )
 b = Vector2( 56.4438, 56.3564 )
 
-[node name="LevelMap" type="Node2D"]
+[node name="LevelMap" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Draggable_Camera2D" type="Camera2D" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 494.719, 293.338 )
 anchor_mode = 1
 rotating = false
@@ -127,7 +126,7 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
 enabled = true
 p1 = NodePath("../Ship")
-p2 = NodePath("../Ship2")
+p2 = NodePath("../Ship")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Draggable_Camera2D" index="0"]
 
@@ -195,7 +194,7 @@ collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
-friction = 1.0
+friction = 0.0
 bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/LevelLowerBound" index="0"]
@@ -212,7 +211,7 @@ collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
-friction = 1.0
+friction = 0.0
 bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/LevelLeftBound" index="0"]
@@ -228,7 +227,7 @@ collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
-friction = 1.0
+friction = 0.0
 bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/LevelRightBound" index="0"]
@@ -244,7 +243,7 @@ collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
-friction = 1.0
+friction = 0.0
 bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/LevelUpperBound" index="0"]
@@ -856,13 +855,6 @@ position = Vector2( 58.9414, 6.95209 )
 scale = Vector2( 1, 1.04705 )
 shape = SubResource( 14 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="16"]
-
-stream = ExtResource( 8 )
-volume_db = -15.65
-autoplay = true
-mix_target = 0
-bus = "Master"
 [node name="Ceiling" type="Node" parent="." index="16"]
 
 editor/display_folded = true
@@ -1119,7 +1111,19 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="19"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
 [connection signal="failed" from="Train" to="." method="_on_Train_failed"]
+
+[connection signal="failure" from="Ship" to="." method="_on_Ship_failure"]
+
+[connection signal="failure" from="Ship2" to="." method="_on_Ship2_failure"]
 
 [connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_VictoryZone_body_entered"]
 

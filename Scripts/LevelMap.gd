@@ -12,28 +12,45 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func _on_LevelMap_victory():
+func _victory():
+	var victoryText = find_node("VictoryLabel");
+	victoryText.set_text("YOU WIN!\nYou saved the train in %s" % 60);
+	#timer to return to menu
+	#emit_signal("next_screen", "main_menu");
+	pass # replace with function body
 	
+func _failure():
+	var failureText = find_node("FailureLabel");
+	failureText.set_text("EVERYONE DIED!");
+	#start timer to return to menu
+	#emit_signal("next_screen", "main_menu");
+	pass # replace with function body
+
+
+func _on_LevelMap_victory():
+	_victory()
 	#emit_signal("next_screen", "main_menu");
 	pass # replace with function body
 
 
 func _on_LevelMap_failed():
+	_failure()
 	#emit_signal("next_screen", "main_menu");
 	pass # replace with function body
 
 
 func _on_VictoryZone_victory():
-	var victoryText = find_node("VictoryLabel");
-	victoryText.set_text("YOU WIN!\nYou Saved %s Passengers" % 1000);
-	#timer to return to menu
-	#emit_signal("next_screen", "main_menu");
-	pass # replace with function body
+	_victory();
 
 
 func _on_Train_failed():
-	var failureText = find_node("FailureLabel");
-	failureText.set_text("EVERYONE DIED!");
-	#start timer to return to menu
-	#emit_signal("next_screen", "main_menu");
+	_failure()
+
+func _on_Ship_failure():
+	_failure()
+	pass # replace with function body
+
+
+func _on_Ship2_failure():
+	_failure()
 	pass # replace with function body
