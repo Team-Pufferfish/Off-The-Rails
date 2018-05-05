@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export var thrust = 2000
+export var thrust = 6700
 export var max_grab_height = 300
 export var rope_segment_size = 8
 
@@ -13,6 +13,7 @@ export var left_action = "ui_left"
 export var right_action = "ui_right"
 export var down_action = "ui_down"
 
+export var up_thrust = 1.3
 export var thrust_vector = 0.2
 
 func _physics_process(delta):
@@ -41,7 +42,7 @@ func _integrate_forces(state):
 	if Input.is_action_pressed(left_action) and Input.is_action_pressed(right_action):
 		$left_thruster.emitting = true
 		$right_thruster.emitting = true
-		set_applied_force(thrust * Vector2(0,-1.5))
+		set_applied_force(thrust * Vector2(0,-up_thrust))
 
 	elif Input.is_action_pressed(left_action):
 		set_applied_force(thrust * Vector2(thrust_vector,-1).normalized())
@@ -103,7 +104,7 @@ func _integrate_forces(state):
 						
 						var joint = PinJoint2D.new()
 						joint.disable_collision = true
-						joint.softness = 0.5
+						joint.softness = 0
 						joint.set_node_a(last_element.get_path())
 						joint.set_node_b(rope_segment.get_path())
 						last_element.add_child(joint)

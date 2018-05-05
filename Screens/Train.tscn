@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/Train.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Screens/Train.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Train.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -57,9 +58,11 @@ extents = Vector2( 50.7902, 15.1768 )
 custom_solver_bias = 0.0
 extents = Vector2( 50.6287, 14.321 )
 
-[node name="Train" type="Node2D" index="0"]
+[node name="Train" type="Node2D"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+car_mass = 4.5
 
 [node name="Car1" type="RigidBody2D" parent="." index="0"]
 
@@ -82,7 +85,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Material", "Transform", "Visibility", "Z Index" ]
 passengers = 1000
 open_end = -1
@@ -91,7 +94,7 @@ passenger_tick = 1
 [node name="Sprite" type="Sprite" parent="Car1" index="0"]
 
 scale = Vector2( 1.61, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Car1" index="1"]
@@ -118,7 +121,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -161,7 +164,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="Sprite" type="Sprite" parent="Car2" index="0"]
 
 scale = Vector2( 1.61, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Car2" index="1"]
@@ -200,7 +203,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Linear" ]
 passengers = 1000
 open_end = 1
@@ -209,7 +212,7 @@ passenger_tick = 1
 [node name="Sprite" type="Sprite" parent="Car3" index="0"]
 
 scale = Vector2( 1.61, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Car3" index="1"]
@@ -236,7 +239,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1

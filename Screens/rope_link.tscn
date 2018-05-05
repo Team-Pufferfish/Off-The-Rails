@@ -7,16 +7,16 @@
 custom_solver_bias = 0.0
 extents = Vector2( 3.90059, 4.16877 )
 
-[node name="rope_link" type="RigidBody2D"]
+[node name="rope_link" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 mode = 0
-mass = 0.04
+mass = 0.5
 friction = 1.0
 bounce = 0.0
-gravity_scale = 0.5
+gravity_scale = 0.1
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
