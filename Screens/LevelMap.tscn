@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Train.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -122,6 +123,8 @@ script = ExtResource( 1 )
 
 [node name="LevelBounds" type="Node" parent="." index="0"]
 
+editor/display_folded = true
+
 [node name="LevelLowerBound" type="StaticBody2D" parent="LevelBounds" index="0"]
 
 position = Vector2( -2.17975, 599.428 )
@@ -188,9 +191,11 @@ shape = SubResource( 4 )
 
 [node name="Train" type="Node" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="Car1" type="RigidBody2D" parent="Train" index="0"]
 
-position = Vector2( 889.61, 233.572 )
+position = Vector2( 793.397, 316.189 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -388,6 +393,8 @@ v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Z Index" ]
 
 [node name="Section1_Node" type="Node" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="LevelMap_Section1_Polygon2D" type="Polygon2D" parent="Section1_Node" index="0"]
 
@@ -820,6 +827,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Section5_Node" type="Node" parent="." index="12"]
 
+editor/display_folded = true
+
 [node name="Rail2" type="StaticBody2D" parent="Section5_Node" index="0"]
 
 position = Vector2( 1036.15, 652.576 )
@@ -906,5 +915,11 @@ bounce = 0.0
 
 build_mode = 0
 polygon = PoolVector2Array( 1762.81, 64.8899, 1774.38, -13.5549, 1779.33, -35.8497, 1776.85, -63.9247, 1789.24, -125.029, 1784.28, -148.975, 1807.4, -172.922, 1825.57, -157.233, 1853.65, -161.361, 1859.43, -97.7798, 1846.21, -30.8953, 1864.38, 45.8979, 2003.93, 50.0267, 2034.48, 26.9061, 2054.3, -20.9865, 2026.22, -89.5225, 2052.65, -132.461, 2046.87, -186.959, 2064.21, -205.125, 2085.65, -202.475, 2108.8, -203.474, 2126.14, -170.445, 2124.49, -112.643, 2136.87, -78.788, 2104.67, -20.9865, 2126.14, 76.4501 )
+
+[node name="Ship" parent="." index="13" instance=ExtResource( 5 )]
+
+position = Vector2( 96.5093, -258.755 )
+thrust = 4000
+rope_segment_size = 8
 
 

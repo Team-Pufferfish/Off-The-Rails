@@ -3,7 +3,7 @@ extends RigidBody2D
 export var thrust = 100
 export var rope_segment_size = 8
 
-var ropeNode = preload("res://rope_link.tscn")
+var ropeNode = preload("res://Screens/rope_link.tscn")
 
 var joints = []
 var rope_segments = []
