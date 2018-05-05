@@ -12,6 +12,7 @@ export var left_action = "ui_left"
 export var right_action = "ui_right"
 export var down_action = "ui_down"
 
+export var thrust_vector = 0.2
 
 func _physics_process(delta):
 	pass
@@ -42,12 +43,12 @@ func _integrate_forces(state):
 		set_applied_force(thrust * Vector2(0,-1.5))
 
 	elif Input.is_action_pressed(left_action):
-		set_applied_force(thrust * Vector2(0.2,-1).normalized())
+		set_applied_force(thrust * Vector2(thrust_vector,-1).normalized())
 		$left_thruster.emitting = true
 		$right_thruster.emitting = false
 
 	elif Input.is_action_pressed(right_action):
-		set_applied_force(thrust * Vector2(-0.2,-1).normalized())
+		set_applied_force(thrust * Vector2(-thrust_vector,-1).normalized())
 		$left_thruster.emitting = false
 		$right_thruster.emitting = true
 	else:

@@ -61,7 +61,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Gravity", "Scale", "Trail" ]
 
-[node name="Ship" type="RigidBody2D"]
+[node name="Ship" type="RigidBody2D" index="0"]
 
 position = Vector2( 455.946, 177.022 )
 input_pickable = false
@@ -89,6 +89,7 @@ rope_segment_size = 8
 left_action = "ui_left"
 right_action = "ui_right"
 down_action = "ui_down"
+thrust_vector = 0.2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
