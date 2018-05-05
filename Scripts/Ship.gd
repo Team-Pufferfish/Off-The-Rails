@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-export var thrust = 4000
+export var thrust = 2000
+export var max_grab_height = 300
 export var rope_segment_size = 8
 
 var ropeNode = preload("res://Screens/rope_link.tscn")
@@ -71,7 +72,7 @@ func _integrate_forces(state):
 		else:
 			var space_state = get_world_2d().direct_space_state
 			
-			var below_player = position + Vector2(0,500)
+			var below_player = position + Vector2(0,max_grab_height)
 			
 			var result = space_state.intersect_ray(position,below_player,[self])
 			
