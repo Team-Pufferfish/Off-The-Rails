@@ -86,7 +86,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Ship" type="RigidBody2D" index="0" groups=[
+[node name="Ship" type="RigidBody2D" groups=[
 "ships",
 ]]
 
