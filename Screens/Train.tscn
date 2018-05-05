@@ -57,12 +57,13 @@ extents = Vector2( 50.7902, 15.1768 )
 custom_solver_bias = 0.0
 extents = Vector2( 50.6287, 14.321 )
 
-[node name="Train" type="Node2D"]
+[node name="Train" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
 [node name="Car1" type="RigidBody2D" parent="." index="0"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -123,29 +124,20 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Z Index" ]
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Car1" index="3"]
+[node name="PinJoint2D" type="PinJoint2D" parent="." index="1"]
 
 position = Vector2( 54.0041, 0.984344 )
-node_a = NodePath("..")
-node_b = NodePath("Car2")
+node_a = NodePath("../Car1")
+node_b = NodePath("../Car2")
 bias = 0.9
 disable_collision = false
 softness = 0.0
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Coupling12" type="Sprite" parent="Car1/PinJoint2D" index="0"]
+[node name="Car2" type="RigidBody2D" parent="." index="2"]
 
-position = Vector2( 0.124817, -0.212006 )
-scale = Vector2( 0.262619, 0.104688 )
-z_index = -1
-texture = ExtResource( 2 )
-centered = false
-offset = Vector2( -30, -20 )
-_sections_unfolded = [ "Offset", "Region", "Z Index" ]
-
-[node name="Car2" type="RigidBody2D" parent="Car1/PinJoint2D" index="1"]
-
-position = Vector2( 55.0789, -0.944305 )
+editor/display_folded = true
+position = Vector2( 109.083, 0.040039 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -166,39 +158,30 @@ angular_velocity = 0.0
 angular_damp = -1.0
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Car1/PinJoint2D/Car2" index="0"]
+[node name="Sprite" type="Sprite" parent="Car2" index="0"]
 
 scale = Vector2( 1.61, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Car1/PinJoint2D/Car2" index="1"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Car2" index="1"]
 
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PinJoint2D2" type="PinJoint2D" parent="Car1/PinJoint2D/Car2" index="2"]
+[node name="PinJoint2D2" type="PinJoint2D" parent="." index="3"]
 
-position = Vector2( 54.9956, 0.335907 )
-node_a = NodePath("..")
-node_b = NodePath("Car3")
+position = Vector2( 164.079, 0.375946 )
+node_a = NodePath("../Car2")
+node_b = NodePath("../Car3")
 bias = 0.9
 disable_collision = false
 softness = 0.0
 
-[node name="Coupling23" type="Sprite" parent="Car1/PinJoint2D/Car2/PinJoint2D2" index="0"]
+[node name="Car3" type="RigidBody2D" parent="." index="4"]
 
-position = Vector2( -0.553833, -1.08374 )
-scale = Vector2( 0.262619, 0.104688 )
-z_index = -1
-texture = ExtResource( 2 )
-centered = false
-offset = Vector2( -30, -20 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="Car3" type="RigidBody2D" parent="Car1/PinJoint2D/Car2/PinJoint2D2" index="1"]
-
-position = Vector2( 55.0665, -0.572388 )
+editor/display_folded = true
+position = Vector2( 219.145, -0.196442 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -223,18 +206,18 @@ passengers = 1000
 open_end = 1
 passenger_tick = 1
 
-[node name="Sprite" type="Sprite" parent="Car1/PinJoint2D/Car2/PinJoint2D2/Car3" index="0"]
+[node name="Sprite" type="Sprite" parent="Car3" index="0"]
 
 scale = Vector2( 1.61, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Car1/PinJoint2D/Car2/PinJoint2D2/Car3" index="1"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Car3" index="1"]
 
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Passengers" type="Particles2D" parent="Car1/PinJoint2D/Car2/PinJoint2D2/Car3" index="2"]
+[node name="Passengers" type="Particles2D" parent="Car3" index="2"]
 
 position = Vector2( 51.2833, 0.596848 )
 scale = Vector2( 0.114976, 0.237121 )
