@@ -1,15 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Screens/Train.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Train.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Train.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Car.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Car.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 51.7845, 15.2271 )
-
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=1]
 
 render_priority = 0
 trail_divisor = 1
@@ -48,17 +44,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 50.7902, 15.1768 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 50.6287, 14.321 )
-
-[node name="Train" type="Node2D"]
+[node name="Train" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -66,13 +52,12 @@ car_mass = 4.5
 
 [node name="Car1" type="RigidBody2D" parent="." index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 mode = 0
 mass = 6.0
-friction = 1.0
+friction = 0.9
 bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
@@ -93,16 +78,11 @@ passenger_tick = 1
 
 [node name="Sprite" type="Sprite" parent="Car1" index="0"]
 
-scale = Vector2( 1.61, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Car1" index="1"]
-
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="Passengers" type="Particles2D" parent="Car1" index="2"]
+[node name="Passengers" type="Particles2D" parent="Car1" index="1"]
 
 position = Vector2( -52.4493, -0.074585 )
 scale = Vector2( 0.114976, 0.237121 )
@@ -120,77 +100,38 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 2 )
-texture = ExtResource( 3 )
+process_material = SubResource( 1 )
+texture = ExtResource( 4 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Z Index" ]
 
+[node name="Polygon2D" type="CollisionPolygon2D" parent="Car1" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( -34.9463, 12.815, -39.7643, 12.5447, -42.1716, 2.99826, -39.6473, 1.36538, -45.186, -7.07049, -44.3339, -10.3085, -39.3917, -10.8198, -34.1938, -16.188, 38.7034, -16.3502, 44.1612, -10.4497, 49.64, -9.78564, 49.889, -7.12924, 46.6575, 1.3257, 46.9006, 3.41332, 44.4932, 13.2088, 22.744, 18.1065, -0.772827, 17.5286, -22.3317, 17.7744 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
 [node name="PinJoint2D" type="PinJoint2D" parent="." index="1"]
 
-position = Vector2( 54.0041, 0.984344 )
+position = Vector2( 53.8155, 3.6 )
 node_a = NodePath("../Car1")
 node_b = NodePath("../Car2")
-bias = 0.9
+bias = 0.7
 disable_collision = false
 softness = 0.0
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Car2" type="RigidBody2D" parent="." index="2"]
 
-editor/display_folded = true
-position = Vector2( 109.083, 0.040039 )
+position = Vector2( 103.173, 0 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 mode = 0
 mass = 6.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="Car2" index="0"]
-
-scale = Vector2( 1.61, 0.5 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Car2" index="1"]
-
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="." index="3"]
-
-position = Vector2( 164.079, 0.375946 )
-node_a = NodePath("../Car2")
-node_b = NodePath("../Car3")
-bias = 0.9
-disable_collision = false
-softness = 0.0
-
-[node name="Car3" type="RigidBody2D" parent="." index="4"]
-
-editor/display_folded = true
-position = Vector2( 219.145, -0.196442 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 6.0
-friction = 1.0
+friction = 0.9
 bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
@@ -204,23 +145,67 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision", "Linear" ]
+_sections_unfolded = [ "Collision", "Pause", "Transform" ]
+passengers = 1000
+open_end = 0
+passenger_tick = 1
+
+[node name="Sprite" type="Sprite" parent="Car2" index="0"]
+
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="Polygon2D2" type="CollisionPolygon2D" parent="Car2" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -34.9463, 12.815, -39.7643, 12.5447, -42.1716, 2.99826, -39.6473, 1.36538, -45.186, -7.07049, -44.3339, -10.3085, -39.3917, -10.8198, -34.1938, -16.188, 38.7034, -16.3502, 44.1612, -10.4497, 49.64, -9.78564, 49.889, -7.12924, 46.6575, 1.3257, 46.9006, 3.41332, 44.4932, 13.2088, 22.744, 18.1065, -0.772827, 17.5286, -22.3317, 17.7744 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="." index="3"]
+
+position = Vector2( 157.231, 3.6 )
+node_a = NodePath("../Car2")
+node_b = NodePath("../Car3")
+bias = 0.7
+disable_collision = true
+softness = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Car3" type="RigidBody2D" parent="." index="4"]
+
+position = Vector2( 206.353, 0 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 6.0
+friction = 0.9
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Linear", "Transform", "Z Index" ]
 passengers = 1000
 open_end = 1
 passenger_tick = 1
 
 [node name="Sprite" type="Sprite" parent="Car3" index="0"]
 
-scale = Vector2( 1.61, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Car3" index="1"]
-
-shape = SubResource( 4 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Passengers" type="Particles2D" parent="Car3" index="2"]
+[node name="Passengers" type="Particles2D" parent="Car3" index="1"]
 
 position = Vector2( 51.2833, 0.596848 )
 scale = Vector2( 0.114976, 0.237121 )
@@ -238,11 +223,17 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 2 )
-texture = ExtResource( 3 )
+process_material = SubResource( 1 )
+texture = ExtResource( 4 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Z Index" ]
+
+[node name="Polygon2D2" type="CollisionPolygon2D" parent="Car3" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( -34.9463, 12.815, -39.7643, 12.5447, -42.1716, 2.99826, -39.6473, 1.36538, -45.186, -7.07049, -44.3339, -10.3085, -39.3917, -10.8198, -34.1938, -16.188, 38.7034, -16.3502, 44.1612, -10.4497, 49.64, -9.78564, 49.889, -7.12924, 46.6575, 1.3257, 46.9006, 3.41332, 44.4932, 13.2088, 22.744, 18.1065, -0.772827, 17.5286, -22.3317, 17.7744 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 

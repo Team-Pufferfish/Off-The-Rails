@@ -61,9 +61,9 @@ func _process(delta):
 
 	cameraCenter.y = 0;
 	
-	print("Camera center: %s", get_offset());
-	print("Pos1: %s Pos2: %s" % [pos1, pos2]);
-	print("New center: %s" % cameraCenter);
+	#print("Camera center: %s", get_offset());
+	#print("Pos1: %s Pos2: %s" % [pos1, pos2]);
+	#print("New center: %s" % cameraCenter);
 	
 	set_offset(cameraCenter);
 
