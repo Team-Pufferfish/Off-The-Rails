@@ -10,6 +10,8 @@ signal zoomed()
 var _current_zoom_level = 1
 var _drag = false
 
+export var enabled = true;
+
 export(NodePath) var p1;
 export(NodePath) var p2;
 
@@ -42,7 +44,7 @@ func _input(event):
         emit_signal("moved")
 		
 func _process(delta):
-	if(p1 == null || p2 == null):
+	if(p1 == null || p2 == null || !enabled):
 		 return
 	var pos1 = player1.position;
 	var pos2 = player2.position;

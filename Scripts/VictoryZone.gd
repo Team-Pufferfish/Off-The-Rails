@@ -17,7 +17,6 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	
 	pass
 
 
@@ -35,8 +34,6 @@ func _on_VictoryZone_body_entered(body):
 		print("all car enter")
 		print("Victory");
 		emit_signal("victory")
-		
-
 
 func _on_VictoryZone_body_exited(body):
 	if (body.name == "Car1"):
