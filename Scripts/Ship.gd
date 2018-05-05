@@ -45,11 +45,13 @@ func _integrate_forces(state):
 #		set_applied_force(Vector2())
 #		$left_thruster.emitting = false
 #		$right_thruster.emitting = false
+
 	
 	if Input.is_action_pressed(left_action) and Input.is_action_pressed(right_action) and not is_dead:
 		$left_thruster.emitting = true
 		$right_thruster.emitting = true
 		set_applied_force(thrust * Vector2(0,-up_thrust))
+		
 
 	elif Input.is_action_pressed(left_action) and not is_dead:
 		set_applied_force(thrust * Vector2(thrust_vector,-1).normalized())

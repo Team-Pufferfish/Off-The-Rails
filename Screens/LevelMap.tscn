@@ -7,6 +7,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=7]
+[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=8]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -855,6 +856,13 @@ position = Vector2( 58.9414, 6.95209 )
 scale = Vector2( 1, 1.04705 )
 shape = SubResource( 14 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="16"]
+
+stream = ExtResource( 8 )
+volume_db = -15.65
+autoplay = true
+mix_target = 0
+bus = "Master"
 [node name="Ceiling" type="Node" parent="." index="16"]
 
 editor/display_folded = true
