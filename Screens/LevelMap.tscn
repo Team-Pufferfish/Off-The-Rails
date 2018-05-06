@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Assets/rocktext.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/Buttons/computer_key_S_T.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Buttons/computer_key_Arrow_Down_T.png" type="Texture" id=19]
 [ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Lava #3.png" type="Texture" id=21]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -1472,6 +1473,18 @@ volume_db = 0.0
 autoplay = true
 mix_target = 0
 bus = "Master"
+
+[node name="Line2D" type="Line2D" parent="." index="21"]
+
+z_index = -1
+points = PoolVector2Array( -130.996, 574.006, -21.9949, 581.006, 2893.78, 628.018, 5025.35, 610.006 )
+width = 60.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 21 )
+texture_mode = 1
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill", "Z Index" ]
 
 [connection signal="failed" from="Train" to="." method="_on_Train_failed"]
 
