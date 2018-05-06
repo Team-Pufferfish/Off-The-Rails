@@ -82,6 +82,7 @@ b = Vector2( 3649.89, 516.08 )
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+next = "main_menu"
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="0"]
 
