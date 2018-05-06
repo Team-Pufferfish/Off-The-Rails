@@ -1,0 +1,137 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Orange.png" type="Texture" id=2]
+[ext_resource path="res://explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/350904__cabled-mess__jump-c-02.wav" type="AudioStream" id=4]
+[ext_resource path="res://explosion_sound.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/jet.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-00.png" type="Texture" id=7]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-01.png" type="Texture" id=8]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-02.png" type="Texture" id=9]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-03.png" type="Texture" id=10]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-04.png" type="Texture" id=11]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-05.png" type="Texture" id=12]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-06.png" type="Texture" id=13]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-07.png" type="Texture" id=14]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-08.png" type="Texture" id=15]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-09.png" type="Texture" id=16]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-10.png" type="Texture" id=17]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-11.png" type="Texture" id=18]
+[ext_resource path="res://Assets/jet_animation/Jet-Untitled-12.png" type="Texture" id=19]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 21.8882
+height = 38.5316
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "jet",
+"speed": 12.0
+} ]
+
+[node name="Ship" type="RigidBody2D" groups=[
+"ships",
+]]
+
+position = Vector2( 455.946, 177.022 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 2
+mass = 11.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 2
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pause", "Visibility" ]
+thrust = 6700
+max_grab_height = 300
+rope_segment_size = 8
+player = 0
+left_action = "ui_left"
+right_action = "ui_right"
+down_action = "ui_down"
+up_thrust = 1.3
+thrust_vector = 0.2
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0, 10 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 13 )
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="explosion" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -64.0209, -90.6957 )
+z_index = 2
+
+[node name="drop_rope_sound" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Effects"
+area_mask = 1
+
+[node name="explosion_sound" parent="." index="4" instance=ExtResource( 5 )]
+
+[node name="jet_sound" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="right_jet" type="AnimatedSprite" parent="." index="6"]
+
+position = Vector2( 21.5085, 42.5 )
+scale = Vector2( 0.22422, 0.22422 )
+frames = SubResource( 2 )
+animation = "jet"
+frame = 2
+playing = true
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="left_jet" type="AnimatedSprite" parent="." index="7"]
+
+position = Vector2( -21.7203, 42.5 )
+scale = Vector2( 0.22422, 0.22422 )
+frames = SubResource( 2 )
+animation = "jet"
+frame = 1
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]
+
+

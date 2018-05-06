@@ -1,0 +1,351 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/testship.gd" type="Script" id=1]
+[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/box.png.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0.47929 )
+colors = PoolColorArray( 0.32173, 0.621094, 0.259598, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.7188, 28.069 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 79.4896 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.026, 26.4125 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 71.4648, 10 )
+
+[node name="Root" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="Train" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 621.235, 353.588 )
+
+[node name="Floor" type="StaticBody2D" parent="." index="1"]
+
+position = Vector2( 512.143, 573.148 )
+scale = Vector2( 16.3668, 1.11408 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Floor" index="0"]
+
+position = Vector2( -31.5851, -33.2211 )
+scale = Vector2( 62.754, 63.496 )
+texture = SubResource( 2 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" index="1"]
+
+position = Vector2( 0.291918, -5.38123 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" index="2"]
+
+visible = false
+position = Vector2( 31.9133, -545.1 )
+scale = Vector2( 0.0652, 17.3365 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Floor" index="3"]
+
+position = Vector2( 31.9133, -545.1 )
+scale = Vector2( 0.0652, 17.3365 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D2" index="0"]
+
+position = Vector2( -973.611, -0.723667 )
+shape = SubResource( 4 )
+
+[node name="Ship" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="Ship2" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 829.581, 173.412 )
+left_action = "ui2_left"
+right_action = "ui2_right"
+down_action = "ui2_down"
+
+[node name="Box" type="RigidBody2D" parent="." index="4"]
+
+position = Vector2( 422.74, 338.031 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 6.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 6.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -0.75
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Material", "Pickable", "Transform", "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="Box" index="0"]
+
+scale = Vector2( 2.86259, 2.48296 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" index="1"]
+
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." index="5"]
+
+position = Vector2( 117.573, 458.231 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 50.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D" index="0"]
+
+position = Vector2( 59.8361, 0 )
+scale = Vector2( 6.98361, 1 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="1"]
+
+position = Vector2( 59.0285, 0 )
+shape = SubResource( 6 )
+
+[node name="Label" type="Label" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 15.0
+margin_right = 122.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Q/W Ship Mass: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 53.0
+margin_right = 205.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "T/Y  Ship up-thrust multiplier:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 35.0
+margin_right = 123.0
+margin_bottom = 49.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "E/R Ship Thrust: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label4" type="Label" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 19.0
+margin_top = 73.0
+margin_right = 124.0
+margin_bottom = 87.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "U/I Train Car Mass:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="lblShipMass" type="Label" parent="." index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 15.0
+margin_right = 146.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="lblShipThrust" type="Label" parent="." index="11"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_top = 35.0
+margin_right = 146.0
+margin_bottom = 49.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="lblShipUpThrust" type="Label" parent="." index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 209.0
+margin_top = 53.0
+margin_right = 235.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="lblTrainCarMass" type="Label" parent="." index="13"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 143.0
+margin_top = 74.0
+margin_right = 169.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

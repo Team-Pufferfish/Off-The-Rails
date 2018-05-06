@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/rocktext.png" type="Texture" id=1]
+
+[node name="Rock" type="RigidBody2D"]
+
+position = Vector2( 2330.69, 153.781 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 0.25
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Angular", "Pickable", "Transform", "Z Index" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+
+polygon = PoolVector2Array( -5.98047, -17.9604, 3.17285, -18.6384, 9.2749, -16.6043, 16.3943, -12.5362, 16.3943, -0.670822, 19.7844, 2.04124, 16.3943, 15.2627, 0.460693, 18.3138, -8.51636, 12.5293, -19.2019, 13.5676, -21.9688, 1.66396, -18.1848, -8.46806, -10.7266, -11.5192 )
+uv = PoolVector2Array(  )
+color = Color( 0.636719, 0.624283, 0.624283, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 1 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 2, 2 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture" ]
+
+[node name="Collision" type="CollisionPolygon2D" parent="." index="1"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -5.98047, -17.9604, 3.17285, -18.6384, 9.2749, -16.6043, 16.3943, -12.5362, 16.3943, -0.670822, 19.7844, 2.04124, 16.3943, 15.2627, 0.460693, 18.3138, -8.51636, 12.5293, -19.2019, 13.5676, -21.9688, 1.66396, -18.1848, -8.46806, -10.7266, -11.5192 )
+_sections_unfolded = [ "Texture" ]
+
+
