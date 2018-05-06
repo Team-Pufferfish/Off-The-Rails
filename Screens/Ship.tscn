@@ -8,10 +8,11 @@
 [ext_resource path="res://explosion_sound.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/jet.ogg" type="AudioStream" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 41.6271, 22.3689 )
+radius = 19.8908
+height = 43.4725
 
 [sub_resource type="Curve" id=2]
 
@@ -94,6 +95,7 @@ _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Mate
 thrust = 6700
 max_grab_height = 300
 rope_segment_size = 8
+player = 0
 left_action = "ui_left"
 right_action = "ui_right"
 down_action = "ui_down"
@@ -108,8 +110,10 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 4.28308 )
-shape = SubResource( 1 )
+position = Vector2( 0, 1.42769 )
+rotation = 1.5708
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="left_thruster" type="Particles2D" parent="." index="2"]
 
@@ -164,6 +168,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visib
 [node name="explosion" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( -64.0209, -90.6957 )
+z_index = 2
 
 [node name="drop_rope_sound" type="AudioStreamPlayer2D" parent="." index="5"]
 

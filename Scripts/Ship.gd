@@ -3,11 +3,14 @@ extends RigidBody2D
 export var thrust = 6700
 export var max_grab_height = 300
 export var rope_segment_size = 8
+export var player = 0
 
 signal failure
 
 var ropeNode = preload("res://Screens/rope_link.tscn")
 var magnetNode = preload("res://Screens/magnet.tscn")
+var textures = [ preload("res://Assets/Orange.png"), preload("res://Assets/Blue.png") ]
+
 var joints = []
 var rope_segments = []
 
@@ -21,6 +24,7 @@ export var thrust_vector = 0.2
 var is_dead = false
 
 func _ready():
+	$Sprite.texture = textures[player];
 	$explosion.hide()
 
 func _physics_process(delta):
@@ -157,7 +161,8 @@ func destroy():
 	$Sprite.hide()
 	$explosion.show()
 	$explosion.play("explosion")
-	$explosion_sound.play()		
+	$explosion_sound.play()	
+	emit_signal("failure");	
 
 func _on_explosion_animation_finished():
 	$explosion.hide()
