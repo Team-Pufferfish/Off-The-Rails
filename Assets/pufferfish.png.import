@@ -7,10 +7,10 @@ path="res://.import/pufferfish.png-309e6f50f6d2d4d71d69d011c0764d9c.stex"
 [deps]
 
 source_file="res://Assets/pufferfish.png"
-source_md5="9bbb0139dfe5ce7fe15e488c35874c46"
+source_md5="a9f3f3dff2c5153aeb9d44bd004ce7d1"
 
 dest_files=[ "res://.import/pufferfish.png-309e6f50f6d2d4d71d69d011c0764d9c.stex" ]
-dest_md5="566fbf4a91772822561d7f3c30d356eb"
+dest_md5="99819c6c2c33077bc0bc2170e91bfae3"
 
 [params]
 

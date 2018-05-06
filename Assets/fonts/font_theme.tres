@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/fonts/ethnocentric rg.ttf" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=1]
 
 size = 25
 use_mipmaps = false
@@ -12,5 +12,5 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [resource]
 
-default_font = SubResource( 17 )
+default_font = SubResource( 1 )
 
