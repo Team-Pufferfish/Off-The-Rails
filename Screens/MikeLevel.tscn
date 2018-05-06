@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Assets/rocktext.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Assets/Lava #3.png" type="Texture" id=12]
 [ext_resource path="res://Screens/Rock.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/required_goatonapole.png" type="Texture" id=14]
+[ext_resource path="res://Assets/fonts/font_theme.tres" type="Theme" id=15]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -54,19 +56,19 @@ b = Vector2( 360.13, -2.78287 )
 custom_solver_bias = 0.0
 extents = Vector2( 168.718, 21.4516 )
 
-[sub_resource type="SegmentShape2D" id=9]
+[sub_resource type="SegmentShape2D" id=8]
 
 custom_solver_bias = 0.0
 a = Vector2( 409.973, 10.7824 )
 b = Vector2( 521.287, -55.1415 )
 
-[sub_resource type="SegmentShape2D" id=10]
+[sub_resource type="SegmentShape2D" id=9]
 
 custom_solver_bias = 0.0
 a = Vector2( -28.7994, 10.2421 )
 b = Vector2( 10.6469, 41.0426 )
 
-[sub_resource type="SegmentShape2D" id=8]
+[sub_resource type="SegmentShape2D" id=10]
 
 custom_solver_bias = 0.0
 a = Vector2( -204.421, 181.823 )
@@ -512,16 +514,16 @@ bounce = 0.0
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="FirstStruct/Rail" index="0"]
 
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="FirstStruct/Rail" index="1"]
 
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstStruct/Rail" index="2"]
 
 position = Vector2( 612.773, -170.5 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="Line2D" type="Line2D" parent="FirstStruct/Rail" index="3"]
 
@@ -736,6 +738,52 @@ texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
 _sections_unfolded = [ "Fill", "Z Index" ]
+
+[node name="required_goatonapole" type="Sprite" parent="." index="14"]
+
+position = Vector2( 4403.06, 504.631 )
+scale = Vector2( 0.299654, 0.299654 )
+texture = ExtResource( 14 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="required_goatonapole" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="required_goatonapole/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -26.7021, 27.6803, -39.082, -31.7366, -59.8213, -90.2263, -84.0801, -129.645, -97.2197, -167.043, -94.1875, -196.355, -112.381, -233.752, -127.543, -231.731, -131.586, -224.655, -124.511, -210.505, -137.649, -201.408, -142.704, -191.301, -173.026, -180.183, -187.177, -199.387, -204.358, -266.096, -212.445, -297.429, -201.327, -395.472, -178.08, -436.912, -149.779, -463.192, -134.618, -465.213, -82.0596, -484.417, -117.436, -434.891, -146.746, -377.278, -145.736, -363.128, -101.263, -360.095, -60.834, -320.676, 2.84375, -311.58, 40.2412, -290.354, 88.7578, -301.472, 139.295, -289.343, 164.562, -259.021, 179.726, -265.085, 194.886, -240.827, 191.854, -217.58, 197.918, -150.871, 182.756, -100.334, 179.726, -79.1082, 177.703, -63.947, 158.5, -22.5063, 150.412, 19.9448, 103.918, 99.7939, 80.6709, 161.449, 61.4668, 164.482, 75.9746, 444.376, 11.9688, 446.06, 20.2979, 162.169, 1.39648, 155.869, -8.68359, 148.308, -3.64355, 94.1245, -21.2842, 47.5016 )
+
+[node name="Label" type="Label" parent="required_goatonapole" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -111.0
+margin_top = -210.0
+margin_right = 203.0
+margin_bottom = -145.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 15 )
+text = "FINAL BOSS
+The Devil!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_styles" ]
 
 [connection signal="failed" from="Train" to="." method="_on_Train_failed"]
 

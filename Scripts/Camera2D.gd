@@ -39,7 +39,7 @@ func _input(event):
         _update_zoom(-ZOOM_INCREMENT, get_local_mouse_position())
     elif event.is_action("cam_zoom_out"):
         _update_zoom(ZOOM_INCREMENT, get_local_mouse_position())
-    elif event is InputEventMouseMotion && _drag:
+    elif event is InputEventMouseMotion && _drag && false:#intentionally broke
         set_offset(get_offset() - event.relative*_current_zoom_level)
         emit_signal("moved")
 		
@@ -70,6 +70,7 @@ func _process(delta):
 	set_offset(cameraCenter);
 
 func _update_zoom(incr, zoom_anchor):
+    return
     var old_zoom = _current_zoom_level
     _current_zoom_level += incr
     if _current_zoom_level < MAX_ZOOM_LEVEL:

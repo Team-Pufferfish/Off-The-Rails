@@ -84,7 +84,7 @@ custom_solver_bias = 0.0
 a = Vector2( -62.0925, 37.4411 )
 b = Vector2( 360.313, 268.396 )
 
-[node name="LevelMap" type="Node2D" index="0"]
+[node name="LevelMap" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
