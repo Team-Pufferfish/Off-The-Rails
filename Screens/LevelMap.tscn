@@ -119,7 +119,7 @@ b = Vector2( -1.70996, 14.6494 )
 custom_solver_bias = 0.0
 extents = Vector2( 168.718, 21.4516 )
 
-[node name="LevelMap" type="Node2D"]
+[node name="LevelMap" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -1030,7 +1030,6 @@ polygon = PoolVector2Array( 1741.5, 186.367, 1774.38, -13.5549, 1779.33, -35.849
 
 [node name="VictoryZone" type="Area2D" parent="." index="16"]
 
-editor/display_folded = true
 position = Vector2( 4718.45, 407.489 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -1046,6 +1045,24 @@ script = ExtResource( 11 )
 position = Vector2( 58.9414, 6.95209 )
 scale = Vector2( 1, 1.04705 )
 shape = SubResource( 18 )
+
+[node name="ColorRect" type="ColorRect" parent="VictoryZone" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -113.0
+margin_top = -16.0
+margin_right = 228.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.0313726, 1, 0, 0.12549 )
 
 [node name="Ceiling" type="Node" parent="." index="17"]
 
@@ -1068,6 +1085,7 @@ invert_border = 100.0
 
 [node name="Hint Text" type="Node2D" parent="." index="18"]
 
+editor/display_folded = true
 z_index = -2
 _sections_unfolded = [ "Z Index" ]
 

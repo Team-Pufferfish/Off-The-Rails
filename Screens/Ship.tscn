@@ -117,7 +117,7 @@ position = Vector2( 21.5085, 42.5 )
 scale = Vector2( 0.22422, 0.22422 )
 frames = SubResource( 2 )
 animation = "jet"
-frame = 9
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -127,7 +127,7 @@ position = Vector2( -21.7203, 42.5 )
 scale = Vector2( 0.22422, 0.22422 )
 frames = SubResource( 2 )
 animation = "jet"
-frame = 8
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
