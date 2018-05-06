@@ -23,8 +23,8 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 19.8908
-height = 43.4725
+radius = 21.8882
+height = 38.5316
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -35,7 +35,7 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[node name="Ship" type="RigidBody2D" index="0" groups=[
+[node name="Ship" type="RigidBody2D" groups=[
 "ships",
 ]]
 
@@ -78,7 +78,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 1.42769 )
+position = Vector2( 4.21201e-07, 3.42769 )
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -117,7 +117,7 @@ position = Vector2( 21.5085, 35.5847 )
 scale = Vector2( 0.22422, 0.22422 )
 frames = SubResource( 2 )
 animation = "jet"
-frame = 1
+frame = 2
 playing = true
 
 [node name="left_jet" type="AnimatedSprite" parent="." index="7"]
@@ -126,6 +126,7 @@ position = Vector2( -21.7203, 34.504 )
 scale = Vector2( 0.22422, 0.22422 )
 frames = SubResource( 2 )
 animation = "jet"
+frame = 1
 playing = true
 flip_h = true
 

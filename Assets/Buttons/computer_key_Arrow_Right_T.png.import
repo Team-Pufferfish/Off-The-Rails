@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rope_segment.png-e7527adeb6c9517d3e1a30507982390e.stex"
+path="res://.import/computer_key_Arrow_Right_T.png-7f44c50f77933784a1a2253c5b82e303.stex"
 
 [deps]
 
-source_file="res://Assets/rope_segment.png"
-source_md5="8bd85e412942e440f778a25a713af9e4"
+source_file="res://Assets/Buttons/computer_key_Arrow_Right_T.png"
+source_md5="0c890cb78bbb8dee855dfee85d57f68d"
 
-dest_files=[ "res://.import/rope_segment.png-e7527adeb6c9517d3e1a30507982390e.stex" ]
-dest_md5="283af575278db86a1bf95766e0c0ce17"
+dest_files=[ "res://.import/computer_key_Arrow_Right_T.png-7f44c50f77933784a1a2253c5b82e303.stex" ]
+dest_md5="0e3929bed11ba61b0786a0c4ef124e1a"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

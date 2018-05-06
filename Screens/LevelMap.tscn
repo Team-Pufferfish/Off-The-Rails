@@ -1,14 +1,23 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
-[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://Assets/box.png.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=8]
-[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/fonts/massive_font_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=6]
+[ext_resource path="res://Assets/fonts/ethnocentric rg.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://Assets/box.png.png" type="Texture" id=9]
+[ext_resource path="res://Assets/fonts/small_font_theme.tres" type="Theme" id=10]
+[ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Buttons/computer_key_A_T.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Left_T.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/computer_key_D_T.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Right_T.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/computer_key_S_T.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Down_T.png" type="Texture" id=17]
+[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=18]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -39,6 +48,18 @@ b = Vector2( 5000, -600 )
 custom_solver_bias = 0.0
 extents = Vector2( 2400, 10 )
 
+[sub_resource type="DynamicFont" id=17]
+
+size = 25
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="Theme" id=18]
+
+default_font = SubResource( 17 )
+
 [sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
@@ -59,41 +80,41 @@ radius = 19.7066
 custom_solver_bias = 0.0
 radius = 21.352
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
 extents = Vector2( 20.4831, 18.787 )
 
-[sub_resource type="SegmentShape2D" id=10]
+[sub_resource type="SegmentShape2D" id=11]
 
 custom_solver_bias = 0.0
 a = Vector2( 0.479004, -4.27289 )
 b = Vector2( 360.43, -4.27289 )
 
-[sub_resource type="SegmentShape2D" id=11]
+[sub_resource type="SegmentShape2D" id=12]
 
 custom_solver_bias = 0.0
 a = Vector2( -5.37097, -3.49692 )
 b = Vector2( 325.776, 58.7903 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
 extents = Vector2( 4.93921, 13.7297 )
 
-[sub_resource type="SegmentShape2D" id=15]
+[sub_resource type="SegmentShape2D" id=14]
 
 custom_solver_bias = 0.0
 a = Vector2( 1018.75, 151.477 )
 b = Vector2( 56.4438, 56.3564 )
 
-[sub_resource type="SegmentShape2D" id=13]
+[sub_resource type="SegmentShape2D" id=15]
 
 custom_solver_bias = 0.0
 a = Vector2( 323.807, 2.06973 )
 b = Vector2( -1.70996, 14.6494 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=16]
 
 custom_solver_bias = 0.0
 extents = Vector2( 168.718, 21.4516 )
@@ -105,7 +126,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Draggable_Camera2D" type="Camera2D" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 494.719, 293.338 )
 anchor_mode = 1
 rotating = false
@@ -145,22 +165,21 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="VictoryLabel" type="Label" parent="Draggable_Camera2D/CanvasLayer" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 219.0
-margin_top = 242.0
-margin_right = 414.0
-margin_bottom = 287.0
-rect_scale = Vector2( 3, 3 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -273.5
+margin_top = -77.0
+margin_right = 273.5
+margin_bottom = 77.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0.26535, 0.917969, 0.290843, 1 )
+theme = ExtResource( 3 )
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -169,41 +188,39 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="FailureLabel" type="Label" parent="Draggable_Camera2D/CanvasLayer" index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 226.0
-margin_top = 282.0
-margin_right = 421.0
-margin_bottom = 327.0
-rect_scale = Vector2( 3, 3 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -354.5
+margin_top = -30.5
+margin_right = 354.5
+margin_bottom = 30.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0.984375, 0.15495, 0.0192261, 1 )
+theme = ExtResource( 3 )
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Hint", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Train" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Train" parent="." index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 811.923, 327.861 )
 rotation = -0.06164
 
-[node name="Ship" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Ship" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 229.807, 347.846 )
-player = 0
+position = Vector2( 485.598, 330.305 )
 
-[node name="Ship2" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Ship2" parent="." index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 64.9032, 348.41 )
+position = Vector2( 142.629, 337.106 )
 player = 1
 left_action = "ui2_left"
 right_action = "ui2_right"
@@ -287,7 +304,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/Deathzone" index="0"]
 
@@ -300,7 +317,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="LevelMap_Section1_Polygon2D" type="Polygon2D" parent="Section1_Node" index="0"]
 
 position = Vector2( -2.17975, 599.428 )
-polygon = PoolVector2Array( -2.58633, -235.876, 0.319977, -248.954, 15.5782, -245.321, 30.8363, -227.157, 274.24, -227.157, 287.319, -242.415, 295.311, -239.509, 311.296, -232.969, 323.648, -210.446, 335.273, -151.593, 370.875, -101.459, 454.432, -116.717, 484.948, -109.451, 545.254, -62.2234, 571.411, -78.2082, 646.249, -122.529, 674.37, -134.701, 697.702, -161.922, 730.757, -201.782, 748.256, -218.309, 762.839, -225.114, 780.338, -234.836, 802.463, -234.423, 974.482, -243.3, 984.437, -222.624, 1005.88, -174.378, 1012.01, -113.88, 1045.87, 4.62183, -1.13318, 0.262329 )
+polygon = PoolVector2Array( -15.9736, -173.699, -7.82856, -218.497, 65.4771, -221.755, 97.2429, -233.158, 183.581, -233.158, 213.717, -218.442, 405.127, -219.311, 445.037, -241.303, 533.004, -238.859, 559.883, -218.356, 748.256, -218.309, 762.839, -225.114, 780.338, -234.836, 802.463, -234.423, 974.482, -243.3, 984.437, -222.624, 1005.88, -174.378, 1012.01, -113.88, 1045.87, 4.62183, -1.13318, 0.262329 )
 uv = PoolVector2Array(  )
 color = Color( 0.570312, 0.299689, 0.082428, 1 )
 vertex_colors = PoolColorArray(  )
@@ -314,7 +331,31 @@ invert_enable = false
 invert_border = 100.0
 _sections_unfolded = [ "Texture", "Z Index" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Section1_Node/LevelMap_Section1_Polygon2D" index="0"]
+[node name="Label" type="Label" parent="Section1_Node/LevelMap_Section1_Polygon2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 28.0
+margin_top = -135.0
+margin_right = 984.0
+margin_bottom = -2.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 18 )
+text = "1. Don't hit the other player or you lose
+2. Don't drop the train in the chasm or you lose"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Material", "Size Flags", "Theme", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section1_Node/LevelMap_Section1_Polygon2D" index="1"]
 
 input_pickable = false
 collision_layer = 1
@@ -325,14 +366,16 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Section1_Node/LevelMap_Section1_Polygon2D/StaticBody2D" index="0"]
+[node name="LevelMap_Section1_Polygon2D2" type="CollisionPolygon2D" parent="Section1_Node/LevelMap_Section1_Polygon2D/StaticBody2D" index="0"]
 
+position = Vector2( 0.814516, 0 )
 build_mode = 0
-polygon = PoolVector2Array( -1.85974, -0.464233, -2.58633, -235.876, -1.13318, -248.954, 13.3984, -247.501, 30.8363, -224.977, 273.514, -225.704, 285.139, -241.688, 306.936, -235.149, 325.827, -208.992, 335.273, -153.046, 370.875, -98.5524, 452.252, -115.99, 484.222, -110.178, 547.434, -62.95, 644.069, -123.983, 673.398, -134.701, 698.675, -159.006, 725.896, -193.032, 748.256, -218.309, 767.7, -228.031, 787.144, -234.836, 810.476, -236.781, 864.919, -238.725, 974.482, -242.535, 1002.82, -182.036, 1012.77, -106.987, 1047.28, 6.31531 )
-_sections_unfolded = [ "Visibility" ]
+polygon = PoolVector2Array( -15.9736, -173.699, -7.82856, -218.497, 65.4771, -221.755, 99.6864, -235.601, 186.024, -233.158, 213.717, -218.442, 405.941, -220.126, 443.408, -242.117, 533.819, -239.674, 556.625, -218.357, 748.256, -218.309, 762.839, -225.114, 780.338, -234.836, 802.463, -234.423, 974.482, -243.3, 984.437, -222.624, 1005.88, -174.378, 1012.01, -113.88, 1045.87, 4.62183, -1.13318, 0.262329 )
+_sections_unfolded = [ "Texture", "Z Index" ]
 
 [node name="Rail1" type="StaticBody2D" parent="Section1_Node" index="1"]
 
+editor/display_folded = true
 position = Vector2( -33.6772, 585.105 )
 rotation = -0.00155243
 input_pickable = false
@@ -363,6 +406,7 @@ round_precision = 8
 
 [node name="Rail2" type="StaticBody2D" parent="Section1_Node" index="2"]
 
+editor/display_folded = true
 position = Vector2( 961.883, 352.177 )
 rotation = -0.00155243
 input_pickable = false
@@ -421,7 +465,7 @@ _sections_unfolded = [ "Angular", "Pickable", "Transform", "Z Index" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock" index="1"]
 
@@ -457,7 +501,7 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock2" index="1"]
 
@@ -493,7 +537,7 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock3" index="1"]
 
@@ -529,7 +573,7 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock4" index="1"]
 
@@ -539,7 +583,6 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock5" type="RigidBody2D" parent="." index="10"]
 
-editor/display_folded = true
 position = Vector2( 294.896, 311.247 )
 input_pickable = false
 collision_layer = 1
@@ -565,13 +608,12 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 4.58851, 20.6162 )
 scale = Vector2( 1.95369, 1.79677 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock5" index="1"]
 
 position = Vector2( 4.93689, 21.2708 )
-shape = SubResource( 16 )
-disabled = true
+shape = SubResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="11"]
@@ -631,7 +673,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SectionEnd_Polygon/Rail3" index="1"]
 
 position = Vector2( -412.693, -152.022 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Section2_Node" type="Node" parent="." index="12"]
 
@@ -699,7 +741,7 @@ round_precision = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/Rail2" index="1"]
 
 position = Vector2( 1788.74, -203.858 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Section_3_Polygon" type="Polygon2D" parent="Section3_Node" index="1"]
 
@@ -750,18 +792,16 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 13.2769, -11.522 )
 rotation = 0.240188
 scale = Vector2( 0.170709, 0.442483 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/RailEnd" index="1"]
 
 position = Vector2( 13.2605, -11.8397 )
 rotation = 0.253564
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Section_Challenge" type="Node" parent="." index="14"]
-
-editor/display_folded = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Section_Challenge" index="0"]
 
@@ -827,10 +867,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = ExtResource( 10 )
 text = "Tricky one eh?"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Section_Challenge/Polygon2D2" index="1"]
 
@@ -870,7 +912,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section_Challenge/Rail" index="0"]
 
 position = Vector2( 3322.73, 381.732 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Section5_Node" type="Node" parent="." index="15"]
 
@@ -890,7 +932,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section5_Node/Rail2" index="0"]
 
 position = Vector2( 1788.19, -214.978 )
-shape = SubResource( 13 )
+shape = SubResource( 15 )
 
 [node name="Line2D" type="Line2D" parent="Section5_Node/Rail2" index="1"]
 
@@ -974,13 +1016,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 8 )
+script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone" index="0"]
 
 position = Vector2( 58.9414, 6.95209 )
 scale = Vector2( 1, 1.04705 )
-shape = SubResource( 14 )
+shape = SubResource( 16 )
 
 [node name="Ceiling" type="Node" parent="." index="17"]
 
@@ -1003,60 +1045,217 @@ invert_border = 100.0
 
 [node name="Hint Text" type="Node2D" parent="." index="18"]
 
-editor/display_folded = true
 z_index = -2
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Label" type="Label" parent="Hint Text" index="0"]
+[node name="lblPlayer" type="Label" parent="Hint Text" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 26.0
-margin_top = 125.0
-margin_right = 329.0
-margin_bottom = 258.0
+margin_left = 31.0
+margin_top = 38.0
+margin_right = 214.0
+margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "1. Don't hit the other player or you lose
-2. Don't drop the train in the chasm or you lose
-
-W/Left - Fire Left thruster
-D/Right - Fire Right thruster
-W+D/left+Right - Fire both thrusters!
-
-S/Down  - Extend/Retract Grabber"
+theme = SubResource( 18 )
+text = "Player 1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
 
-[node name="Label2" type="Label" parent="Hint Text" index="1"]
+[node name="lblPlayer2" type="Label" parent="Hint Text" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 584.0
-margin_top = 325.0
-margin_right = 887.0
-margin_bottom = 458.0
+margin_left = 368.0
+margin_top = 38.0
+margin_right = 551.0
+margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = SubResource( 18 )
+text = "Player 2"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="lblPlayer1_expl" type="Label" parent="Hint Text" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 78.0
+margin_top = 84.0
+margin_right = 310.0
+margin_bottom = 106.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 10 )
+text = "Use left thruster (move right)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="lblPlayer2_expl1" type="Label" parent="Hint Text" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 415.0
+margin_top = 84.0
+margin_right = 647.0
+margin_bottom = 106.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 10 )
+text = "Use left thruster (move right)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="lblPlayer1_expl2" type="Label" parent="Hint Text" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 75.0
+margin_top = 120.0
+margin_right = 311.0
+margin_bottom = 142.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 10 )
+text = "Use right thruster (move left)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="lblPlayer2_expl2" type="Label" parent="Hint Text" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 412.0
+margin_top = 120.0
+margin_right = 648.0
+margin_bottom = 142.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 10 )
+text = "Use right thruster (move left)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="lblPlayer1_expl3" type="Label" parent="Hint Text" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_top = 156.0
+margin_right = 312.0
+margin_bottom = 189.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 10 )
+text = "Extend/retract grabber"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="lblPlayer2_expl3" type="Label" parent="Hint Text" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 413.0
+margin_top = 156.0
+margin_right = 649.0
+margin_bottom = 189.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 10 )
+text = "Extend/retract grabber"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="Label2" type="Label" parent="Hint Text" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 581.0
+margin_top = 320.0
+margin_right = 884.0
+margin_bottom = 453.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 10 )
 text = "GRAB THE TRAIN ->"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
 
-[node name="Label3" type="Label" parent="Hint Text" index="2"]
+[node name="Label3" type="Label" parent="Hint Text" index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1072,14 +1271,16 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = ExtResource( 10 )
 text = "Safe Zone This Way ->
 	(Or Death)"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
 
-[node name="Label4" type="Label" parent="Hint Text" index="3"]
+[node name="Label4" type="Label" parent="Hint Text" index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1095,37 +1296,39 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = SubResource( 18 )
 text = "Almost There!"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Theme" ]
 
-[node name="Label5" type="Label" parent="Hint Text" index="4"]
+[node name="Label5" type="Label" parent="Hint Text" index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1801.0
-margin_top = 332.0
-margin_right = 2104.0
-margin_bottom = 465.0
+margin_left = 1564.0
+margin_top = 310.0
+margin_right = 2221.0
+margin_bottom = 443.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = SubResource( 18 )
 text = "Phew! Take a break if you need it."
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Theme" ]
 
-[node name="SAFE ZONE" type="Label" parent="Hint Text" index="5"]
+[node name="SAFE ZONE" type="Label" parent="Hint Text" index="12"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1141,16 +1344,54 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = ExtResource( 10 )
 text = "|					SAFE ZONE					|
 -All cars must be inside-"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="computer_key_A" type="Sprite" parent="Hint Text" index="13"]
+
+position = Vector2( 49.665, 94.5497 )
+scale = Vector2( 0.0532782, 0.0532782 )
+texture = ExtResource( 12 )
+
+[node name="computer_key_A2" type="Sprite" parent="Hint Text" index="14"]
+
+position = Vector2( 383.008, 94.5497 )
+scale = Vector2( 0.0532782, 0.0532782 )
+texture = ExtResource( 13 )
+
+[node name="computer_key_D" type="Sprite" parent="Hint Text" index="15"]
+
+position = Vector2( 49.665, 131.552 )
+scale = Vector2( 0.0532782, 0.0532782 )
+texture = ExtResource( 14 )
+
+[node name="computer_key_D2" type="Sprite" parent="Hint Text" index="16"]
+
+position = Vector2( 383.008, 131.552 )
+scale = Vector2( 0.0532782, 0.0532782 )
+texture = ExtResource( 15 )
+
+[node name="computer_key_S" type="Sprite" parent="Hint Text" index="17"]
+
+position = Vector2( 50.7625, 168.75 )
+scale = Vector2( 0.0532782, 0.0532782 )
+texture = ExtResource( 16 )
+
+[node name="computer_key_S2" type="Sprite" parent="Hint Text" index="18"]
+
+position = Vector2( 384.105, 168.75 )
+scale = Vector2( 0.0532782, 0.0532782 )
+texture = ExtResource( 17 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="19"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 18 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
