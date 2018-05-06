@@ -189,10 +189,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -273.5
-margin_top = -77.0
-margin_right = 273.5
-margin_bottom = 77.0
+margin_left = -438.5
+margin_top = -109.0
+margin_right = 438.5
+margin_bottom = 109.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -888,9 +888,8 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Polygon2D2" type="Polygon2D" parent="Section_Challenge" index="1"]
 
-editor/display_folded = true
 position = Vector2( 3572.18, 353.051 )
-polygon = PoolVector2Array( 122.16, 69.3603, 58.709, 30.8844, 47.7595, -39.2226, 12.5408, -213.553, 13.4827, -277.598, 93.8098, -289.748, 151.186, -282.998, 228.813, -291.098, 296.315, -280.973, 363.141, -283.673, 413.093, -291.098, 481.269, -287.723, 533.245, -258.023, 593.997, -242.497, 661.499, 115.936 )
+polygon = PoolVector2Array( 122.16, 69.3603, 60.7092, 60.2679, 47.7595, -39.2226, 12.5408, -213.553, 13.4827, -277.598, 93.8098, -289.748, 151.186, -282.998, 228.813, -291.098, 296.315, -280.973, 363.141, -283.673, 413.093, -291.098, 481.269, -287.723, 533.245, -258.023, 593.997, -242.497, 661.499, 115.936 )
 uv = PoolVector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
@@ -941,7 +940,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Section_Challenge/Polygon2D2/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -286.511, 67.8124, -322.192, -106.9, -321.734, -173.691, -242.082, -185.166, -184.706, -177.066, -106.404, -185.166, -37.5525, -175.716, 26.5742, -179.766, 78.5505, -186.516, 146.052, -181.791, 197.353, -154.116, 254.055, -139.265, 323.665, 220.614, -214.407, 175.292, -277.183, 136.141 )
+polygon = PoolVector2Array( -286.511, 67.8124, -322.192, -106.9, -321.734, -173.691, -242.082, -185.166, -184.706, -177.066, -106.404, -185.166, -37.5525, -175.716, 26.5742, -179.766, 78.5505, -186.516, 146.052, -181.791, 197.353, -154.116, 254.055, -139.265, 323.665, 220.614, -214.407, 175.292, -277.291, 164.85 )
 
 [node name="Line2D" type="Line2D" parent="Section_Challenge" index="2"]
 

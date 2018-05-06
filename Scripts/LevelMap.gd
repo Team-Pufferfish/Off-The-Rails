@@ -25,13 +25,13 @@ func _process(delta):
 func _victory():
 	timer_running = false
 	var victoryText = find_node("VictoryLabel");
-	victoryText.set_text("YOU WIN!\nYou saved the train in: %s" % str_elapsed);
+	victoryText.set_text("YOU WIN!\nRescued in: %s" % str_elapsed);
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout") 
 	#timeout is what says in docs, in signals
 	#self is who respond to the callback
 	#_on_timer_timeout is the callback, can have any name
-	timer.set_wait_time(10)
+	timer.set_wait_time(5)
 	add_child(timer) #to process
 	timer.start() #to start
 	
