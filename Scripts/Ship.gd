@@ -52,8 +52,8 @@ func _integrate_forces(state):
 
 	
 	if Input.is_action_pressed(left_action) and Input.is_action_pressed(right_action) and not is_dead:
-		$left_thruster.emitting = true
-		$right_thruster.emitting = true
+		$left_jet.show()
+		$right_jet.show()
 		set_applied_force(thrust * Vector2(0,-up_thrust))
 		if not $jet_sound.playing:
 			$jet_sound.play()
@@ -63,21 +63,21 @@ func _integrate_forces(state):
 
 	elif Input.is_action_pressed(left_action) and not is_dead:
 		set_applied_force(thrust * Vector2(thrust_vector,-1).normalized())
-		$left_thruster.emitting = true
-		$right_thruster.emitting = false
+		$left_jet.show()
+		$right_jet.hide()
 		if not $jet_sound.playing:
 			$jet_sound.play()
 
 	elif Input.is_action_pressed(right_action) and not is_dead:
 		set_applied_force(thrust * Vector2(-thrust_vector,-1).normalized())
-		$left_thruster.emitting = false
-		$right_thruster.emitting = true
+		$left_jet.hide()
+		$right_jet.show()
 		if not $jet_sound.playing:
 			$jet_sound.play()
 	else:
 		set_applied_force(Vector2())
-		$left_thruster.emitting = false
-		$right_thruster.emitting = false
+		$left_jet.hide()
+		$right_jet.hide()
 		$jet_sound.stop()
 		
 		
