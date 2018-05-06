@@ -36,7 +36,7 @@ extents = Vector2( 31.026, 26.4125 )
 custom_solver_bias = 0.0
 extents = Vector2( 71.4648, 10 )
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -103,13 +103,9 @@ bounce = 0.0
 position = Vector2( -973.611, -0.723667 )
 shape = SubResource( 4 )
 
-[node name="Ship" parent="." index="2" groups=[
-"ships",
-] instance=ExtResource( 3 )]
+[node name="Ship" parent="." index="2" instance=ExtResource( 3 )]
 
-[node name="Ship2" parent="." index="3" groups=[
-"ships",
-] instance=ExtResource( 3 )]
+[node name="Ship2" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 829.581, 173.412 )
 left_action = "ui2_left"
@@ -351,7 +347,5 @@ text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[connection signal="crash" from="Ship" to="." method="_on_Ship_crash"]
 
 

@@ -72,20 +72,20 @@ thrust_vector = 0.2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 0, 10 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 4.21201e-07, 3.42769 )
+position = Vector2( 0, 13 )
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="explosion" parent="." index="2" instance=ExtResource( 3 )]
 
-visible = false
 position = Vector2( -64.0209, -90.6957 )
 z_index = 2
 
@@ -113,22 +113,24 @@ area_mask = 1
 
 [node name="right_jet" type="AnimatedSprite" parent="." index="6"]
 
-position = Vector2( 21.5085, 35.5847 )
+position = Vector2( 21.5085, 42.5 )
 scale = Vector2( 0.22422, 0.22422 )
 frames = SubResource( 2 )
 animation = "jet"
-frame = 2
+frame = 9
 playing = true
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="left_jet" type="AnimatedSprite" parent="." index="7"]
 
-position = Vector2( -21.7203, 34.504 )
+position = Vector2( -21.7203, 42.5 )
 scale = Vector2( 0.22422, 0.22422 )
 frames = SubResource( 2 )
 animation = "jet"
-frame = 1
+frame = 8
 playing = true
 flip_h = true
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]
 
