@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
@@ -9,16 +9,17 @@
 [ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=7]
 [ext_resource path="res://Assets/rocktext.png" type="Texture" id=8]
 [ext_resource path="res://Assets/fonts/ethnocentric rg.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://icon.png" type="Texture" id=10]
-[ext_resource path="res://Assets/box.png.png" type="Texture" id=11]
-[ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=12]
-[ext_resource path="res://Assets/Buttons/computer_key_A_T.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Left_T.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Buttons/computer_key_D_T.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Right_T.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Buttons/computer_key_S_T.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Down_T.png" type="Texture" id=18]
-[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Screens/rail.png" type="Texture" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
+[ext_resource path="res://Assets/box.png.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Buttons/computer_key_A_T.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Left_T.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/computer_key_D_T.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Right_T.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Buttons/computer_key_S_T.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Buttons/computer_key_Arrow_Down_T.png" type="Texture" id=19]
+[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=20]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -64,12 +65,12 @@ default_font = SubResource( 6 )
 [sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
-extents = Vector2( 147.87, 4.08853 )
+extents = Vector2( 147.87, 0.103821 )
 
 [sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
-extents = Vector2( 58.8156, 4.61093 )
+extents = Vector2( 58.8156, 2.68805 )
 
 [sub_resource type="CircleShape2D" id=10]
 
@@ -89,14 +90,14 @@ extents = Vector2( 20.4831, 18.787 )
 [sub_resource type="SegmentShape2D" id=13]
 
 custom_solver_bias = 0.0
-a = Vector2( 0.479004, -4.27289 )
-b = Vector2( 360.43, -4.27289 )
+a = Vector2( -2.09521, -2.78287 )
+b = Vector2( 360.13, -2.78287 )
 
 [sub_resource type="SegmentShape2D" id=14]
 
 custom_solver_bias = 0.0
-a = Vector2( -5.37097, -3.49692 )
-b = Vector2( 325.776, 58.7903 )
+a = Vector2( -8.26099, 0.62973 )
+b = Vector2( 308.228, 57.0232 )
 
 [sub_resource type="RectangleShape2D" id=15]
 
@@ -106,13 +107,13 @@ extents = Vector2( 4.93921, 13.7297 )
 [sub_resource type="SegmentShape2D" id=16]
 
 custom_solver_bias = 0.0
-a = Vector2( 1018.75, 151.477 )
-b = Vector2( 56.4438, 56.3564 )
+a = Vector2( 1016.24, 152.979 )
+b = Vector2( 50.9565, 58.7733 )
 
 [sub_resource type="SegmentShape2D" id=17]
 
 custom_solver_bias = 0.0
-a = Vector2( 323.807, 2.06973 )
+a = Vector2( 325.597, 2.98514 )
 b = Vector2( -1.70996, 14.6494 )
 
 [sub_resource type="RectangleShape2D" id=18]
@@ -399,7 +400,6 @@ _sections_unfolded = [ "Texture", "Z Index" ]
 
 [node name="Rail1" type="StaticBody2D" parent="Section1_Node" index="1"]
 
-editor/display_folded = true
 position = Vector2( -33.6772, 585.105 )
 rotation = -0.00155243
 input_pickable = false
@@ -413,24 +413,26 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section1_Node/Rail1" index="0"]
 
-position = Vector2( 864.988, -229.091 )
+position = Vector2( 864.991, -231.091 )
 rotation = -0.0984854
 shape = SubResource( 8 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Line2D" type="Line2D" parent="Section1_Node/Rail1" index="1"]
 
-position = Vector2( -1.39258, -0.698975 )
-points = PoolVector2Array( 716.839, -214.081, 1009.42, -242.727, 1020.13, -235.052 )
-width = 10.0
-default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
-texture_mode = 1061945348
+position = Vector2( -1.63037, -0.699341 )
+z_index = -1
+points = PoolVector2Array( 716.839, -214.081, 1009.42, -242.727 )
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 10 )
+texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
+_sections_unfolded = [ "Fill", "Z Index" ]
 
 [node name="Rail2" type="StaticBody2D" parent="Section1_Node" index="2"]
 
-editor/display_folded = true
 position = Vector2( 961.883, 352.177 )
 rotation = -0.00155243
 input_pickable = false
@@ -444,18 +446,20 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Line2D" type="Line2D" parent="Section1_Node/Rail2" index="0"]
 
-position = Vector2( -715.66, 206.987 )
+position = Vector2( -718.66, 206.982 )
+z_index = -1
 points = PoolVector2Array( 727.105, -218.551, 819.302, -200.672 )
-width = 10.0
-default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
-texture_mode = 1061945348
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 10 )
+texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Fill", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section1_Node/Rail2" index="1"]
 
-position = Vector2( 56.9915, -2.29422 )
+position = Vector2( 53.5604, -4.23132 )
 rotation = 0.188959
 scale = Vector2( 0.795048, 1 )
 shape = SubResource( 9 )
@@ -489,7 +493,7 @@ _sections_unfolded = [ "Angular", "Pickable", "Transform", "Z Index" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock" index="1"]
 
@@ -525,7 +529,7 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock2" index="1"]
 
@@ -561,7 +565,7 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock3" index="1"]
 
@@ -597,7 +601,7 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock4" index="1"]
 
@@ -633,7 +637,7 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 4.58851, 20.6162 )
 scale = Vector2( 1.95369, 1.79677 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock5" index="1"]
 
@@ -643,7 +647,6 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="11"]
 
-editor/display_folded = true
 position = Vector2( 5003.7, 595.937 )
 polygon = PoolVector2Array( 0.442383, 8.1322, 0.442383, -150.436, 0.442383, -468.674, -44.7056, -349.748, -35.8965, -225.316, -52.434, -148.936, -154.822, -146.031, -223.095, -146.031, -266.041, -144.93, -316.694, -146.031, -355.235, -107.491, -404.509, -85.1723, -448.825, 12.3243 )
 uv = PoolVector2Array(  )
@@ -688,13 +691,15 @@ _sections_unfolded = [ "Pickable", "Transform" ]
 [node name="Line2D" type="Line2D" parent="SectionEnd_Polygon/Rail3" index="0"]
 
 position = Vector2( -2055.85, -278.571 )
+z_index = -1
 points = PoolVector2Array( 1640.35, 126.139, 2005.05, 126.139 )
-width = 10.0
-default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
-texture_mode = -343740352
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 10 )
+texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Fill", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SectionEnd_Polygon/Rail3" index="1"]
 
@@ -742,7 +747,6 @@ polygon = PoolVector2Array( 1215.71, 4.05402, 1224.13, -51.0838, 1298.42, -144.5
 
 [node name="Rail2" type="StaticBody2D" parent="Section3_Node" index="0"]
 
-editor/display_folded = true
 position = Vector2( -2.17978, 597.731 )
 input_pickable = false
 collision_layer = 1
@@ -754,12 +758,15 @@ bounce = 0.0
 
 [node name="Line2D" type="Line2D" parent="Section3_Node/Rail2" index="0"]
 
+z_index = -1
 points = PoolVector2Array( 1782.34, -200.393, 2104.36, -142.595, 2107.59, -135.056 )
-width = 10.0
-default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
-texture_mode = -343740352
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 10 )
+texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
+_sections_unfolded = [ "Fill", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/Rail2" index="1"]
 
@@ -800,7 +807,7 @@ polygon = PoolVector2Array( 1765.95, 1.62115, 1811.36, -88.0327, 1800.88, -127.6
 
 [node name="RailEnd" type="StaticBody2D" parent="Section3_Node" index="2"]
 
-position = Vector2( 2086.09, 450.475 )
+position = Vector2( 2089.61, 451.355 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -815,7 +822,7 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 13.2769, -11.522 )
 rotation = 0.240188
 scale = Vector2( 0.170709, 0.442483 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/RailEnd" index="1"]
 
@@ -825,8 +832,6 @@ shape = SubResource( 15 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Section_Challenge" type="Node" parent="." index="14"]
-
-editor/display_folded = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Section_Challenge" index="0"]
 
@@ -858,8 +863,10 @@ bounce = 0.0
 
 [node name="Polygon2D" type="CollisionPolygon2D" parent="Section_Challenge/Polygon2D/StaticBody2D" index="0"]
 
+z_index = -2
 build_mode = 0
 polygon = PoolVector2Array( -316.14, 70.54, -329.674, -42.6542, -413.339, -110.325, 492.214, -21.7379, 487.293, -5.74304, 490.984, 15.1733, 466.376, 91.4563 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Polygon2D2" type="Polygon2D" parent="Section_Challenge" index="1"]
 
@@ -920,12 +927,16 @@ polygon = PoolVector2Array( -286.511, 67.8124, -322.192, -106.9, -321.734, -173.
 
 [node name="Line2D" type="Line2D" parent="Section_Challenge" index="2"]
 
+position = Vector2( 0, -4 )
+z_index = -1
 points = PoolVector2Array( 3372.43, 442.25, 4337.45, 537.242 )
-width = 10.0
-default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
-texture_mode = 55
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 10 )
+texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
+_sections_unfolded = [ "Fill", "Z Index" ]
 
 [node name="Rail" type="StaticBody2D" parent="Section_Challenge" index="3"]
 
@@ -939,12 +950,10 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section_Challenge/Rail" index="0"]
 
-position = Vector2( 3322.73, 381.732 )
+position = Vector2( 3322.73, 379.732 )
 shape = SubResource( 16 )
 
 [node name="Section5_Node" type="Node" parent="." index="15"]
-
-editor/display_folded = true
 
 [node name="Rail2" type="StaticBody2D" parent="Section5_Node" index="0"]
 
@@ -961,15 +970,19 @@ bounce = 0.0
 
 position = Vector2( 1788.19, -214.978 )
 shape = SubResource( 17 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Line2D" type="Line2D" parent="Section5_Node/Rail2" index="1"]
 
+z_index = -1
 points = PoolVector2Array( 1778.68, -185.132, 1790.12, -197.387, 2113.64, -209.641 )
-width = 10.0
-default_color = Color( 0.480469, 0.191701, 0.0506744, 1 )
-texture_mode = -343740352
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 10 )
+texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
+_sections_unfolded = [ "Fill", "Z Index" ]
 
 [node name="Section_3_Polygon" type="Polygon2D" parent="Section5_Node" index="1"]
 
@@ -1045,7 +1058,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone" index="0"]
 
@@ -1307,9 +1320,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 939.0
+margin_left = 943.0
 margin_top = 126.0
-margin_right = 1242.0
+margin_right = 1246.0
 margin_bottom = 259.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1358,8 +1371,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 1564.0
 margin_top = 310.0
-margin_right = 2221.0
-margin_bottom = 443.0
+margin_right = 2230.0
+margin_bottom = 347.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -1403,41 +1416,41 @@ _sections_unfolded = [ "Theme" ]
 
 position = Vector2( 49.665, 94.5497 )
 scale = Vector2( 0.0532782, 0.0532782 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [node name="computer_key_A2" type="Sprite" parent="Hint Text" index="14"]
 
 position = Vector2( 383.008, 94.5497 )
 scale = Vector2( 0.0532782, 0.0532782 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="computer_key_D" type="Sprite" parent="Hint Text" index="15"]
 
 position = Vector2( 49.665, 131.552 )
 scale = Vector2( 0.0532782, 0.0532782 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="computer_key_D2" type="Sprite" parent="Hint Text" index="16"]
 
 position = Vector2( 383.008, 131.552 )
 scale = Vector2( 0.0532782, 0.0532782 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [node name="computer_key_S" type="Sprite" parent="Hint Text" index="17"]
 
 position = Vector2( 50.7625, 168.75 )
 scale = Vector2( 0.0532782, 0.0532782 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 
 [node name="computer_key_S2" type="Sprite" parent="Hint Text" index="18"]
 
 position = Vector2( 384.105, 168.75 )
 scale = Vector2( 0.0532782, 0.0532782 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="19"]
 
-stream = ExtResource( 19 )
+stream = ExtResource( 20 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
