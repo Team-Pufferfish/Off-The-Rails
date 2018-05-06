@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Assets/rocktext.png" type="Texture" id=2]
@@ -10,8 +10,8 @@
 [ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=8]
 [ext_resource path="res://Assets/fonts/ethnocentric rg.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Screens/rail.png" type="Texture" id=10]
-[ext_resource path="res://icon.png" type="Texture" id=11]
-[ext_resource path="res://Assets/box.png.png" type="Texture" id=12]
+[ext_resource path="res://Screens/Rock.tscn" type="PackedScene" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Buttons/computer_key_A_T.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Buttons/computer_key_Arrow_Left_T.png" type="Texture" id=15]
@@ -72,21 +72,6 @@ extents = Vector2( 147.87, 0.103821 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 58.8156, 2.68805 )
-
-[sub_resource type="CircleShape2D" id=10]
-
-custom_solver_bias = 0.0
-radius = 19.7066
-
-[sub_resource type="CircleShape2D" id=11]
-
-custom_solver_bias = 0.0
-radius = 21.352
-
-[sub_resource type="RectangleShape2D" id=12]
-
-custom_solver_bias = 0.0
-extents = Vector2( 20.4831, 18.787 )
 
 [sub_resource type="SegmentShape2D" id=13]
 
@@ -171,7 +156,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
-enabled = true
+enabled = false
 p1 = NodePath("../Ship")
 p2 = NodePath("../Ship2")
 
@@ -483,185 +468,28 @@ scale = Vector2( 0.795048, 1 )
 shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ExampleRock" type="RigidBody2D" parent="." index="7"]
+[node name="Rock5" parent="." index="7" instance=ExtResource( 11 )]
 
-editor/display_folded = true
-position = Vector2( 2334.76, 216.498 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.25
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Angular", "Pickable", "Transform", "Z Index" ]
+position = Vector2( 1331.56, 386.223 )
 
-[node name="Sprite" type="Sprite" parent="ExampleRock" index="0"]
+[node name="Rock4" parent="." index="8" instance=ExtResource( 11 )]
 
-position = Vector2( 5.28708, 19.6088 )
-scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 11 )
+position = Vector2( 290.137, 351.551 )
+rotation = -1.8713
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock" index="1"]
+[node name="Rock" parent="." index="9" instance=ExtResource( 11 )]
 
-position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 10 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+position = Vector2( 2344.2, 238.841 )
 
-[node name="ExampleRock2" type="RigidBody2D" parent="." index="8"]
+[node name="Rock3" parent="." index="10" instance=ExtResource( 11 )]
 
-editor/display_folded = true
-position = Vector2( 1307, 348.456 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.25
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Angular", "Pickable" ]
+position = Vector2( 1473.78, 377.89 )
+rotation = -1.8713
 
-[node name="Sprite" type="Sprite" parent="ExampleRock2" index="0"]
+[node name="Rock2" parent="." index="11" instance=ExtResource( 11 )]
 
-position = Vector2( 5.28708, 19.6088 )
-scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock2" index="1"]
-
-position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 11 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="ExampleRock3" type="RigidBody2D" parent="." index="9"]
-
-editor/display_folded = true
-position = Vector2( 1444.07, 346.782 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.25
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Angular", "Pickable" ]
-
-[node name="Sprite" type="Sprite" parent="ExampleRock3" index="0"]
-
-position = Vector2( 5.28708, 19.6088 )
-scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock3" index="1"]
-
-position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 11 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="ExampleRock4" type="RigidBody2D" parent="." index="10"]
-
-editor/display_folded = true
-position = Vector2( 2590.39, 174.628 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.25
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Angular", "Pickable" ]
-
-[node name="Sprite" type="Sprite" parent="ExampleRock4" index="0"]
-
-position = Vector2( 5.28708, 19.6088 )
-scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock4" index="1"]
-
-position = Vector2( 5.36572, 20.2822 )
-shape = SubResource( 11 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="ExampleRock5" type="RigidBody2D" parent="." index="11"]
-
-editor/display_folded = true
-position = Vector2( 294.896, 311.247 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.25
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Angular", "Pickable" ]
-
-[node name="Sprite" type="Sprite" parent="ExampleRock5" index="0"]
-
-position = Vector2( 4.58851, 20.6162 )
-scale = Vector2( 1.95369, 1.79677 )
-texture = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock5" index="1"]
-
-position = Vector2( 4.93689, 21.2708 )
-shape = SubResource( 12 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+position = Vector2( 2595.13, 201.003 )
+rotation = 1.88735
 
 [node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="12"]
 
@@ -840,7 +668,7 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 13.2769, -11.522 )
 rotation = 0.240188
 scale = Vector2( 0.170709, 0.442483 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/RailEnd" index="1"]
 
@@ -1036,7 +864,7 @@ polygon = PoolVector2Array( 1765.95, 1.62115, 1754.99, -98.5984, 1780.32, -145.9
 [node name="Section_3_Polygon2" type="Polygon2D" parent="Section5_Node" index="2"]
 
 position = Vector2( 510.326, 419.994 )
-polygon = PoolVector2Array( 1736.36, 184.654, 1777.68, -29.2438, 1776.85, -63.099, 1787.59, -116.772, 1785.94, -148.975, 1804.93, -172.096, 1823.09, -156.407, 1854.47, -164.664, 1859.43, -98.6056, 1847.04, -31.7211, 1859.73, 64.7167, 1897.42, 157.24, 2005.36, 155.526, 2037.92, 109.265, 2035.31, 22.7774, 2052.65, -20.1608, 2027.88, -86.2195, 2051.82, -131.635, 2049.34, -187.785, 2058.21, -208.526, 2084.59, -202.77, 2107.1, -204.802, 2127.52, -172.124, 2126.96, -115.12, 2136.51, -79.8085, 2122.01, -47.41, 2105.49, -20.9865, 2147.58, 191.508 )
+polygon = PoolVector2Array( 1736.36, 184.654, 1777.68, -29.2438, 1776.85, -63.099, 1787.59, -116.772, 1785.94, -148.975, 1804.93, -172.096, 1823.09, -156.407, 1854.47, -164.664, 1859.43, -98.6056, 1847.04, -31.7211, 1859.73, 64.7167, 1897.42, 157.24, 2005.36, 155.526, 2037.92, 109.265, 2035.31, 22.7774, 2052.65, -20.1608, 2027.88, -86.2195, 2051.82, -131.635, 2045.39, -187.378, 2054.21, -206.994, 2085.93, -195.551, 2112.73, -204.378, 2127.52, -172.124, 2126.96, -115.12, 2136.51, -79.8085, 2122.01, -47.41, 2105.49, -20.9865, 2147.58, 191.508 )
 uv = PoolVector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
