@@ -1,16 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://explosion.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sounds/350904__cabled-mess__jump-c-02.wav" type="AudioStream" id=4]
-[ext_resource path="res://explosion_sound.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sounds/jet.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Orange.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://explosion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/350904__cabled-mess__jump-c-02.wav" type="AudioStream" id=5]
+[ext_resource path="res://explosion_sound.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/jet.ogg" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 34.5467, 34.0865 )
+extents = Vector2( 41.6271, 22.3689 )
 
 [sub_resource type="Curve" id=2]
 
@@ -101,17 +102,19 @@ thrust_vector = 0.2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 0, 4.28308 )
 shape = SubResource( 1 )
 
 [node name="left_thruster" type="Particles2D" parent="." index="2"]
 
 show_behind_parent = true
-position = Vector2( -32.8081, 32.1987 )
+position = Vector2( -17.282, 25.5956 )
 scale = Vector2( 0.261326, 0.268869 )
 emitting = true
 amount = 30
@@ -127,7 +130,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -136,7 +139,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visib
 [node name="right_thruster" type="Particles2D" parent="." index="3"]
 
 show_behind_parent = true
-position = Vector2( 31.4504, 32.6388 )
+position = Vector2( 17.3519, 25.1434 )
 scale = Vector2( 0.261326, 0.268869 )
 emitting = true
 amount = 30
@@ -152,17 +155,19 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
 
-[node name="explosion" parent="." index="4" instance=ExtResource( 3 )]
+[node name="explosion" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( -64.0209, -90.6957 )
 
 [node name="drop_rope_sound" type="AudioStreamPlayer2D" parent="." index="5"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
@@ -170,11 +175,11 @@ attenuation = 1.0
 bus = "Effects"
 area_mask = 1
 
-[node name="explosion_sound" parent="." index="6" instance=ExtResource( 5 )]
+[node name="explosion_sound" parent="." index="6" instance=ExtResource( 6 )]
 
 [node name="jet_sound" type="AudioStreamPlayer2D" parent="." index="7"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
