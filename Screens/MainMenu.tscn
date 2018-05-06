@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/rocktext.png" type="Texture" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Blue.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Orange.png" type="Texture" id=11]
+[ext_resource path="res://Assets/tojam13_tagline_transparent.png" type="Texture" id=12]
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -172,7 +173,7 @@ size_flags_vertical = 4
 theme = ExtResource( 4 )
 text = "Made for TOJam 13 2018
 Programmed by: Michael Yabko and Stephen Frerotte
-Art by: Whas"
+Art by: Fergui Pascual"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -234,6 +235,13 @@ position = Vector2( 902.936, 72.288 )
 rotation = -0.389304
 scale = Vector2( 0.334662, 0.334662 )
 texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="." index="7"]
+
+position = Vector2( 100.001, 551.981 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="pressed" from="CanvasLayer/Start Game" to="." method="_on_Start_Game_pressed"]
 
