@@ -639,7 +639,7 @@ collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
-friction = 0.7
+friction = 0.07
 bounce = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="ThirdStruct/StaticBody2D2" index="0"]
@@ -704,7 +704,7 @@ bounce = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="ThirdStruct/StaticBody2D4" index="0"]
 
-polygon = PoolVector2Array( 3934.09, 104.065, 3924.83, 413.118, 4069.18, 400.164, 4121, 331.691, 4146.91, 237.309, 4139.51, 157.733, 4059.93, 111.467 )
+polygon = PoolVector2Array( 3932.63, 39.8681, 3924.83, 413.118, 4069.18, 400.164, 4121, 331.691, 4146.91, 237.309, 4139.51, 157.733, 4067.1, 76.8708 )
 uv = PoolVector2Array(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
@@ -720,7 +720,7 @@ invert_border = 100.0
 [node name="Polygon2D2" type="CollisionPolygon2D" parent="ThirdStruct/StaticBody2D4" index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array( 3934.09, 104.065, 3924.83, 413.118, 4069.18, 400.164, 4121, 331.691, 4146.91, 237.309, 4139.51, 157.733, 4059.93, 111.467 )
+polygon = PoolVector2Array( 3933.53, 41.6731, 3924.83, 413.118, 4069.18, 400.164, 4121, 331.691, 4146.91, 237.309, 4139.51, 157.733, 4067.1, 76.8708 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThirdStruct/StaticBody2D4" index="2"]
 
