@@ -1474,7 +1474,7 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="Line2D" type="Line2D" parent="." index="21"]
+[node name="Lava" type="Line2D" parent="." index="21"]
 
 z_index = -1
 points = PoolVector2Array( -130.996, 574.006, -21.9949, 581.006, 2893.78, 628.018, 5025.35, 610.006 )
