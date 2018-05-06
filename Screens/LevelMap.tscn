@@ -3,13 +3,13 @@
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Assets/fonts/massive_font_theme.tres" type="Theme" id=3]
-[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=6]
-[ext_resource path="res://Assets/fonts/ethnocentric rg.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
-[ext_resource path="res://Assets/box.png.png" type="Texture" id=9]
-[ext_resource path="res://Assets/fonts/small_font_theme.tres" type="Theme" id=10]
+[ext_resource path="res://Assets/fonts/small_font_theme.tres" type="Theme" id=4]
+[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=7]
+[ext_resource path="res://Assets/fonts/ethnocentric rg.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://Assets/box.png.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Buttons/computer_key_A_T.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Buttons/computer_key_Arrow_Left_T.png" type="Texture" id=13]
@@ -48,73 +48,73 @@ b = Vector2( 5000, -600 )
 custom_solver_bias = 0.0
 extents = Vector2( 2400, 10 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=6]
 
 size = 25
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="Theme" id=18]
+[sub_resource type="Theme" id=7]
 
-default_font = SubResource( 17 )
+default_font = SubResource( 6 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 147.87, 4.08853 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 58.8156, 4.61093 )
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=10]
 
 custom_solver_bias = 0.0
 radius = 19.7066
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=11]
 
 custom_solver_bias = 0.0
 radius = 21.352
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=12]
 
 custom_solver_bias = 0.0
 extents = Vector2( 20.4831, 18.787 )
 
-[sub_resource type="SegmentShape2D" id=11]
+[sub_resource type="SegmentShape2D" id=13]
 
 custom_solver_bias = 0.0
 a = Vector2( 0.479004, -4.27289 )
 b = Vector2( 360.43, -4.27289 )
 
-[sub_resource type="SegmentShape2D" id=12]
+[sub_resource type="SegmentShape2D" id=14]
 
 custom_solver_bias = 0.0
 a = Vector2( -5.37097, -3.49692 )
 b = Vector2( 325.776, 58.7903 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=15]
 
 custom_solver_bias = 0.0
 extents = Vector2( 4.93921, 13.7297 )
 
-[sub_resource type="SegmentShape2D" id=14]
+[sub_resource type="SegmentShape2D" id=16]
 
 custom_solver_bias = 0.0
 a = Vector2( 1018.75, 151.477 )
 b = Vector2( 56.4438, 56.3564 )
 
-[sub_resource type="SegmentShape2D" id=15]
+[sub_resource type="SegmentShape2D" id=17]
 
 custom_solver_bias = 0.0
 a = Vector2( 323.807, 2.06973 )
 b = Vector2( -1.70996, 14.6494 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=18]
 
 custom_solver_bias = 0.0
 extents = Vector2( 168.718, 21.4516 )
@@ -209,16 +209,39 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="Train" parent="." index="1" instance=ExtResource( 4 )]
+[node name="GameTimer" type="Label" parent="Draggable_Camera2D/CanvasLayer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 966.0
+margin_top = 17.0
+margin_right = 1017.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 4 )
+text = "00:00"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="Train" parent="." index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 811.923, 327.861 )
 rotation = -0.06164
 
-[node name="Ship" parent="." index="2" instance=ExtResource( 5 )]
+[node name="Ship" parent="." index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 485.598, 330.305 )
 
-[node name="Ship2" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Ship2" parent="." index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 142.629, 337.106 )
 player = 1
@@ -304,7 +327,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/Deathzone" index="0"]
 
@@ -347,7 +370,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = SubResource( 18 )
+theme = SubResource( 7 )
 text = "1. Don't hit the other player or you lose
 2. Don't drop the train in the chasm or you lose"
 percent_visible = 1.0
@@ -391,7 +414,7 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 864.988, -229.091 )
 rotation = -0.0984854
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Line2D" type="Line2D" parent="Section1_Node/Rail1" index="1"]
@@ -434,7 +457,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 56.9915, -2.29422 )
 rotation = 0.188959
 scale = Vector2( 0.795048, 1 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="ExampleRock" type="RigidBody2D" parent="." index="6"]
@@ -465,12 +488,12 @@ _sections_unfolded = [ "Angular", "Pickable", "Transform", "Z Index" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock2" type="RigidBody2D" parent="." index="7"]
@@ -501,12 +524,12 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock2" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock3" type="RigidBody2D" parent="." index="8"]
@@ -537,12 +560,12 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock3" index="1"]
 
 position = Vector2( 5.10165, 20.2822 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock4" type="RigidBody2D" parent="." index="9"]
@@ -573,12 +596,12 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 5.28708, 19.6088 )
 scale = Vector2( 0.640091, 0.585236 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock4" index="1"]
 
 position = Vector2( 5.36572, 20.2822 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="ExampleRock5" type="RigidBody2D" parent="." index="10"]
@@ -608,12 +631,12 @@ _sections_unfolded = [ "Angular", "Pickable" ]
 
 position = Vector2( 4.58851, 20.6162 )
 scale = Vector2( 1.95369, 1.79677 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExampleRock5" index="1"]
 
 position = Vector2( 4.93689, 21.2708 )
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="11"]
@@ -673,7 +696,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SectionEnd_Polygon/Rail3" index="1"]
 
 position = Vector2( -412.693, -152.022 )
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 
 [node name="Section2_Node" type="Node" parent="." index="12"]
 
@@ -741,7 +764,7 @@ round_precision = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/Rail2" index="1"]
 
 position = Vector2( 1788.74, -203.858 )
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 
 [node name="Section_3_Polygon" type="Polygon2D" parent="Section3_Node" index="1"]
 
@@ -792,13 +815,13 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 13.2769, -11.522 )
 rotation = 0.240188
 scale = Vector2( 0.170709, 0.442483 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section3_Node/RailEnd" index="1"]
 
 position = Vector2( 13.2605, -11.8397 )
 rotation = 0.253564
-shape = SubResource( 13 )
+shape = SubResource( 15 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Section_Challenge" type="Node" parent="." index="14"]
@@ -867,7 +890,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Tricky one eh?"
 percent_visible = 1.0
 lines_skipped = 0
@@ -912,7 +935,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section_Challenge/Rail" index="0"]
 
 position = Vector2( 3322.73, 381.732 )
-shape = SubResource( 14 )
+shape = SubResource( 16 )
 
 [node name="Section5_Node" type="Node" parent="." index="15"]
 
@@ -932,7 +955,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Section5_Node/Rail2" index="0"]
 
 position = Vector2( 1788.19, -214.978 )
-shape = SubResource( 15 )
+shape = SubResource( 17 )
 
 [node name="Line2D" type="Line2D" parent="Section5_Node/Rail2" index="1"]
 
@@ -1022,7 +1045,7 @@ script = ExtResource( 11 )
 
 position = Vector2( 58.9414, 6.95209 )
 scale = Vector2( 1, 1.04705 )
-shape = SubResource( 16 )
+shape = SubResource( 18 )
 
 [node name="Ceiling" type="Node" parent="." index="17"]
 
@@ -1064,7 +1087,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = SubResource( 18 )
+theme = SubResource( 7 )
 text = "Player 1"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1087,7 +1110,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = SubResource( 18 )
+theme = SubResource( 7 )
 text = "Player 2"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1110,7 +1133,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Use left thruster (move right)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1133,7 +1156,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Use left thruster (move right)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1156,7 +1179,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Use right thruster (move left)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1179,7 +1202,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Use right thruster (move left)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1202,7 +1225,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Extend/retract grabber"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1225,7 +1248,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Extend/retract grabber"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1248,7 +1271,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "GRAB THE TRAIN ->"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1271,7 +1294,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "Safe Zone This Way ->
 	(Or Death)"
 align = 1
@@ -1296,7 +1319,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = SubResource( 18 )
+theme = SubResource( 7 )
 text = "Almost There!"
 align = 1
 percent_visible = 1.0
@@ -1320,7 +1343,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = SubResource( 18 )
+theme = SubResource( 7 )
 text = "Phew! Take a break if you need it."
 align = 1
 percent_visible = 1.0
@@ -1344,7 +1367,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 10 )
+theme = ExtResource( 4 )
 text = "|					SAFE ZONE					|
 -All cars must be inside-"
 align = 1

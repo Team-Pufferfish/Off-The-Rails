@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/fonts/neuropol.ttf" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=1]
 
 size = 12
 use_mipmaps = true
@@ -12,5 +12,5 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [resource]
 
-default_font = SubResource( 19 )
+default_font = SubResource( 1 )
 
