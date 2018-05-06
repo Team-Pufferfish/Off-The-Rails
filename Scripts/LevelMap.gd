@@ -5,6 +5,7 @@ var time_start = 0
 var time_now = 0
 var str_elapsed = "N/A"
 var timer_running = true;
+export var next = "game";
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -27,7 +28,7 @@ func _victory():
 	var victoryText = find_node("VictoryLabel");
 	victoryText.set_text("YOU WIN!\nRescued in: %s" % str_elapsed);
 	var timer = Timer.new()
-	timer.connect("timeout",self,"_on_timer_timeout") 
+	timer.connect("timeout",self,"_on_timer_timeout_win") 
 	#timeout is what says in docs, in signals
 	#self is who respond to the callback
 	#_on_timer_timeout is the callback, can have any name
@@ -35,15 +36,19 @@ func _victory():
 	add_child(timer) #to process
 	timer.start() #to start
 	
-func _on_timer_timeout():
+func _on_timer_timeout_win():
+	emit_signal("next_screen", next);
+	
+func _on_timer_timeout_failure():	
 	emit_signal("next_screen", "main_menu");
+
 	
 func _failure():
 	timer_running = false
 	var failureText = find_node("FailureLabel");
 	failureText.set_text("EVERYONE DIED!");
 	var timer = Timer.new()
-	timer.connect("timeout",self,"_on_timer_timeout") 
+	timer.connect("timeout",self,"_on_timer_timeout_failure") 
 	#timeout is what says in docs, in signals
 	#self is who respond to the callback
 	#_on_timer_timeout is the callback, can have any name
