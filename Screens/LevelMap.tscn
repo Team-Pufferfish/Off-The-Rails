@@ -111,6 +111,7 @@ extents = Vector2( 168.718, 21.4516 )
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+next = "game2"
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="0"]
 
@@ -156,7 +157,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
-enabled = false
+enabled = true
 p1 = NodePath("../Ship")
 p2 = NodePath("../Ship2")
 

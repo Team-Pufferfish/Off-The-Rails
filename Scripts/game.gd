@@ -4,7 +4,7 @@ extends "./abstract_screen.gd"
 var current_screen;
 var fps_counter;	
 	
-var screens = { "main_menu": preload("res://Screens/MainMenu.tscn"), "game": preload("res://Screens/LevelMap.tscn") }
+var screens = { "main_menu": preload("res://Screens/MainMenu.tscn"), "game": preload("res://Screens/LevelMap.tscn"), "game2": preload("res://Screens/StephenLevel.tscn") }
 
 func _ready():
 	# Called every time the node is added to the scene.

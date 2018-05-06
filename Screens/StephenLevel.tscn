@@ -1,17 +1,18 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
 [ext_resource path="res://Assets/rocktext.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://Assets/fonts/massive_font_theme.tres" type="Theme" id=4]
 [ext_resource path="res://Assets/fonts/small_font_theme.tres" type="Theme" id=5]
-[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=8]
-[ext_resource path="res://Screens/rail.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=10]
-[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Assets/Lava #3.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=6]
+[ext_resource path="res://Screens/rail.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/VictoryZone.gd" type="Script" id=8]
+[ext_resource path="res://music/Platformer2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Lava #3.png" type="Texture" id=10]
+[ext_resource path="res://Screens/Rock.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SegmentShape2D" id=1]
 
@@ -53,14 +54,45 @@ b = Vector2( 360.13, -2.78287 )
 custom_solver_bias = 0.0
 extents = Vector2( 168.718, 21.4516 )
 
-[node name="LevelMap" type="Node2D"]
+[sub_resource type="SegmentShape2D" id=8]
+
+custom_solver_bias = 0.0
+a = Vector2( 790.513, 86.7817 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=9]
+
+custom_solver_bias = 0.0
+a = Vector2( 25.3982, 28.1039 )
+b = Vector2( 321.059, 6.99896 )
+
+[sub_resource type="SegmentShape2D" id=10]
+
+custom_solver_bias = 0.0
+a = Vector2( -41.0491, -9.71474 )
+b = Vector2( 237.791, 64.1376 )
+
+[sub_resource type="SegmentShape2D" id=11]
+
+custom_solver_bias = 0.0
+a = Vector2( 309.206, 67.9775 )
+b = Vector2( -1.90381, 14.5103 )
+
+[sub_resource type="SegmentShape2D" id=12]
+
+custom_solver_bias = 0.0
+a = Vector2( -62.0925, 37.4411 )
+b = Vector2( 360.313, 268.396 )
+
+[node name="LevelMap" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+next = "game3"
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="0"]
 
-z_index = -10
+z_index = -17
 polygon = PoolVector2Array( -8.35141, 621.877, -23.2475, -40.1696, 5065.42, -9.14709, 5042.67, 616.359 )
 uv = PoolVector2Array(  )
 color = Color( 0.402344, 0.0707245, 0.0707245, 1 )
@@ -120,9 +152,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -438.5
+margin_left = -439.0
 margin_top = -109.0
-margin_right = 438.5
+margin_right = 438.0
 margin_bottom = 109.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -183,24 +215,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Theme" ]
 
-[node name="Train" parent="." index="2" instance=ExtResource( 6 )]
-
-position = Vector2( 811.923, 327.861 )
-rotation = -0.06164
-
-[node name="Ship" parent="." index="3" instance=ExtResource( 7 )]
-
-position = Vector2( 485.598, 330.305 )
-
-[node name="Ship2" parent="." index="4" instance=ExtResource( 7 )]
-
-position = Vector2( 142.629, 337.106 )
-player = 1
-left_action = "ui2_left"
-right_action = "ui2_right"
-down_action = "ui2_down"
-
-[node name="LevelBounds" type="Node" parent="." index="5"]
+[node name="LevelBounds" type="Node" parent="." index="2"]
 
 editor/display_folded = true
 
@@ -278,7 +293,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/Deathzone" index="0"]
 
@@ -286,7 +301,7 @@ position = Vector2( 2565.96, -40.6279 )
 shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="6"]
+[node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="3"]
 
 editor/display_folded = true
 position = Vector2( 5003.7, 595.937 )
@@ -337,7 +352,7 @@ z_index = -1
 points = PoolVector2Array( 1640.35, 126.139, 2005.05, 126.139 )
 width = 40.0
 default_color = Color( 1, 1, 1, 1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
@@ -348,8 +363,9 @@ _sections_unfolded = [ "Fill", "Transform", "Z Index" ]
 position = Vector2( -412.693, -152.022 )
 shape = SubResource( 6 )
 
-[node name="VictoryZone" type="Area2D" parent="." index="7"]
+[node name="VictoryZone" type="Area2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 4718.45, 407.489 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -358,7 +374,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryZone" index="0"]
 
@@ -384,7 +400,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.0313726, 1, 0, 0.12549 )
 
-[node name="Ceiling" type="Node" parent="." index="8"]
+[node name="Ceiling" type="Node" parent="." index="5"]
+
+editor/display_folded = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Ceiling" index="0"]
 
@@ -402,34 +420,510 @@ invert_enable = false
 invert_border = 100.0
 _sections_unfolded = [ "Texture" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 9 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="Lava" type="Line2D" parent="." index="10"]
+[node name="Lava" type="Line2D" parent="." index="7"]
 
 z_index = -1
-points = PoolVector2Array( -130.996, 574.006, -21.9949, 581.006, 2893.78, 628.018, 5025.35, 610.006 )
+points = PoolVector2Array( -12.5721, 600.774, 2893.78, 628.018, 5025.35, 610.006 )
 width = 60.0
 default_color = Color( 1, 1, 1, 1 )
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 texture_mode = 1
 sharp_limit = 2.0
 round_precision = 8
 _sections_unfolded = [ "Fill", "Z Index" ]
+
+[node name="Section1" type="Node" parent="." index="8"]
+
+editor/display_folded = true
+
+[node name="Line2D" type="Line2D" parent="Section1" index="0"]
+
+points = PoolVector2Array( 71.1276, 392.608, 867.839, 469.933 )
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 7 )
+texture_mode = 58
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section1/Line2D" index="0"]
+
+position = Vector2( 81.6694, 390.971 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section1/Line2D/StaticBody2D" index="0"]
+
+position = Vector2( -6.95061, -9.55707 )
+shape = SubResource( 8 )
+
+[node name="Line2D2" type="Line2D" parent="Section1" index="1"]
+
+points = PoolVector2Array( 71.1276, 392.608, 867.839, 469.933 )
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 7 )
+texture_mode = 58
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section1/Line2D2" index="0"]
+
+position = Vector2( 81.6694, 390.971 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section1/Line2D2/StaticBody2D" index="0"]
+
+position = Vector2( -6.95061, -9.55707 )
+shape = SubResource( 8 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Section1" index="2"]
+
+polygon = PoolVector2Array( 2.49057, 57.2417, 10.31, 147.599, 29.4241, 178.008, 38.1123, 212.761, 91.1105, 224.056, 144.978, 214.499, 186.681, 223.187, 230.122, 211.023, 255.318, 191.909, 297.891, 207.548, 372.609, 222.318, 474.262, 213.63, 506.408, 175.402, 548.98, 207.548, 533.342, 261.415, 462.967, 287.48, 352.626, 299.643, 158.01, 284.005, 77.2094, 299.643, 44.1941, 356.986, 103.274, 428.229, 319.611, 446.475, 477.737, 436.049, 528.129, 452.556, 601.979, 473.408, 699.93, 465.105, 822.121, 472.614, 795.498, 541.559, 744.466, 595.043, -20.9677, 599.387 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section1/Polygon2D2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D3" type="CollisionPolygon2D" parent="Section1/Polygon2D2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2.49057, 57.2417, 10.31, 147.599, 29.4241, 178.008, 38.1123, 212.761, 91.1105, 224.056, 144.978, 214.499, 186.681, 223.187, 230.122, 211.023, 255.318, 191.909, 297.891, 207.548, 372.609, 222.318, 474.262, 213.63, 506.408, 175.402, 548.98, 207.548, 533.342, 261.415, 462.967, 287.48, 352.626, 299.643, 158.01, 284.005, 77.2094, 299.643, 44.1941, 356.986, 103.274, 428.229, 319.611, 446.475, 477.737, 436.049, 528.129, 452.556, 601.979, 473.408, 700.613, 463.74, 821.438, 473.296, 797.546, 542.242, 744.466, 595.043, -20.9677, 599.387 )
+_sections_unfolded = [ "Texture" ]
+
+[node name="Section2" type="Node" parent="." index="9"]
+
+editor/display_folded = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Section2" index="0"]
+
+position = Vector2( -0.553345, 63.5132 )
+polygon = PoolVector2Array( 1204.32, 306.117, 1138.1, 309.795, 1078.51, 325.246, 1086.6, 404.704, 1122.65, 464.298, 1241.84, 444.434, 1345.58, 414.269, 1367.3, 303.09, 1275.68, 302.438 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section2/Polygon2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D3" type="CollisionPolygon2D" parent="Section2/Polygon2D/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1204.32, 306.117, 1138.1, 309.795, 1078.51, 325.246, 1086.6, 404.704, 1122.65, 464.298, 1241.84, 444.434, 1345.58, 414.269, 1368.4, 300.898, 1275.68, 302.438 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Section2" index="1"]
+
+position = Vector2( 473.901, -54.2035 )
+polygon = PoolVector2Array( 1200.64, 280.366, 1088.07, 253.738, 1078.51, 325.246, 1065.26, 409.855, 1102.79, 445.17, 1163.85, 470.184, 1194.75, 533.457, 1286.72, 484.899, 1345.58, 414.269, 1366.18, 323.774 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section2/Polygon2D2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D4" type="CollisionPolygon2D" parent="Section2/Polygon2D2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1200.64, 280.366, 1087.47, 254.344, 1078.51, 325.246, 1065.26, 409.855, 1102.79, 445.17, 1163.85, 470.184, 1194.75, 533.457, 1286.72, 484.899, 1345.58, 414.269, 1366.18, 323.774 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Node" type="Node" parent="Section2" index="2"]
+
+[node name="Line2D" type="Line2D" parent="Section2/Node" index="0"]
+
+points = PoolVector2Array( 1073.56, 379.697, 1371.24, 358.471 )
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 7 )
+texture_mode = 1660821593
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section2/Node/Line2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section2/Node/Line2D/StaticBody2D" index="0"]
+
+position = Vector2( 1049.92, 350.162 )
+shape = SubResource( 9 )
+
+[node name="Line2D2" type="Line2D" parent="Section2/Node" index="1"]
+
+points = PoolVector2Array( 1558.62, 192.032, 1842.63, 266.809 )
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 7 )
+texture_mode = 1674920690
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section2/Node/Line2D2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section2/Node/Line2D2/StaticBody2D" index="0"]
+
+position = Vector2( 1603.52, 201.691 )
+shape = SubResource( 10 )
+
+[node name="Section3" type="Node" parent="." index="10"]
+
+editor/display_folded = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Section3" index="0"]
+
+position = Vector2( 2265.39, 222.973 )
+polygon = PoolVector2Array( -28.4226, -34.9584, -29.1213, -81.0655, 62.3943, -102.023, 122.473, -92.9415, 169.279, -53.8204, 168.58, -8.41183, 144.828, 27.915, 98.0225, 47.4756, 29.5605, 45.3798, -22.834, 23.7234, -15.8479, -2.12451 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section3/Polygon2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D4" type="CollisionPolygon2D" parent="Section3/Polygon2D/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -28.4226, -34.9584, -29.1213, -81.0655, 62.3943, -102.023, 122.473, -92.9415, 169.279, -53.8204, 168.58, -8.41183, 144.828, 27.915, 98.0225, 47.4756, 29.5605, 45.3798, -22.834, 23.7234, -15.8479, -2.12451 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Section3" index="1"]
+
+polygon = PoolVector2Array( 2187.37, 456.274, 2214.62, 421.344, 2255.83, 410.167, 2299.14, 382.922, 2402.54, 391.305, 2407.43, 481.423, 2316.61, 513.559, 2205.53, 493.998 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section3/Polygon2D2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D3" type="CollisionPolygon2D" parent="Section3/Polygon2D2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2187.37, 456.274, 2214.62, 421.344, 2255.83, 410.167, 2299.14, 382.922, 2402.54, 391.305, 2407.43, 481.423, 2316.61, 513.559, 2205.53, 493.998 )
+
+[node name="Section4" type="Node" parent="." index="11"]
+
+[node name="Rock" parent="Section4" index="0" instance=ExtResource( 11 )]
+
+position = Vector2( 3521.93, 421.203 )
+
+[node name="Rock6" parent="Section4" index="1" instance=ExtResource( 11 )]
+
+position = Vector2( 3450.01, 356.373 )
+
+[node name="Rock2" parent="Section4" index="2" instance=ExtResource( 11 )]
+
+position = Vector2( 3564.48, 413.099 )
+
+[node name="Rock8" parent="Section4" index="3" instance=ExtResource( 11 )]
+
+position = Vector2( 3492.56, 348.27 )
+
+[node name="Rock3" parent="Section4" index="4" instance=ExtResource( 11 )]
+
+position = Vector2( 3507.75, 458.683 )
+
+[node name="Rock7" parent="Section4" index="5" instance=ExtResource( 11 )]
+
+position = Vector2( 3435.83, 393.853 )
+
+[node name="Rock4" parent="Section4" index="6" instance=ExtResource( 11 )]
+
+position = Vector2( 3601.96, 442.475 )
+
+[node name="Rock5" parent="Section4" index="7" instance=ExtResource( 11 )]
+
+position = Vector2( 3530.04, 377.646 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Section4" index="8"]
+
+polygon = PoolVector2Array( 2926.36, 536.838, 2869.82, 453.38, 2793.09, 468.187, 2716.37, 361.845, 2715.02, 279.733, 2744.64, 216.467, 2853.96, 226.732, 2954.38, 245.403, 3077.12, 274.349, 3113.47, 294.54, 3174.04, 332.231, 3257.5, 388.767, 3474.22, 497.801, 3631.71, 464.149, 3629.02, 375.306, 3647.87, 355.115, 3712.48, 425.112, 3734.02, 686.255, 2872.51, 675.487 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section4/Polygon2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D2" type="CollisionPolygon2D" parent="Section4/Polygon2D/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2926.36, 536.838, 2869.82, 453.38, 2793.09, 468.187, 2716.37, 361.845, 2715.02, 279.733, 2744.64, 216.467, 2827.72, 222.695, 2953.88, 244.898, 3077.12, 274.349, 3113.47, 294.54, 3174.04, 332.231, 3257.5, 388.767, 3474.22, 497.801, 3631.71, 464.149, 3629.02, 375.306, 3647.87, 355.115, 3712.48, 425.112, 3734.02, 686.255, 2872.51, 675.487 )
+_sections_unfolded = [ "Texture" ]
+
+[node name="Node" type="Node" parent="Section4" index="9"]
+
+[node name="Line2D" type="Line2D" parent="Section4/Node" index="0"]
+
+points = PoolVector2Array( 2748.49, 207.051, 3060.76, 258.729, 3482.73, 494.143 )
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 7 )
+texture_mode = 1065353218
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section4/Node/Line2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section4/Node/Line2D/StaticBody2D" index="0"]
+
+position = Vector2( 2755.18, 191.05 )
+shape = SubResource( 11 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Section4/Node/Line2D" index="1"]
+
+position = Vector2( 3077.73, 271.442 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.05
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section4/Node/Line2D/StaticBody2D2" index="0"]
+
+position = Vector2( 44.5703, -47.6092 )
+shape = SubResource( 12 )
+
+[node name="Section5" type="Node" parent="." index="12"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Section5" index="0"]
+
+position = Vector2( 4386.22, 309.467 )
+rotation = -1.19961
+polygon = PoolVector2Array( -28.4226, -34.9584, -29.1213, -81.0655, 62.3943, -102.023, 122.473, -92.9415, 169.279, -53.8204, 168.58, -8.41183, 144.828, 27.915, 98.0225, 47.4756, 29.5605, 45.3798, -22.834, 23.7234, -15.8479, -2.12451 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section5/Polygon2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D4" type="CollisionPolygon2D" parent="Section5/Polygon2D/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -28.4226, -34.9584, -29.1213, -81.0655, 62.3943, -102.023, 122.473, -92.9415, 169.279, -53.8204, 168.58, -8.41183, 144.828, 27.915, 98.0225, 47.4756, 29.5605, 45.3798, -22.834, 23.7234, -15.8479, -2.12451 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Section5" index="1"]
+
+position = Vector2( 5567.96, -1371.02 )
+rotation = 2.11138
+scale = Vector2( 1, 1 )
+polygon = PoolVector2Array( 2187.37, 456.274, 2214.62, 421.344, 2255.83, 410.167, 2299.14, 382.922, 2402.54, 391.305, 2407.43, 481.423, 2316.61, 513.559, 2205.53, 493.998 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Section5/Polygon2D2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Polygon2D3" type="CollisionPolygon2D" parent="Section5/Polygon2D2/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 2187.37, 456.274, 2214.62, 421.344, 2255.83, 410.167, 2299.14, 382.922, 2402.54, 391.305, 2407.43, 481.423, 2316.61, 513.559, 2205.53, 493.998 )
+
+[node name="Train" parent="." index="13" instance=ExtResource( 12 )]
+
+position = Vector2( 109.045, 366.089 )
+rotation = -0.00446659
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Ship" parent="." index="14" instance=ExtResource( 13 )]
+
+position = Vector2( 383.946, 179.999 )
+
+[node name="Ship2" parent="." index="15" instance=ExtResource( 13 )]
+
+position = Vector2( 95.7126, 172.898 )
+player = 1
+left_action = "ui2_left"
+right_action = "ui2_right"
+down_action = "ui2_down"
+
+[connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_VictoryZone_body_entered"]
+
+[connection signal="victory" from="VictoryZone" to="." method="_on_VictoryZone_victory"]
 
 [connection signal="failed" from="Train" to="." method="_on_Train_failed"]
 
 [connection signal="failure" from="Ship" to="." method="_on_Ship_failure"]
 
 [connection signal="failure" from="Ship2" to="." method="_on_Ship2_failure"]
-
-[connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_VictoryZone_body_entered"]
-
-[connection signal="victory" from="VictoryZone" to="." method="_on_VictoryZone_victory"]
 
 
