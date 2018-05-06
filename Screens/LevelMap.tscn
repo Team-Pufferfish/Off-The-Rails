@@ -1,13 +1,13 @@
 [gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/LevelMap.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
-[ext_resource path="res://Assets/fonts/massive_font_theme.tres" type="Theme" id=3]
-[ext_resource path="res://Assets/fonts/small_font_theme.tres" type="Theme" id=4]
-[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=7]
-[ext_resource path="res://Assets/rocktext.png" type="Texture" id=8]
+[ext_resource path="res://Assets/rocktext.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://Assets/fonts/massive_font_theme.tres" type="Theme" id=4]
+[ext_resource path="res://Assets/fonts/small_font_theme.tres" type="Theme" id=5]
+[ext_resource path="res://Screens/Train.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Screens/Ship.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/LevelLowerBound.gd" type="Script" id=8]
 [ext_resource path="res://Assets/fonts/ethnocentric rg.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Screens/rail.png" type="Texture" id=10]
 [ext_resource path="res://icon.png" type="Texture" id=11]
@@ -126,7 +126,24 @@ extents = Vector2( 168.718, 21.4516 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Draggable_Camera2D" type="Camera2D" parent="." index="0"]
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+
+z_index = -10
+polygon = PoolVector2Array( -8.35141, 621.877, -23.2475, -40.1696, 5065.42, -9.14709, 5042.67, 616.359 )
+uv = PoolVector2Array(  )
+color = Color( 0.402344, 0.0707245, 0.0707245, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = ExtResource( 2 )
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture", "Z Index" ]
+
+[node name="Draggable_Camera2D" type="Camera2D" parent="." index="1"]
 
 position = Vector2( 494.719, 293.338 )
 anchor_mode = 1
@@ -151,7 +168,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
 enabled = true
 p1 = NodePath("../Ship")
@@ -181,7 +198,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -204,7 +221,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -227,23 +244,23 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "00:00"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Theme" ]
 
-[node name="Train" parent="." index="1" instance=ExtResource( 5 )]
+[node name="Train" parent="." index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 811.923, 327.861 )
 rotation = -0.06164
 
-[node name="Ship" parent="." index="2" instance=ExtResource( 6 )]
+[node name="Ship" parent="." index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 485.598, 330.305 )
 
-[node name="Ship2" parent="." index="3" instance=ExtResource( 6 )]
+[node name="Ship2" parent="." index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 142.629, 337.106 )
 player = 1
@@ -251,7 +268,7 @@ left_action = "ui2_left"
 right_action = "ui2_right"
 down_action = "ui2_down"
 
-[node name="LevelBounds" type="Node" parent="." index="4"]
+[node name="LevelBounds" type="Node" parent="." index="5"]
 
 editor/display_folded = true
 
@@ -329,7 +346,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/Deathzone" index="0"]
 
@@ -337,7 +354,7 @@ position = Vector2( 2565.96, -40.6279 )
 shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Section1_Node" type="Node" parent="." index="5"]
+[node name="Section1_Node" type="Node" parent="." index="6"]
 
 [node name="LevelMap_Section1_Polygon2D" type="Polygon2D" parent="Section1_Node" index="0"]
 
@@ -348,7 +365,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -465,7 +482,7 @@ scale = Vector2( 0.795048, 1 )
 shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ExampleRock" type="RigidBody2D" parent="." index="6"]
+[node name="ExampleRock" type="RigidBody2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 2334.76, 216.498 )
@@ -501,7 +518,7 @@ position = Vector2( 5.10165, 20.2822 )
 shape = SubResource( 10 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="ExampleRock2" type="RigidBody2D" parent="." index="7"]
+[node name="ExampleRock2" type="RigidBody2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 1307, 348.456 )
@@ -537,7 +554,7 @@ position = Vector2( 5.10165, 20.2822 )
 shape = SubResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="ExampleRock3" type="RigidBody2D" parent="." index="8"]
+[node name="ExampleRock3" type="RigidBody2D" parent="." index="9"]
 
 editor/display_folded = true
 position = Vector2( 1444.07, 346.782 )
@@ -573,7 +590,7 @@ position = Vector2( 5.10165, 20.2822 )
 shape = SubResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="ExampleRock4" type="RigidBody2D" parent="." index="9"]
+[node name="ExampleRock4" type="RigidBody2D" parent="." index="10"]
 
 editor/display_folded = true
 position = Vector2( 2590.39, 174.628 )
@@ -609,7 +626,7 @@ position = Vector2( 5.36572, 20.2822 )
 shape = SubResource( 11 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="ExampleRock5" type="RigidBody2D" parent="." index="10"]
+[node name="ExampleRock5" type="RigidBody2D" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 294.896, 311.247 )
@@ -645,7 +662,7 @@ position = Vector2( 4.93689, 21.2708 )
 shape = SubResource( 12 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="11"]
+[node name="SectionEnd_Polygon" type="Polygon2D" parent="." index="12"]
 
 position = Vector2( 5003.7, 595.937 )
 polygon = PoolVector2Array( 0.442383, 8.1322, 0.442383, -150.436, 0.442383, -468.674, -44.7056, -349.748, -35.8965, -225.316, -52.434, -148.936, -154.822, -146.031, -223.095, -146.031, -266.041, -144.93, -316.694, -146.031, -355.235, -107.491, -404.509, -85.1723, -448.825, 12.3243 )
@@ -654,7 +671,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -706,7 +723,7 @@ _sections_unfolded = [ "Fill", "Transform", "Z Index" ]
 position = Vector2( -412.693, -152.022 )
 shape = SubResource( 13 )
 
-[node name="Section2_Node" type="Node" parent="." index="12"]
+[node name="Section2_Node" type="Node" parent="." index="13"]
 
 [node name="Section2_Polygon" type="Polygon2D" parent="Section2_Node" index="0"]
 
@@ -717,7 +734,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -743,7 +760,7 @@ rotation = 0.000926365
 build_mode = 0
 polygon = PoolVector2Array( 1215.71, 4.05402, 1224.13, -51.0838, 1298.42, -144.512, 1303.78, -205.776, 1345.9, -172.081, 1410.99, -139.917, 1435.5, -208.839, 1522.03, -126.898, 1605.5, -182.802, 1663.15, -98.5977, 1674.67, -54.1404, 1681.18, 1.0799 )
 
-[node name="Section3_Node" type="Node" parent="." index="13"]
+[node name="Section3_Node" type="Node" parent="." index="14"]
 
 [node name="Rail2" type="StaticBody2D" parent="Section3_Node" index="0"]
 
@@ -782,7 +799,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -831,7 +848,7 @@ rotation = 0.253564
 shape = SubResource( 15 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Section_Challenge" type="Node" parent="." index="14"]
+[node name="Section_Challenge" type="Node" parent="." index="15"]
 
 [node name="Polygon2D" type="Polygon2D" parent="Section_Challenge" index="0"]
 
@@ -842,7 +859,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -878,7 +895,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -902,7 +919,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Tricky one eh?"
 percent_visible = 1.0
 lines_skipped = 0
@@ -953,7 +970,7 @@ bounce = 0.0
 position = Vector2( 3322.73, 379.732 )
 shape = SubResource( 16 )
 
-[node name="Section5_Node" type="Node" parent="." index="15"]
+[node name="Section5_Node" type="Node" parent="." index="16"]
 
 [node name="Rail2" type="StaticBody2D" parent="Section5_Node" index="0"]
 
@@ -993,7 +1010,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -1025,7 +1042,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -1048,7 +1065,7 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( 1741.5, 186.367, 1774.38, -13.5549, 1779.33, -35.8497, 1776.85, -63.9247, 1789.24, -125.029, 1784.28, -148.975, 1807.4, -172.922, 1825.57, -157.233, 1853.65, -161.361, 1859.43, -97.7798, 1846.21, -30.8953, 1864.38, 45.8979, 1893.99, 160.667, 2008.79, 157.24, 2037.92, 110.978, 2034.48, 26.9061, 2054.3, -20.9865, 2026.22, -89.5225, 2052.65, -132.461, 2046.87, -186.959, 2054.63, -205.372, 2085.41, -194.759, 2113, -203.957, 2126.14, -170.445, 2124.49, -112.643, 2136.87, -78.788, 2104.67, -20.9865, 2152.72, 194.934 )
 
-[node name="VictoryZone" type="Area2D" parent="." index="16"]
+[node name="VictoryZone" type="Area2D" parent="." index="17"]
 
 position = Vector2( 4718.45, 407.489 )
 input_pickable = true
@@ -1084,7 +1101,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.0313726, 1, 0, 0.12549 )
 
-[node name="Ceiling" type="Node" parent="." index="17"]
+[node name="Ceiling" type="Node" parent="." index="18"]
 
 [node name="Polygon2D" type="Polygon2D" parent="Ceiling" index="0"]
 
@@ -1094,7 +1111,7 @@ color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
-texture = ExtResource( 8 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 0, 0 )
 texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
@@ -1102,7 +1119,7 @@ invert_enable = false
 invert_border = 100.0
 _sections_unfolded = [ "Texture" ]
 
-[node name="Hint Text" type="Node2D" parent="." index="18"]
+[node name="Hint Text" type="Node2D" parent="." index="19"]
 
 z_index = -2
 _sections_unfolded = [ "Z Index" ]
@@ -1169,7 +1186,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Use left thruster (move right)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1192,7 +1209,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Use left thruster (move right)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1215,7 +1232,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Use right thruster (move left)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1238,7 +1255,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Use right thruster (move left)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1261,7 +1278,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Extend/retract grabber"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1284,7 +1301,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Extend/retract grabber"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1307,7 +1324,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "GRAB THE TRAIN ->"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1330,7 +1347,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "Safe Zone This Way ->
 	(Or Death)"
 align = 1
@@ -1403,7 +1420,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-theme = ExtResource( 4 )
+theme = ExtResource( 5 )
 text = "|					SAFE ZONE					|
 -All cars must be inside-"
 align = 1
@@ -1448,7 +1465,7 @@ position = Vector2( 384.105, 168.75 )
 scale = Vector2( 0.0532782, 0.0532782 )
 texture = ExtResource( 19 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="19"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="20"]
 
 stream = ExtResource( 20 )
 volume_db = 0.0
